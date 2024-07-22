@@ -17,22 +17,22 @@
 //     </div>
 //   );
 // }
-
+'use client';
 // App.js
 import React from 'react';
-import { CssBaseline } from '@mui/material'
+import { ThemeProvider } from '@mui/material'
 import Ctextfield from './Ctextfield'
 import Ctitle from './Ctitle'
 import Image from 'next/image';
 import TeaImage from './assets/tea.png'
+import theme from './theme'
 
 
 export default function Home() {
   return (
-    <div>
-      <CssBaseline />
+    <ThemeProvider theme={theme}>
         <div className="w-full">
-        <div className="p-4 flex flex-col w-full h-full justify-center items-center bg-gray-200">
+        <div className="p-4 flex flex-col w-full justify-center items-center bg-gray-200">
           <Ctitle opts="text-lg font-light text-white" title="Matcha" />
         </div>
         <div className='w-full h-full flex items-center justify-center'>
@@ -47,8 +47,6 @@ export default function Home() {
           <div className='w-1/4 flex-shrink'></div>
         </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
-
-
