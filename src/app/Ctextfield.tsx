@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 
 
 interface ComponentProps {
+    opts: any
     type: any
     size: any
     variant: any 
@@ -10,9 +11,9 @@ interface ComponentProps {
 }
 
 
-const _: React.FC<ComponentProps> = ({ type, size, variant, label}) => {
+const _: React.FC<ComponentProps> = ({ opts, type, size, variant, label}) => {
     return (
-        <TextField type={type} size={size} variant={variant} label={label} />
+        <TextField className={opts} type={type} size={size} variant={variant} label={label} />
     );
 };
 

@@ -14,7 +14,7 @@ import theme from './theme'
 export default function Home() {
   return (
     <ThemeProvider theme={theme}>
-      <div className="flex flex-col h-screen w-screen">
+      <div className="flex flex-col h-screen w-screen bg-gray-300">
         <Paper className="p-4 border border-white flex w-full justify-center items-center bg-gray-800">
           <Ctitle opts="text-lg font-light" title="Matcha" />
           <Image className="w-10 h-auto" src={LeafImage} alt="leaf" />
@@ -24,8 +24,8 @@ export default function Home() {
           <div className='w-1/4 flex-shrink'></div>
           <Paper className="rounded-none h-full w-1/2 p-2 flex flex-col flex-grow flex-shrink-0 justify-center items-center">
             <div className="pt-10 gap-2 flex flex-col justify-start items-center">
-              <Ctextfield type="email" size="small" variant="outlined" label="email" />
-              <Ctextfield type="password" size="small" variant="outlined" label="password" />
+              <Ctextfield opts="" type="email" size="small" variant="outlined" label="email" />
+              <Ctextfield opts="" type="password" size="small" variant="outlined" label="password" />
               <Image className="w-48 h-auto" src={TeaImage} alt="matcha" />
             </div>
             <div className="text-sm font-thin">Not registered yet ? <a href='#'>Create an account</a></div>

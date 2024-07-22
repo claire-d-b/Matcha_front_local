@@ -33,26 +33,14 @@ const _: React.FC<ComponentProps> = ({ className }) => {
         <div className="font-thin">Contact</div>
         <div className="font-thin">Profile</div>
         <Tooltip title="Account settings">
-          <IconButton
-            onClick={handleClick}
-            size="small"
-            sx={{ ml: 2 }}
-            aria-controls={open ? 'account-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-          >
+          <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}
+          aria-controls={open ? 'account-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} >
             <Avatar className="pt-1" sx={{ width: 32, height: 32 }}>C</Avatar>
           </IconButton>
         </Tooltip>
       </div>
-      <Menu
-        anchorEl={anchorEl}
-        id="account-menu"
-        open={open}
-        onClose={handleClose}
-        onClick={handleClose}
-        PaperProps={{
-          elevation: 0,
+      <Menu anchorEl={anchorEl} id="account-menu" open={open} onClose={handleClose} onClick={handleClose}
+        MenuListProps={{
           sx: {
             border: '1px solid white',
             borderRadius: '8px',
@@ -91,19 +79,19 @@ const _: React.FC<ComponentProps> = ({ className }) => {
         <Divider />
         <MenuItem onClick={handleClose} className="text-sm font-thin">
           <ListItemIcon>
-            <PersonAdd fontSize="small" className="text-sm text-gray-400" />
+            <PersonAdd fontSize="small" className="text-sm text-gray-300" />
           </ListItemIcon>
           Add another account
         </MenuItem >
         <MenuItem onClick={handleClose} className="text-sm font-thin">
           <ListItemIcon>
-            <Settings fontSize="small" className="text-gray-400" />
+            <Settings fontSize="small" className="text-gray-300" />
           </ListItemIcon>
           Settings
         </MenuItem>
         <MenuItem onClick={handleClose} className="text-sm font-thin">
           <ListItemIcon>
-            <Logout fontSize="small" className="text-gray-400" />
+            <Logout fontSize="small" className="text-gray-300" />
           </ListItemIcon>
           Logout
         </MenuItem>
