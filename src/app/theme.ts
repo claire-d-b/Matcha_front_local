@@ -12,13 +12,14 @@ const theme = createTheme({
         main: '#629c8d', // Optional: define a custom secondary color
         },
         text: {
-            primary: '#ffffff', // Customize the text color
-            secondary: '#ffffff', // Customize the secondary text color
+            primary: '#629c8d', // Customize the text color
+            secondary: '#629c8d', // Customize the secondary text color
         },
         background: {
-            default: '#2c2d31', // Customize the default background color
-            paper: '#2c2d31',   // Background color for paper elements
+            default: '#1f2937', // Customize the default background color
+            paper: '#1f2937',   // Background color for paper elements
         },
+        // box-shadow: 0px -2px 3px #808b96;
     },
     components: {
         // Customize the OutlinedInput component
@@ -27,7 +28,7 @@ const theme = createTheme({
             root: {
               borderRadius: '12px',
               '& fieldset': {
-                borderColor: '#ffffff', // Default border color
+                borderColor: '#629c8d', // Default border color
               },
               '&:hover fieldset': {
                 borderColor: '#ffffff', // Border color on hover
