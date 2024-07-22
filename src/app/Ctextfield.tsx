@@ -10,6 +10,9 @@ const textFieldStyles: SxProps<Theme> = {
     },
     '& .MuiInputLabel-root': {
       color: '#629c8d', // Optional: Customize label color
+        '&.Mui-focused': {
+        color: '#629c8d', // Label color when focused
+      },
     },
     '& .MuiInputBase-input': {
       color: 'black', // Default text color
