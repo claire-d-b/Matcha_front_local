@@ -16,7 +16,8 @@ const theme = createTheme({
             secondary: '#ffffff', // Customize the secondary text color
         },
         background: {
-            default: '#629c8d', // Customize the default background color
+            default: '#2c2d31', // Customize the default background color
+            paper: '#2c2d31',   // Background color for paper elements
         },
     },
     components: {
@@ -24,8 +25,9 @@ const theme = createTheme({
         MuiOutlinedInput: {
           styleOverrides: {
             root: {
+              borderRadius: '12px',
               '& fieldset': {
-                borderColor: '#629c8d', // Default border color
+                borderColor: '#ffffff', // Default border color
               },
               '&:hover fieldset': {
                 borderColor: '#ffffff', // Border color on hover
@@ -36,7 +38,14 @@ const theme = createTheme({
             },
           },
         },
-      },
+        MuiTextField: {
+            styleOverrides: {
+              root: {
+                borderRadius: '12px', // Ensure that the TextField also applies the border-radius
+              },
+            },
+          },
+        },
   // Optional: customize other theme properties here
 });
 

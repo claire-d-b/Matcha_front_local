@@ -20,7 +20,7 @@
 'use client';
 // App.js
 import React from 'react';
-import { ThemeProvider } from '@mui/material'
+import { ThemeProvider, Paper } from '@mui/material'
 import Ctextfield from './Ctextfield'
 import Ctitle from './Ctitle'
 import Image from 'next/image';
@@ -31,21 +31,22 @@ import theme from './theme'
 export default function Home() {
   return (
     <ThemeProvider theme={theme}>
-        <div className="w-full">
-        <div className="p-4 flex flex-col w-full justify-center items-center bg-gray-200">
+      <div className="flex flex-col h-screen w-screen">
+        <div className="p-4 border h-full border-white flex flex-col w-full justify-center items-center bg-gray-800">
           <Ctitle opts="text-lg font-light text-white" title="Matcha" />
         </div>
         <div className='w-full h-full flex items-center justify-center'>
           <div className='w-1/4 flex-shrink'></div>
-          <div className="w-1/2 p-2 flex flex-col flex-grow flex-shrink-0 justify-center items-center bg-gray-800">
-            <div className="gap-2 flex flex-col">
+          <Paper className="rounded-none w-1/2 p-2 flex flex-col flex-grow flex-shrink-0 justify-center items-center">
+            <div className="pt-10 gap-2 flex flex-col justify-start items-center">
               <Ctextfield type="email" size="small" variant="outlined" label="email" />
               <Ctextfield type="password" size="small" variant="outlined" label="password" />
               <Image src={TeaImage} alt="matcha" />
             </div>
-          </div>
+          </Paper>
           <div className='w-1/4 flex-shrink'></div>
         </div>
+        <div className="w-full h-full p-4 border border-white flex flex-col justify-center items-center bg-gray-800 text-white">Copyright</div>
       </div>
     </ThemeProvider>
   );
