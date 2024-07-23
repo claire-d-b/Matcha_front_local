@@ -46,7 +46,7 @@ const _ = () => {
                         </FormGroup>
                     </Paper>
                     <Paper className="flex p-8 rounded-lg flex flex-col gap-4 w-full font-thin justify-center items-start">
-                        <div className="flex items-start">
+                        <div className="flex items-center justify-start gap-2">
                             <div>What I am looking for...</div>
                             <IconButton size="small"><SearchIcon /></IconButton>
                         </div>
