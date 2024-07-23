@@ -24,39 +24,39 @@ const _ = () => {
     return (
         <ThemeProvider theme={theme}>
             <div className="flex flex-col h-screen w-screen bg-gray-300">
-            <Paper className="p-4 border border-white flex w-full justify-center items-center bg-gray-800">
-                <Ctitle opts="text-lg font-light" title="Matcha" />
-                <Image className="w-10 h-auto" src={LeafImage} alt="leaf" />
-                <Cnav className="self-end flex w-full justify-end items-center gap-12" />
-            </Paper>
-            <div className="w-full flex items-center justify-center">
-                <Cprofile className="p-8 flex flex-col gap-4 w-full bg-transparent"/>
-                <div className="w-full p-8 gap-4 flex flex-col justify-center items-center">
-                    <Paper className="p-8 rounded-lg flex flex-col gap-4 w-full text-lg font-thin">Location
-                        <Stack direction="row" spacing={1}>
-                            <Chip label="French" className="font-normal bg-gray-600 text-white" />
-                            <Chip label="Paris 15" variant="outlined" className="font-normal"/>
-                        </Stack>
-                    </Paper>
-                    <Paper className="p-8 rounded-lg flex flex-col gap-4 w-full text-lg font-thin text-lg">Hobbies
-                        <FormGroup>
-                            <FormControlLabel disabled control={<Checkbox defaultChecked />} label="Yoga" />
-                            <FormControlLabel disabled control={<Checkbox defaultChecked />} label="Drawing" />
-                            <FormControlLabel disabled control={<Checkbox defaultChecked />} label="Travel"/>
-                        </FormGroup>
-                    </Paper>
-                    <Paper className="flex p-8 rounded-lg flex flex-col gap-4 w-full font-thin justify-center items-start">
-                        <div className="flex items-center justify-start gap-2">
-                            <div>What I am looking for...</div>
-                            <IconButton size="small"><SearchIcon /></IconButton>
-                        </div>
-                        <Ctextfield opts="w-full" type="text" size="small" variant="outlined" label="" multiline={true} rows={4} placeholder={str.slice(0, 300) + '...'} />
-                    </Paper>
+                <Paper className="p-4 border border-white flex w-full justify-center items-center bg-gray-800">
+                    <Ctitle opts="text-lg font-light" title="Matcha" />
+                    <Image className="w-10 h-auto" src={LeafImage} alt="leaf" />
+                    <Cnav className="self-end flex w-full justify-end items-center gap-12" />
+                </Paper>
+                <div className="w-full flex items-center justify-center">
+                    <Cprofile className="p-8 flex flex-col gap-4 w-full bg-transparent"/>
+                    <div className="w-full p-8 gap-4 flex flex-col justify-center items-center">
+                        <Paper className="p-8 rounded-lg flex flex-col gap-4 w-full text-lg font-thin">Location
+                            <Stack direction="row" spacing={1}>
+                                <Chip label="French" className="font-normal bg-gray-600 text-white" />
+                                <Chip label="Paris 15" variant="outlined" className="font-normal"/>
+                            </Stack>
+                        </Paper>
+                        <Paper className="p-8 rounded-lg flex flex-col gap-4 w-full text-lg font-thin text-lg">Hobbies
+                            <FormGroup>
+                                <FormControlLabel disabled control={<Checkbox defaultChecked />} label="Yoga" />
+                                <FormControlLabel disabled control={<Checkbox defaultChecked />} label="Drawing" />
+                                <FormControlLabel disabled control={<Checkbox defaultChecked />} label="Travel"/>
+                            </FormGroup>
+                        </Paper>
+                        <Paper className="flex p-8 rounded-lg flex flex-col gap-4 w-full font-thin justify-center items-start">
+                            <div className="flex items-center justify-start gap-2">
+                                <div>What I am looking for...</div>
+                                <IconButton size="small"><SearchIcon /></IconButton>
+                            </div>
+                            <Ctextfield opts="w-full" type="text" size="small" variant="outlined" label="" multiline={true} rows={4} placeholder={str.slice(0, 300) + '...'} />
+                        </Paper>
+                    </div>
                 </div>
-            </div>
-            <Paper className="w-full p-4 border border-white flex flex-col justify-center items-center bg-gray-800">
-                Copyright
-            </Paper>
+                <Paper className="w-full p-4 border border-white flex flex-col justify-center items-center bg-gray-800">
+                    Copyright
+                </Paper>
             </div>
         </ThemeProvider>
     )
