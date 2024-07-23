@@ -17,6 +17,8 @@ import Checkbox from '@mui/material/Checkbox';
 import SearchIcon from '@mui/icons-material/Search';
 import IconButton from '@mui/material/IconButton';
 
+const str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
 
 const _ = () => {
     return (
@@ -48,7 +50,7 @@ const _ = () => {
                             <div>What I am looking for...</div>
                             <IconButton size="small"><SearchIcon /></IconButton>
                         </div>
-                        <Ctextfield opts="w-full" type="text" size="small" variant="outlined" label="" multiline={true} rows={4} />
+                        <Ctextfield opts="w-full" type="text" size="small" variant="outlined" label="" multiline={true} rows={4} placeholder={str.slice(0, 300) + '...'} />
                     </Paper>
                 </div>
             </div>
