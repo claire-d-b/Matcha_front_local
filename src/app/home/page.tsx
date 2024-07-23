@@ -1,17 +1,15 @@
-'use client';
-
 import React from 'react'
 import { ThemeProvider, Paper } from '@mui/material'
-import Ctextfield from './Ctextfield'
-import Ctitle from './Ctitle'
-import Cnav from './Cnav'
+import Ctextfield from '../Ctextfield'
+import Ctitle from '../Ctitle'
+import Cnav from '../Cnav'
 import Image from 'next/image'
-import TeaImage from './assets/tea.png'
-import LeafImage from './assets/leaf.png'
-import theme from './theme'
+import TeaImage from '../assets/tea.png'
+import LeafImage from '../assets/leaf.png'
+import theme from '../theme'
 
 
-export default function Home() {
+const _ = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="flex flex-col h-screen w-screen bg-gray-300">
@@ -39,3 +37,4 @@ export default function Home() {
     </ThemeProvider>
   );
 }
+export default _
