@@ -22,6 +22,13 @@ const theme = createTheme({
         // box-shadow: 0px -2px 3px #808b96;
     },
     components: {
+        MuiInputBase: {
+          styleOverrides: {
+            input: {
+              fontSize: '0.90rem', // Change this to your desired font size
+            },
+          },
+        },
         // Customize the OutlinedInput component
         MuiOutlinedInput: {
           styleOverrides: {
@@ -46,7 +53,46 @@ const theme = createTheme({
               },
             },
           },
+        MuiFormControlLabel: {
+          styleOverrides: {
+            label: {
+              fontSize: '0.80rem', // Change this to your desired font size
+              '&.Mui-disabled': {
+                color: '#629c8d', // Change this to your desired disabled color
+              },
+            },
+          },
         },
+        MuiCheckbox: {
+          styleOverrides: {
+            root: {
+              '&.Mui-disabled': {
+                color: '#629c8d', // Change this to your desired disabled color
+              },
+            },
+            checked: {
+              '&.Mui-disabled': {
+                color: '#629c8d', // Change this to your desired checked disabled color
+              },
+            },
+          },
+        },
+        MuiChip: {
+          styleOverrides: {
+            label: {
+              fontSize: '0.80rem', // Change this to your desired font size
+              color: '#629c8d', // Change this to your desired text color
+            },
+          },
+        },
+        MuiIconButton: {
+          styleOverrides: {
+            root: {
+              color: '#629c8d', // Change this to your desired icon color
+            },
+          },
+        },
+      },
   // Optional: customize other theme properties here
 });
 

@@ -8,12 +8,14 @@ interface ComponentProps {
     size: any
     variant: any 
     label: any
+    multiline: any
+    rows?: any
 }
 
 
-const _: React.FC<ComponentProps> = ({ opts, type, size, variant, label}) => {
+const _: React.FC<ComponentProps> = ({ opts, type, size, variant, label, multiline, rows }) => {
     return (
-        <TextField className={opts} type={type} size={size} variant={variant} label={label} />
+        <TextField className={opts} type={type} size={size} variant={variant} label={label} multiline={multiline} rows={rows} />
     );
 };
 

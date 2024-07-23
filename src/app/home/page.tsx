@@ -4,8 +4,8 @@ import Ctextfield from '../Ctextfield'
 import Ctitle from '../Ctitle'
 import Cnav from '../Cnav'
 import Image from 'next/image'
-import TeaImage from '../assets/tea.png'
-import LeafImage from '../assets/leaf.png'
+import TeaImage from '../../../public/images/tea.png'
+import LeafImage from '../../../public/images/leaf.png'
 import theme from '../theme'
 
 
@@ -22,8 +22,8 @@ const _ = () => {
           <div className='w-1/4 flex-shrink'></div>
           <Paper className="rounded-none h-full w-1/2 p-2 flex flex-col flex-grow flex-shrink-0 justify-center items-center">
             <div className="pt-10 gap-2 flex flex-col justify-start items-center">
-              <Ctextfield opts="" type="email" size="small" variant="outlined" label="email" />
-              <Ctextfield opts="" type="password" size="small" variant="outlined" label="password" />
+              <Ctextfield opts="" type="email" size="small" variant="outlined" label="email" multiline={false} />
+              <Ctextfield opts="" type="password" size="small" variant="outlined" label="password" multiline={false} />
               <Image className="w-48 h-auto" src={TeaImage} alt="matcha" />
             </div>
             <div className="text-sm font-thin">Not registered yet ? <a href='#'>Create an account</a></div>
