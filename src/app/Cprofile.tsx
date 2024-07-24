@@ -16,7 +16,7 @@ interface ComponentProps {
 const _: React.FC<ComponentProps> = ({ className, imagePath, name }) => {
     return (
         <Card className={className}>
-            <CardActionArea>
+            <div>
                 <CardMedia component="img" height="140" image={imagePath} alt="persona" className="rounded-lg" />
                 <CardContent>
                 <div className="font-thin">
@@ -26,7 +26,7 @@ const _: React.FC<ComponentProps> = ({ className, imagePath, name }) => {
                 { str.slice(0, 600) + '...' }
                 </div>
                 </CardContent>
-            </CardActionArea>
+            </div>
         </Card>
   )
 }
