@@ -88,6 +88,7 @@ const theme = createTheme({
         MuiIconButton: {
             styleOverrides: {
               root: {
+                color: '#629c8d',
                 '&.Mui-disabled': {
                   color: '#629c8d', // Change this to your desired disabled text color
                 },

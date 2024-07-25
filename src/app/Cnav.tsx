@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 
 
 interface ComponentProps {
@@ -32,14 +33,10 @@ const _: React.FC<ComponentProps> = ({ className }) => {
   return (
     <React.Fragment>
       <div className={className}>
-        <div className="font-thin">Contact</div>
-        <div className="font-thin">Profile</div>
-        <Tooltip title="Account settings">
-          <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}
-          aria-controls={open ? 'account-menu' : undefined} aria-haspopup="true" aria-expanded={open ? 'true' : undefined} >
-            <Avatar className="pt-1" sx={{ width: 32, height: 32 }}>C</Avatar>
-          </IconButton>
-        </Tooltip>
+        <IconButton className="font-thin" size="small"><MailOutlineIcon className="text-base md:text-2xl text-gray-300" /></IconButton>
+        <IconButton className="font-thin" size="small"><Settings className="text-base md:text-2xl text-gray-300"/></IconButton>
+        <IconButton className="font-thin" size="small"><Logout className="text-base md:text-2xl text-gray-300" /></IconButton>
+        <Avatar className="text-sm md:text-2xl md:pt-1">C</Avatar>
       </div>
       <Menu anchorEl={anchorEl} id="account-menu" open={open} onClose={handleClose} onClick={handleClose}
         MenuListProps={{
