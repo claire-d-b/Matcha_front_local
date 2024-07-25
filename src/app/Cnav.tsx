@@ -36,7 +36,7 @@ const _: React.FC<ComponentProps> = ({ className }) => {
         <IconButton className="font-thin" size="small"><MailOutlineIcon className="text-base md:text-2xl text-gray-300" /></IconButton>
         <IconButton className="font-thin" size="small"><Settings className="text-base md:text-2xl text-gray-300"/></IconButton>
         <IconButton className="font-thin" size="small"><Logout className="text-base md:text-2xl text-gray-300" /></IconButton>
-        <Avatar className="text-sm md:text-2xl md:pt-1">C</Avatar>
+        <Avatar className="text-sm md:text-xl md:pt-1">C</Avatar>
       </div>
     </React.Fragment>
   );
