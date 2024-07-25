@@ -56,7 +56,7 @@ const _ = () => {
                                 <div>What I am looking for...</div>
                                 <IconButton size="small"><SearchIcon /></IconButton>
                             </div>
-                            <Ctextfield opts="w-full" type="text" size="small" variant="outlined" label="" multiline={true} rows={4} placeholder={str.slice(0, 300) + '...'} />
+                            <div style={{ border: '1px solid #629c8d' }} className="w-full rounded-lg p-4 text-sm">{str.slice(0, 300) + '...'}</div>
                         </Paper>
                     </div>
                 </div>

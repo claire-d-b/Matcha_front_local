@@ -43,9 +43,9 @@ const theme = createTheme({
               '&.Mui-focused fieldset': {
                 borderColor: '#ffffff', // Border color when focused
               },
-            },
           },
         },
+      },
         MuiTextField: {
             styleOverrides: {
               root: {

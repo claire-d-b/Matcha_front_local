@@ -11,12 +11,13 @@ interface ComponentProps {
     multiline: any
     rows?: any
     placeholder?: any
+    disabled?: any
 }
 
 
-const _: React.FC<ComponentProps> = ({ opts, type, size, variant, label, multiline, rows, placeholder }) => {
+const _: React.FC<ComponentProps> = ({ opts, type, size, variant, label, multiline, rows, placeholder, disabled }) => {
     return (
-        <TextField className={opts} type={type} size={size} variant={variant} label={label} multiline={multiline} rows={rows} placeholder={placeholder} />
+        <TextField className={opts} type={type} size={size} variant={variant} label={label} multiline={multiline} rows={rows} placeholder={placeholder} disabled={disabled ? true : false} />
     );
 };
 
