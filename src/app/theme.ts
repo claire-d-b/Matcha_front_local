@@ -105,6 +105,14 @@ const theme = createTheme({
               },
             },
           },
+          MuiBadge: {
+            styleOverrides: {
+              badge: {
+                backgroundColor: '#629c8d', // Change this to your desired background color
+                color: 'white', // Text color
+              },
+            },
+          },
         },
     // Optional: customize other theme properties here
 });

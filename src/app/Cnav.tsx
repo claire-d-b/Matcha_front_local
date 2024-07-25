@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import React, { ReactNode } from 'react'
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Menu from '@mui/material/Menu';
@@ -14,12 +14,14 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import Badge from '@mui/material/Badge';
+import theme from './theme'
 
+const messages = ['un message']
 
 interface ComponentProps {
     className: any
 }
-
 
 const _: React.FC<ComponentProps> = ({ className }) => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -33,9 +35,11 @@ const _: React.FC<ComponentProps> = ({ className }) => {
   return (
     <React.Fragment>
       <div className={className}>
-        <IconButton className="font-thin" size="small"><MailOutlineIcon className="text-base md:text-2xl text-gray-300" /></IconButton>
-        <IconButton className="font-thin" size="small"><Settings className="text-base md:text-2xl text-gray-300"/></IconButton>
-        <IconButton className="font-thin" size="small"><Logout className="text-base md:text-2xl text-gray-300" /></IconButton>
+        { messages.length && <Badge badgeContent={1} overlap="circular" className="text-gray-400">
+          <IconButton className="font-thin border bg-gray-600"><MailOutlineIcon className="text-base md:text-2xl text-gray-300" /></IconButton>
+          </Badge> }
+        <IconButton className="font-thin border bg-gray-600"><Settings className="text-base md:text-2xl text-gray-300"/></IconButton>
+        <IconButton className="font-thin border bg-gray-600"><Logout className="text-base md:text-2xl text-gray-300" /></IconButton>
         <Avatar className="text-sm md:text-xl md:pt-1">C</Avatar>
       </div>
     </React.Fragment>
