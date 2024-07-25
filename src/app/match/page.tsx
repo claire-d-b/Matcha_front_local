@@ -34,37 +34,37 @@ const _ = () => {
     return (
         <ThemeProvider theme={theme}>
         <div className="flex flex-col h-screen w-screen">
-            <Paper className="p-4 border border-white flex w-full justify-center items-center bg-gray-800">
+            <Paper className="p-4 border border-white flex w-full justify-center items-center">
                 <Ctitle opts="text-lg font-light" title="Matcha" />
-                <Image className="w-10 h-auto" src={LeafImage} alt="leaf" />
-                <Cnav className="self-end flex w-full justify-end items-center gap-12" />
+                <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
+                <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-12 text-xs md:text-base" />
             </Paper>
-            <div className="w-full flex flex-col justify-center items-center">
+            <div className="w-full h-full flex flex-col justify-center items-center">
                 <>
                 <Grid container spacing={4} className="h-full w-full justify-center items-center p-8">
                     <div key={`persona_${index}`} className="flex flex-col">
                         <div className="flex justify-center items-center">
-                            <Grid xs={2}>
+                            <Grid xs={2} className="md:w-1/4 hidden md:flex">
                             { index-1 > 0 && index-1 < profiles.length && <>
                                 <CardActionArea className="m-0 p-4 border rounded-lg shadow-lg">
                                     <CardMedia component="img" image={ profiles[index-1][1] == 'f' ? "../../images/people_f.png" : "../../images/people_m.png" } alt="persona" className="rounded-lg" />
-                                    <CardContent className="font-thin text-gray-800">{ profiles[index-1][0] }</CardContent>
+                                    <CardContent className="text-xs md:text-sm font-thin text-gray-800">{ profiles[index-1][0] }</CardContent>
                                 </CardActionArea>
                             </> }
                             </Grid>
-                            <Grid xs={8}>
+                            <Grid xs={8} className="w-full md:w-1/2">
                             { index > 0 && index < profiles.length && <>
                                 <CardActionArea className="m-0 p-4 border rounded-lg shadow-lg">
                                     <CardMedia component="img" image={ profiles[index][1] == 'f' ? "../../images/people_f.png" : "../../images/people_m.png" } alt="persona" className="rounded-lg" />
-                                    <CardContent className="font-thin text-gray-800">{ profiles[index][0] }</CardContent>
+                                    <CardContent className="text-xs md:text-sm font-thin text-gray-800">{ profiles[index][0] }</CardContent>
                                 </CardActionArea>
                             </>}
                             </Grid>
-                            <Grid xs={2}>
+                            <Grid xs={2} className="md:w-1/4 hidden md:flex">
                             { index+1 > 0 && index+1 < profiles.length && <>
                                 <CardActionArea className="m-0 p-4 border rounded-lg shadow-lg">
                                     <CardMedia component="img" image={ profiles[index+1][1] == 'f' ? "../../images/people_f.png" : "../../images/people_m.png" } alt="persona" className="rounded-lg" />
-                                    <CardContent className="font-thin text-gray-800">{ profiles[index+1][0] }</CardContent>
+                                    <CardContent className="text-xs md:text-sm font-thin text-gray-800">{ profiles[index+1][0] }</CardContent>
                                 </CardActionArea>
                             </> }
                             </Grid>
@@ -72,8 +72,11 @@ const _ = () => {
                     </div>
                 </Grid>
                 </>
-                <Pagination count={profiles.length-1} size="small" onChange={handleChange} className="self-center"/>
+                <Pagination count={profiles.length-1} size="small" onChange={handleChange} className="p-6 md:p-12 self-center"/>
             </div>
+            <Paper className="w-full p-4 border border-white flex flex-col justify-center items-center bg-gray-800">
+                Copyright
+            </Paper>
         </div>
     </ThemeProvider>)
 }
