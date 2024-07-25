@@ -54,7 +54,7 @@ const _ = () => {
                         <Paper className="flex p-8 rounded-lg flex flex-col gap-4 w-full font-thin justify-center items-start">
                             <div className="flex items-center justify-start gap-2">
                                 <div>What I am looking for...</div>
-                                <IconButton size="small"><SearchIcon /></IconButton>
+                                <IconButton size="small" disabled><SearchIcon /></IconButton>
                             </div>
                             <div style={{ border: '1px solid #629c8d' }} className="w-full rounded-lg p-4 text-sm">{str.slice(0, 300) + '...'}</div>
                         </Paper>

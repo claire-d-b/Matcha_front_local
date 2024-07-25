@@ -86,14 +86,16 @@ const theme = createTheme({
           },
         },
         MuiIconButton: {
-          styleOverrides: {
-            root: {
-              color: '#629c8d', // Change this to your desired icon color
+            styleOverrides: {
+              root: {
+                '&.Mui-disabled': {
+                  color: '#629c8d', // Change this to your desired disabled text color
+                },
+              },
             },
           },
         },
-      },
-  // Optional: customize other theme properties here
+    // Optional: customize other theme properties here
 });
 
 export default theme;
