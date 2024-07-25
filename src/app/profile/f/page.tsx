@@ -29,14 +29,14 @@ const person = {
 const _ = () => {
     return (
         <ThemeProvider theme={theme}>
-            <div className="flex flex-col h-screen w-screen bg-gray-300">
-                <Paper className="p-4 border border-white flex w-full justify-center items-center bg-gray-800">
-                    <Ctitle opts="text-lg font-light" title="Matcha" />
-                    <Image className="w-10 h-auto" src={LeafImage} alt="leaf" />
-                    <Cnav className="self-end flex w-full justify-end items-center gap-12" />
-                </Paper>
-                <div className="w-full flex items-center justify-center">
-                    <Cprofile imagePath="../../../images/people_f.png" name={person.name} className="p-8 flex flex-col gap-4 w-full bg-transparent"/>
+            <div className="flex flex-col h-screen w-screen">
+            <Paper className="p-4 border border-white flex w-full justify-center items-center">
+                <Ctitle opts="text-lg font-light" title="Matcha" />
+                <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
+                <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-12 text-xs md:text-base" />
+            </Paper>
+                <div className="w-full flex flex-col md:flex-row items-center justify-center bg-gray-200">
+                    <Cprofile imagePath="../../../images/people_f.png" name={person.name} className="p-1 md:p-8 w-full bg-transparent rounded-lg" />
                     <div className="w-full p-8 gap-4 flex flex-col justify-center items-center">
                         <Paper className="p-8 rounded-lg flex flex-col gap-4 w-full text-lg font-thin">Location
                             <Stack direction="row" spacing={1}>

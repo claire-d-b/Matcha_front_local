@@ -16,13 +16,13 @@ interface ComponentProps {
 const _: React.FC<ComponentProps> = ({ className, imagePath, name }) => {
     return (
         <Card className={className}>
-            <div>
-                <CardMedia component="img" height="140" image={imagePath} alt="persona" className="rounded-lg" />
+            <div className="w-full p-8 gap-4 flex flex-col justify-center items-center">
+                <CardMedia component="img" height="140" image={imagePath} alt="persona" className={className} />
                 <CardContent>
-                <div className="font-thin">
+                <div className="font-thin w-full">
                     { name }
                 </div>
-                <div className="p-8">
+                <div className="p-1 w-full">
                 { str.slice(0, 600) + '...' }
                 </div>
                 </CardContent>

@@ -23,18 +23,17 @@ import Pagination from '@mui/material/Pagination';
 //     color: theme.palette.text.secondary,
 //   }));
   
-const profiles = [['Seb A.', 'm'], ['Marine O.', 'f'], ['Sylvie Y.', 'f'], ['Antoine N.', 'm'], ['Eugénie A.', 'f']]
+const profiles = [[], ['Seb A.', 'm'], ['Marine O.', 'f'], ['Sylvie Y.', 'f'], ['Antoine N.', 'm'], ['Eugénie A.', 'f']]
 
 const _ = () => {
     const [index, setIndex] = useState(1)
     const handleChange= (event: React.ChangeEvent<unknown>, value: number) => {
         setIndex(value)
-        console.log("+")
       }
     
     return (
         <ThemeProvider theme={theme}>
-        <div className="flex flex-col h-screen w-screen bg-gray-300">
+        <div className="flex flex-col h-screen w-screen">
             <Paper className="p-4 border border-white flex w-full justify-center items-center bg-gray-800">
                 <Ctitle opts="text-lg font-light" title="Matcha" />
                 <Image className="w-10 h-auto" src={LeafImage} alt="leaf" />
