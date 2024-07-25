@@ -95,6 +95,16 @@ const theme = createTheme({
               },
             },
           },
+          MuiCardActionArea: {
+            styleOverrides: {
+              root: {
+                backgroundColor: '#ffffff', // Change this to your desired background color
+                '&:hover': {
+                  backgroundColor: '#d1d5db', // Change background color on hover
+                },
+              },
+            },
+          },
         },
     // Optional: customize other theme properties here
 });
