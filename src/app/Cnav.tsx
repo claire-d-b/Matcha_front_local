@@ -28,11 +28,11 @@ const _: React.FC<ComponentProps> = ({ className }) => {
     <React.Fragment>
       <div className={className}>
         { messages.length && <Badge badgeContent={1} overlap="circular" className="text-gray-400">
-          <IconButton className="font-thin border bg-gray-600"><MailOutlineIcon className="text-base md:text-2xl text-gray-300" /></IconButton>
+          <IconButton className="font-thin border bg-gray-800"><MailOutlineIcon className="text-base md:text-2xl text-white" /></IconButton>
           </Badge> }
-        <IconButton className="font-thin border bg-gray-600"><Settings className="text-base md:text-2xl text-gray-300"/></IconButton>
-        <IconButton className="font-thin border bg-gray-600"><Logout className="text-base md:text-2xl text-gray-300" /></IconButton>
-        <Avatar className="text-sm md:text-xl md:pt-1 bg-gray-300">C</Avatar>
+        <IconButton className="font-thin border bg-gray-800"><Settings className="text-base md:text-2xl text-white"/></IconButton>
+        <IconButton className="font-thin border bg-gray-800"><Logout className="text-base md:text-2xl text-white" /></IconButton>
+        <Avatar className="text-sm md:text-xl md:pt-1 bg-gray-300 ">C</Avatar>
       </div>
     </React.Fragment>
   );

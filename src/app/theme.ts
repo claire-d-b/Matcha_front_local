@@ -88,13 +88,18 @@ const theme = createTheme({
         MuiIconButton: {
             styleOverrides: {
               root: {
+                backgroundColor: '#d1d5db',
                 color: '#629c8d',
                 '&.Mui-disabled': {
                   color: '#629c8d', // Change this to your desired disabled text color
                 },
+                '&:hover': {
+                  backgroundColor: '#4b5563', // Change this to your desired hover background color
+                  color: '#d1d5db', // Optionally change the text color on hover
+                },
+                },
               },
             },
-          },
           MuiCardActionArea: {
             styleOverrides: {
               root: {
