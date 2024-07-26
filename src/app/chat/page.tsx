@@ -60,7 +60,7 @@ const _ = () => {
                 { messages.length && messages.map((m, i) =>
                     <div key={`message_${i}`} className="flex flex-col gap-1 mb-8 md:mb-4 text-sm text-white justify-center items-center">
                         <div className={ m.mine ? 'mb-2 md:mb-4 text-gray-800 self-end' : 'mb-2 md:mb-4 text-gray-800 self-start' }>Sent on { m.date } at { m.time }</div>
-                        <Paper sx={{ backgroundColor: m.mine ? '#629c8d' : 'bg-gray-800'}} className={ m.mine ? 'py-1 px-2 md:px-4 md:py-2 self-end rounded-lg font-semibold text-white' : 'py-1 px-2 md:px-4 md:py-2 self-start bg-gray-800 rounded-lg font-semibold text-white'}>{ m.mine ? 'You' : m.author }</Paper>
+                        <Paper sx={{ backgroundColor: m.mine ? '#629c8d' : '#1f2937' }} className={ m.mine ? 'py-1 px-2 md:px-4 md:py-2 self-end rounded-lg font-semibold text-white' : 'py-1 px-2 md:px-4 md:py-2 self-start rounded-lg font-semibold text-white'}>{ m.mine ? 'You' : m.author }</Paper>
                         <div className={ m.mine ? 'py-1 px-2 md:px-4 md:py-2 self-end bg-gray-400 rounded-lg font-thin' : 'py-1 px-2 md:px-4 md:py-2 self-start bg-gray-400 rounded-lg font-thin'}>{ m.content }</div>
                         { m.received &&
                         <IconButton size="small" className={ m.mine ? "mt-0 self-end" : 'mt-0 self-start' } disabled><CheckCircleIcon className={ m.mine ? "text-sm" : "text-sm text-gray-800" }/></IconButton>

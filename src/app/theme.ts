@@ -116,7 +116,7 @@ const theme = createTheme({
           MuiPaper: {
             styleOverrides: {
               root: {
-                backgroundColor: 'bg-gray-800', // Change this to your desired background color
+                backgroundColor: '#1f2937', // Change this to your desired background color
               },
             },
           }
