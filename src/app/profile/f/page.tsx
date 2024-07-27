@@ -40,8 +40,8 @@ const _ = () => {
                     <div className="w-full p-8 gap-4 flex flex-col justify-center items-center">
                         <Paper className="p-8 rounded-lg flex flex-col gap-4 w-full text-lg font-thin">Location
                             <Stack direction="row" spacing={1}>
-                                <Chip label={person.language} className="font-normal bg-gray-600 text-white" />
-                                <Chip label={person.city} variant="outlined" className="font-normal"/>
+                                <Chip label={person.language} className="bg-gray-600 text-white" />
+                                <Chip label={person.city} variant="outlined"/>
                             </Stack>
                         </Paper>
                         <Paper className="p-8 rounded-lg flex flex-col gap-4 w-full text-lg font-thin text-lg">Hobbies

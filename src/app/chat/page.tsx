@@ -63,8 +63,8 @@ const _ = () => {
                         <Paper sx={{ backgroundColor: m.mine ? '#629c8d' : '#1f2937' }} className={ m.mine ? 'py-1 px-2 md:px-4 md:py-2 self-end rounded-lg font-semibold text-white' : 'py-1 px-2 md:px-4 md:py-2 self-start rounded-lg font-semibold text-white'}>{ m.mine ? 'You' : m.author }</Paper>
                         <div className={ m.mine ? 'py-1 px-2 md:px-4 md:py-2 self-end bg-gray-400 rounded-lg font-thin' : 'py-1 px-2 md:px-4 md:py-2 self-start bg-gray-400 rounded-lg font-thin'}>{ m.content }</div>
                         { m.received &&
-                        <IconButton size="small" className={ m.mine ? "mt-0 self-end" : 'mt-0 self-start' } disabled><CheckCircleIcon className={ m.mine ? "text-sm" : "text-sm text-gray-800" }/></IconButton>
-                        || <IconButton size="small" className={ m.mine ? "mt-0 self-end" : 'mt-0 self-start' }><CheckCircleOutlineIcon className={ m.mine ? "text-sm" : "text-sm text-gray-800" } /></IconButton> }
+                        <IconButton size="small" className={ m.mine ? "mt-0 self-end bg-transparent" : 'mt-0 self-start bg-transparent' } disabled><CheckCircleIcon className={ m.mine ? "text-sm" : "text-sm text-gray-800" }/></IconButton>
+                        || <IconButton size="small" className={ m.mine ? "mt-0 self-end bg-transparent" : 'mt-0 self-start bg-transparent' } disabled><CheckCircleOutlineIcon className={ m.mine ? "text-sm" : "text-sm text-gray-800" } /></IconButton> }
                     </div>) }
                 </div>
             </div>
