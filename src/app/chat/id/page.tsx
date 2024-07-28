@@ -4,8 +4,8 @@ import Ctextfield from '../../Ctextfield'
 import Ctitle from '../../Ctitle'
 import Cnav from '../../Cnav'
 import Image from 'next/image'
-import TeaImage from '../../../public/images/tea.png'
-import LeafImage from '../../../public/images/leaf.png'
+import TeaImage from '../../../../public/images/tea.png'
+import LeafImage from '../../../../public/images/leaf.png'
 import theme from '../../theme'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
