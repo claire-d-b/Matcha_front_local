@@ -66,15 +66,12 @@ const theme = createTheme({
         MuiCheckbox: {
           styleOverrides: {
             root: {
-              '&.Mui-disabled': {
-                color: '#629c8d', // Change this to your desired disabled color
-              },
-            },
-            checked: {
-              '&.Mui-disabled': {
-                color: '#629c8d', // Change this to your desired checked disabled color
-              },
-            },
+              "&.Mui-checked": {
+                "&.Mui-disabled": {
+                  "color": "#629c8d"
+                }
+              }
+            }
           },
         },
         MuiChip: {
