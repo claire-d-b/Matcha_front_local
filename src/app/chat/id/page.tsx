@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { ThemeProvider, Paper, IconButton } from '@mui/material'
 import Ctextfield from '../../Ctextfield'

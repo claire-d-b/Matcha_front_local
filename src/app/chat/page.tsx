@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { ThemeProvider, Paper, IconButton } from '@mui/material'
 import Ctextfield from '../Ctextfield'
@@ -10,6 +12,7 @@ import theme from '../theme'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import Avatar from '@mui/material/Avatar';
+import CProtectedRoute from '../CprotectedRoute'
 
 
 
@@ -52,8 +55,6 @@ const conversations = [ {
 ]
 
 const _ = () => {
-    console.log(conversations)
-    console.log(conversations.length)
 
   return (
     <ThemeProvider theme={theme}>
@@ -98,7 +99,8 @@ const _ = () => {
                 Copyright
             </Paper>
         </div>
-    </ThemeProvider>)
+    </ThemeProvider>
+  )
 }
 
-export default _
+export default CProtectedRoute(_);
