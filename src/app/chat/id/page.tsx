@@ -2,11 +2,9 @@
 
 import React from 'react'
 import { ThemeProvider, Paper, IconButton } from '@mui/material'
-import Ctextfield from '../../Ctextfield'
 import Ctitle from '../../Ctitle'
 import Cnav from '../../Cnav'
 import Image from 'next/image'
-import TeaImage from '../../../../public/images/tea.png'
 import LeafImage from '../../../../public/images/leaf.png'
 import theme from '../../theme'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
@@ -55,7 +53,7 @@ const _ = () => {
             <Paper className="p-4 border border-white flex w-full justify-center items-center">
                 <Ctitle opts="text-lg font-light" title="Matcha" />
                 <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
-                <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-12 text-xs md:text-base" />
+                <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-4 text-xs md:text-base" />
             </Paper>
             <div className="rounded-lg p-12 flex flex-col justify-center items-center text-lg font-thin bg-gray-400">
                 <div className="md:w-1/2 self-center bg-white rounded-lg p-12 shadow-lg overflow-scroll">

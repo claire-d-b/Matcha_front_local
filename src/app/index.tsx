@@ -1,21 +1,3 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import Routes from './Routes';
-
-// const rootElement = document.getElementById('root');
-
-// if (!rootElement) {
-//   throw new Error('Target container is not a DOM element.');
-// }
-
-// const root = ReactDOM.createRoot(rootElement);
-
-// root.render(
-//   <React.StrictMode>
-//     <Routes />
-//   </React.StrictMode>
-// );
-
 import { createRoot } from 'react-dom/client';
 import React from 'react';
 

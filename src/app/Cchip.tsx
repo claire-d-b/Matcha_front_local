@@ -1,9 +1,5 @@
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import Chip from '@mui/material/Chip';
-import Badge from '@mui/material/Badge';
-import Stack from '@mui/material/Stack';
-import MailIcon from '@mui/icons-material/Mail';
-import Ctextfield from './Ctextfield'
 
 const chips = ['Language', 'City']
 
@@ -12,9 +8,7 @@ interface ComponentProps {
   }
 
 const _: React.FC<ComponentProps> = ({ opts }) => {
-  const [chipContent, setChipContent] = useState('Default Content');
   const [isEditing, setIsEditing] = useState(false);
-  const [tempContent, setTempContent] = useState(chipContent);
 
   const handleEditClick = () => {
     setIsEditing(true);

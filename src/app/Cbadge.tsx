@@ -1,7 +1,6 @@
 import Badge from '@mui/material/Badge';
-import Stack from '@mui/material/Stack';
 import MailIcon from '@mui/icons-material/Mail';
-import React, { ReactNode } from 'react'
+import React from 'react'
 
 interface ComponentProps {
   opts?: string;

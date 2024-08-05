@@ -1,0 +1,16 @@
+API = http://localhost:3000
+
+/chat/ - list of conversations
+/chat/id - a specific conversation messages
+/login
+/password/ - page showing email adress and sending an reset password email on button click
+/password/confirm - confirmation page : "an email has been sent to your email adress"-like
+/password/reset - page to change the password : 2 password fields must match
+/profile/f or /profile/m (mockups for M vs F profile) - public profiles with feature that allows to edit profile
+when we click the Settings button in the navbar
+/profile/list - list of profiles with sort & filter
+/profile/picture - list of pictures (up to 5 per individual)
+/profile/search - list of profiles with a research browser (with fixed categories)
+/signup
+/signup/confirm - "you have been successfully registered"
+/profile/

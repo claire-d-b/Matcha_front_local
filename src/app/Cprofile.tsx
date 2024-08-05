@@ -1,30 +1,65 @@
-import React from 'react'
-import { Card, CardContent, CardActionArea, CardMedia } from '@mui/material';
-import Image from 'next/image'
-import PeopleImageF from '../../public/images/people_f.png'
-import PeopleImageM from '../../public/images/people_m.png'
+import React, { useState, ChangeEvent } from 'react'
+import { Card, CardContent, CardMedia } from '@mui/material';
+import Chip from '@mui/material/Chip';
+import Ctextfield from './Ctextfield'
+import Cselect from './Cselect'
 
 const str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-
+const lst = ['M', 'F', '-']
 
 interface ComponentProps {
     className: any
     imagePath: any
     name: any
+    edit?: Boolean
 }
 
-const _: React.FC<ComponentProps> = ({ className, imagePath, name }) => {
+const _: React.FC<ComponentProps> = ({ className, imagePath, name, edit}) => {
+    const [profileFirstName, setProfileFirstName] = useState('')
+    const [profileLastName, setProfileLastName] = useState('')
+    const [profileBio, setProfileBio] = useState('')
+
+    const handleFirstNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setProfileFirstName(e.target.value)
+    }
+
+    const handleLastNameChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setProfileLastName(e.target.value)
+    }
+
+      const handleBioChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setProfileBio(e.target.value)
+    }
+
     return (
+        !edit && 
         <Card className={className}>
             <div className="w-full p-8 gap-4 flex flex-col justify-center items-center">
                 <CardMedia component="img" height="140" image={imagePath} alt="persona" className={className} />
                 <CardContent>
-                <div className="font-thin w-full">
-                    { name }
+                <div className="flex font-thin w-full justify-center items-center gap-2 pb-2">
+                    <div className="flex w-full justify-start items-center gap-4">
+                        <div>{ name }</div>
+                        <Chip label="F" variant="outlined" />
+                    </div>
                 </div>
                 <div className="p-1 w-full">
                 { str.slice(0, 600) + '...' }
                 </div>
+                </CardContent>
+            </div>
+        </Card>
+        ||
+        <Card className={className}>
+            <div className="w-full p-8 gap-4 flex flex-col justify-center items-center">
+                <CardMedia component="img" height="140" image={imagePath} alt="persona" className={className} />
+                <CardContent className='w-full flex flex-col gap-4'>
+                    <div className="flex w-full gap-2">
+                        <div className="w-full"><Cselect name="Gender" list={lst} variant="outlined" /></div>
+                        <Ctextfield opts="font-thin w-full" type="text" size="small" variant="outlined" label="First name" value={profileFirstName} multiline={false} onChange={handleFirstNameChange} disabled={false} />
+                        <Ctextfield opts="font-thin w-full" type="text" size="small" variant="outlined" label="Last name" value={profileLastName} multiline={false} onChange={handleLastNameChange} disabled={false} />
+                    </div>
+                    <Ctextfield opts="p-1 w-full" type="text" size="small" variant="outlined" label="biography" value={profileBio} multiline={true} rows={8} onChange={handleBioChange} disabled={false} />
                 </CardContent>
             </div>
         </Card>
