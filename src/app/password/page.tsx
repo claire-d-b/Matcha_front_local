@@ -40,8 +40,8 @@ const _ = () => {
             <form onSubmit={handleSubmit} className="w-full pt-10 gap-2 flex flex-col justify-center items-center">
               <Image className="w-24 h-auto" src={LeafImage} alt="matcha" />
               <div className="w-full flex flex-col justify-center items-center gap-2">
-                <div className="w-full md:w-1/4 text-base">Username</div>
-                <Ctextfield opts="w-full md:w-1/4 mb-4" type="email" size="small" variant="outlined" label="Email" multiline={false} onChange={handleEmailChange}/>
+                <div className="w-full md:w-1/4 text-base font-medium">Username</div>
+                {/* <Ctextfield opts="w-full md:w-1/4 mb-4" type="email" size="small" variant="outlined" label="Email" multiline={false} onChange={handleEmailChange}/> */}
                 <div className="text-base w-full md:w-1/4">We will send an email to this address whith a link to reset your password.</div>
               </div>
               <Button variant="contained" type="submit" className="rounded-lg" size="small">Send</Button>

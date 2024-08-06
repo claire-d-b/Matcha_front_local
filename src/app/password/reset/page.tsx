@@ -41,7 +41,7 @@ const _ = () => {
             <form onSubmit={handleSubmit} className="w-full pt-10 gap-2 flex flex-col justify-center items-center">
               <Image className="w-24 h-auto" src={LeafImage} alt="matcha" />
               <div className="w-full flex flex-col justify-center items-center gap-2">
-              <Ctextfield opts="w-full md:w-1/4" type="email" size="small" variant="outlined" label="Username" multiline={false} onChange={handleUsernameChange}/>
+              {/* <Ctextfield opts="w-full md:w-1/4" type="email" size="small" variant="outlined" label="Username" multiline={false} onChange={handleUsernameChange}/> */}
                 <Ctextfield opts="w-full md:w-1/4" type="password" size="small" variant="outlined" label="password" multiline={false} onChange={handlePasswordChange}/>
                 <Ctextfield opts="w-full md:w-1/4" type="password" size="small" variant="outlined" label="Confirm password" multiline={false} onChange={handleNpasswordChange}/>
               </div>
