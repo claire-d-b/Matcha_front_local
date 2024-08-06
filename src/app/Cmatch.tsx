@@ -65,7 +65,7 @@ const _: React.FC<ComponentProps> = ({ className }) => {
                                         <CardMedia component="img" image={ picture[index][0] } alt="persona" className="rounded-lg" />
                                         <div className="w-full">
                                             <CardContent className="flex flex-col md:flex-row justify-center items-center w-full">
-                                                <div className="text-xs md:text-sm font-thin text-gray-800">{ picture[index][1] }</div>
+                                                <div className="w-full text-xs md:text-sm font-thin text-gray-800">{ picture[index][1] }</div>
                                                 <Cswitch className="flex w-full text-sm justify-end items-center" name="Set as profile picture" />
                                             </CardContent>
                                         </div>
