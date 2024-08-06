@@ -121,8 +121,21 @@ const theme = createTheme({
                 backgroundColor: '#1f2937', // Change this to your desired background color
               },
             },
-          }
-        }
+          },
+        MuiRating: {
+          styleOverrides: {
+            iconEmpty: {
+              color: '#629c8d', // Color for empty icons
+            },
+            iconFilled: {
+              color: '#629c8d', // Color for filled icons
+            },
+            iconHover: {
+              color: '#d1d5db', // Color for icons on hover
+            },
+          },
+        },
+      }
     // Optional: customize other theme properties here
 });
 
