@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import Badge from '@mui/material/Badge';
 import Cmodal from './Cmodal'
 import Link from 'next/link';
@@ -36,6 +37,7 @@ const _: React.FC<ComponentProps> = ({ className }) => {
   return (
     <React.Fragment>
       <div className={className}>
+        <IconButton className="font-thin border bg-gray-800"><NotificationsIcon className="text-base md:text-2xl text-white" /></IconButton>
         { messages.length && <Badge badgeContent={1} overlap="circular" className="text-gray-400">
           <IconButton className="font-thin border bg-gray-800"><MailOutlineIcon className="text-base md:text-2xl text-white" /></IconButton>
           </Badge> }
