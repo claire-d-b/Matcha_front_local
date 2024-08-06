@@ -5,6 +5,7 @@ import { ThemeProvider, Paper } from '@mui/material'
 import Cprofile from '../../Cprofile'
 import Ctitle from '../../Ctitle'
 import Cnav from '../../Cnav'
+import Crating from '../../Crating'
 import Image from 'next/image'
 import LeafImage from '../../../../public/images/leaf.png'
 import theme from '../../theme'
@@ -41,6 +42,9 @@ const _ = () => {
                 <div className="w-full flex flex-col md:flex-row items-center justify-center bg-gray-200">
                     <Cprofile imagePath="../../../images/people_m.png" name={person.name} className="p-1 md:p-8 w-full bg-transparent rounded-lg"/>
                     <div className="w-full p-8 gap-4 flex flex-col justify-center items-center">
+                        <Paper className="p-8 rounded-lg w-full font-thin">
+                            <Crating className="w-full" rating={2.0} precision={0.5} />
+                        </Paper>
                         <Paper className="p-8 rounded-lg flex flex-col gap-4 w-full text-lg font-thin">
                         <div className="flex items-center justify-start gap-2">
                                 <div className='font-thin text-md'>Location</div>
