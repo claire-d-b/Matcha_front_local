@@ -8,7 +8,7 @@ import Cupload from './Cupload'
 import { CardContent, CardActionArea, CardMedia } from '@mui/material'
 import Pagination from '@mui/material/Pagination';
 
-const comment = ['At the sea', 'Home', 'Birthday snapshot', 'New tee-shirt', '<3<3']
+const picture = [['../../images/people_m.png', 'At the sea'], ['../../images/people_f.png', 'Home'], ['../../images/people_m.png', 'Birthday snapshot'], ['../../images/people_f.png', 'New tee-shirt'], ['../../images/people_m.png', '<3<3']]
 
 interface ComponentProps {
     className?: string
@@ -34,26 +34,26 @@ const _: React.FC<ComponentProps> = ({ className }) => {
                     <div key={`persona_${index}`} className="flex flex-col">
                         <div className="flex justify-center items-center">
                             <Grid xs={2} className="md:w-1/4 hidden md:flex">
-                            { index-1 > 0 && index-1 < comment.length && <>
+                            { index-1 > 0 && index-1 < picture.length && <>
                                 <CardActionArea className="m-0 p-4 border rounded-lg shadow-lg">
-                                    <CardMedia component="img" image={ "../../images/people_m.png" } alt="persona" className="rounded-lg" />
-                                    <CardContent className="text-xs md:text-sm font-thin text-gray-800">{ comment[index-1] }</CardContent>
+                                    <CardMedia component="img" image={ picture[index-1][0] } alt="persona" className="rounded-lg" />
+                                    <CardContent className="text-xs md:text-sm font-thin text-gray-800">{ picture[index-1][1] }</CardContent>
                                 </CardActionArea>
                             </> }
                             </Grid>
                             <Grid xs={8} className="w-full md:w-1/2">
-                            { index > 0 && index < comment.length && <>
+                            { index > 0 && index < picture.length && <>
                                 <CardActionArea className="m-0 p-4 border rounded-lg shadow-lg">
-                                    <CardMedia component="img" image={ "../../images/people_f.png" } alt="persona" className="rounded-lg" />
-                                    <CardContent className="text-xs md:text-sm font-thin text-gray-800">{ comment[index] }</CardContent>
+                                    <CardMedia component="img" image={ picture[index][0] } alt="persona" className="rounded-lg" />
+                                    <CardContent className="text-xs md:text-sm font-thin text-gray-800">{ picture[index][1] }</CardContent>
                                 </CardActionArea>
                             </>}
                             </Grid>
                             <Grid xs={2} className="md:w-1/4 hidden md:flex">
-                            { index+1 > 0 && index+1 < comment.length && <>
+                            { index+1 > 0 && index+1 < picture.length && <>
                                 <CardActionArea className="m-0 p-4 border rounded-lg shadow-lg">
-                                    <CardMedia component="img" image={ "../../images/people_m.png" } alt="persona" className="rounded-lg" />
-                                    <CardContent className="text-xs md:text-sm font-thin text-gray-800">{ comment[index+1] }</CardContent>
+                                    <CardMedia component="img" image={ picture[index+1][0] } alt="persona" className="rounded-lg" />
+                                    <CardContent className="text-xs md:text-sm font-thin text-gray-800">{ picture[index+1][1] }</CardContent>
                                 </CardActionArea>
                             </> }
                             </Grid>
@@ -61,7 +61,7 @@ const _: React.FC<ComponentProps> = ({ className }) => {
                     </div>
                 </Grid>
                 </>
-                <Pagination count={comment.length-1} size="small" onChange={handleChange} className="p-6 md:p-12 self-center"/>
+                <Pagination count={picture.length-1} size="small" onChange={handleChange} className="p-6 md:p-12 self-center"/>
             </div>
         </div>
     </ThemeProvider>)
