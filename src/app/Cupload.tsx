@@ -57,7 +57,7 @@ const _: React.FC<ComponentProps> = ({ name }) => {
     }
     return (
       <div className="w-full gap-4 flex flex-col md:flex-row justify-center items-center">
-        <Button variant="outlined" component="label">
+        <Button variant="contained" component="label">
           { name }
           <input type="file" hidden onChange={handleFileChange} />
         </Button>
