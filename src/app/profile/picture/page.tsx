@@ -24,7 +24,7 @@ const _ = () => {
             <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
             <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-4 text-xs md:text-base" />
         </Paper>
-      <div className="flex flex-col h-screen w-screen justify-center items-stretch">
+      <div className="flex flex-col h-full w-full justify-center items-stretch">
           <Paper className="p-8 rounded-none w-full h-full p-2 flex flex-col flex-grow flex-shrink-0 justify-center items-center text-lg font-thin">
           <a href="/profile/f/" className="p-8 flex w-full font-thin text-md justify-center items-center gap-4"><IconButton className="bg-gray-600"><ArrowBackIcon /></IconButton>Back to profile</a>
           <Cmatch className="w-full" />
