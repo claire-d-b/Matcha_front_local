@@ -39,7 +39,7 @@ const _: React.FC<ComponentProps> = ({ className }) => {
       <div className={className}>
         <IconButton className="font-thin border bg-gray-800"><NotificationsIcon className="text-base md:text-2xl text-white" /></IconButton>
         { messages.length && <Badge badgeContent={1} overlap="circular" className="text-gray-400">
-          <IconButton className="font-thin border bg-gray-800"><MailOutlineIcon className="text-base md:text-2xl text-white" /></IconButton>
+          <Link href="/chat/"><IconButton className="font-thin border bg-gray-800"><MailOutlineIcon className="text-base md:text-2xl text-white" /></IconButton></Link>
           </Badge> }
         <IconButton className="font-thin border bg-gray-800" onClick={handleOpen}><Settings className="text-base md:text-2xl text-white"/></IconButton>
           <Cmodal className="shadow-lg overflow-scroll" open={open} onClose={handleClose} />
