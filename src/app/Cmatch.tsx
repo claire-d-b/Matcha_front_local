@@ -56,10 +56,10 @@ const _: React.FC<ComponentProps> = ({ className }) => {
                             <Grid xs={8} className="w-full md:w-1/2">
                             { index > 0 && index < picture.length && <>
                                 <CardActionArea className="m-0 p-4 border rounded-lg shadow-lg">
-                                    <div className="w-full text-right text-white bg-transparent">
-                                    <IconButton size="small" onClick={_ => handleDelete(_,index)}>
-                                        <CloseIcon className="text-gray-800" />
-                                    </IconButton>
+                                    <div className="w-full text-right text-white bg-transparent mb-2 mt-4">
+                                        <IconButton size="small" onClick={_ => handleDelete(_,index)}>
+                                            <CloseIcon className="text-gray-800" />
+                                        </IconButton>
                                     </div>
                                     <div className="flex flex-col justify-center items-center">
                                         <CardMedia component="img" image={ picture[index][0] } alt="persona" className="rounded-lg" />
