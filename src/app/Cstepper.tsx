@@ -43,7 +43,7 @@ const _: React.FC<ComponentProps> = () => {
     };
 
   return (
-    <div>
+    <div className="w-full h-full flex flex-col">
         <Stepper activeStep={activeStep}>
             { steps.map((label, index) => ( <Step key={label}>
                 <StepLabel>{label}</StepLabel>
@@ -58,7 +58,8 @@ const _: React.FC<ComponentProps> = () => {
             Back
             </Button>
             <div className="flex text-gray-800 justify-center items-center">
-                { activeStep === steps.length - 1 ? <Button color="inherit" onClick={handleReset}>Reset</Button>
+                { activeStep === steps.length - 1 ?
+                  <Button color="inherit" onClick={handleReset}>Reset</Button>
                   :
                   <Button color="inherit" onClick={handleNext}>
                       { activeStep === steps.length - 1 ? 'Finish' : 'Next'}
@@ -66,6 +67,7 @@ const _: React.FC<ComponentProps> = () => {
                 }
             </div>
         </div>
+        { activeStep == steps.length - 1 ? <Button className="self-center mt-8" variant="contained">Create my profile</Button> : <></> }
       </div>
   );
 }
