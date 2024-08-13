@@ -60,9 +60,9 @@ const _ = () => {
 
 
     return (
-                <div className="h-full w-full rounded-lg p-8">
+                <div className="h-full w-full p-8">
                     <div className="flex flex-col gap-8 h-full">
-                        <div className="w-full h-full flex flex-col items-center justify-center bg-gray-800 rounded-lg p-6">
+                        <div className="w-full h-full flex flex-col items-center justify-center bg-gray-800 rounded-lg">
                             <div className="p-8 flex flex-col gap-4 w-full text-md font-thin">
                                 <div className="flex items-center justify-start gap-2">
                                     <div className='font-thin text-md'>Location</div>
