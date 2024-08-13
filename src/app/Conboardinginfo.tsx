@@ -86,15 +86,20 @@ const _ = () => {
                                             <IconButton className="mb-2 bg-gray-800" size="small" onClick={addHobbies}>
                                                 <AddIcon />
                                             </IconButton>
+                                            <p className="text-sm font-thin">Share your interests & hobbies.</p>
                                         </div>
                                     </div>
                                 <div className="p-8 flex flex-col gap-4 w-full font-thin justify-center items-start">
-                                    <div className="flex w-full justify-start items-center gap-20">
-                                        <div className="flex flex-col items-start justify-start gap-4 font-thin">
+                                    <div className="flex justify-center items-center gap-20">
+                                        {/* <div className="flex flex-col items-start justify-start gap-4 font-thin">
                                             Sexual preferences
                                             <div className="w-full flex justify-start items-center gap-2">
                                                 <Cselect className="w-full" name="Gender" list={lst} variant="outlined" />
                                             </div>
+                                        </div> */}
+                                        <div className="flex flex-col items-start justify-start gap-4 font-thin">
+                                            Sexual preferences
+                                        <div className="w-full"><Cselect name="Sexual preferences" list={lst} variant="outlined" /></div>
                                         </div>
                                         <div className="flex flex-col items-start justify-start gap-4 font-thin">
                                             Age

@@ -66,7 +66,7 @@ const _ = () => {
             <div className="flex flex-col gap-8 h-full">
             <div className="w-full h-full flex flex-col items-center justify-center bg-gray-800 rounded-lg p-6">
 
-                <div className="flex w-full">
+                <div className="flex w-full justify-center items-center">
                     <div className="text-sm font-thin">Choose your profile picture. It will be public.</div>
                     <Cupload name="Upload picture"/>
                 </div>
