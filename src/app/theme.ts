@@ -135,8 +135,34 @@ const theme = createTheme({
             },
           },
         },
-      }
+      MuiStepIcon: {
+        styleOverrides: {
+          root: {
+            color: '#4b5563', // Default color
+            '&.Mui-active': {
+              color: '#1f2937', // Color of active step
+            },
+            '&.Mui-completed': {
+              color: '#1f2937', // Color of completed step
+            },
+          },
+        },
+      },
+      MuiStepLabel: {
+        styleOverrides: {
+          label: {
+            color: '#4b5563',
+            '&.Mui-active': {
+              color: '#1f2937', // Text color of active step
+            },
+            '&.Mui-completed': {
+              color: '#1f2937', // Text color of completed step
+            },
+          },
+        },
+      },
     // Optional: customize other theme properties here
+    }
 });
 
 export default theme;

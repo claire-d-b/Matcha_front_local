@@ -23,7 +23,7 @@ const _: React.FC<ComponentProps> = ({ className, values, setSort }) => {
 
   return (
     <FormControl className={className}>
-      <FormLabel className="text-gray-800 p-4 flex gap-2 justify-center items-center">Sort by
+      <FormLabel className="text-gray-800 p-4 flex gap-2 justify-start items-center">Sort by
         <IconButton className="bg-transparent" size="small" onClick={handleSort}>
           <SwapVertIcon />
         </IconButton>

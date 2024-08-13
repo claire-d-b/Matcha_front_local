@@ -42,9 +42,9 @@ const _ = () => {
                 <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
                 <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-4 text-xs md:text-base" />
             </Paper>
-            <div className="flex w-full justify-center items-center gap-12 mb-8">
+            <div className="flex flex-col w-full justify-center items-center gap-2 mb-8">
                 <Cradiogroup className="text-gray-800" values={values} setSort={handleSort}/>
-                <Ccheckbox className="text-gray-800" values={values} setFilter={handleFilter}/>
+                <Ccheckbox className="text-gray-800 flex gap-4" values={values} setFilter={handleFilter}/>
             </div>
             <div className="flex flex-col h-full justify-center items-center gap-6 overflow-scroll">
                 { profiles.length && profiles.map((p,i) =>

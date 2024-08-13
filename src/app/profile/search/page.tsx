@@ -7,19 +7,12 @@ import theme from '../../theme'
 import Ctitle from '../../Ctitle'
 import Cnav from '../../Cnav'
 import Cpagination from '../../Cpagination'
-import Cradiogroup from '../../Cradiogroup'
-import Ccheckbox from '../../Ccheckbox'
 import Cautocomplete from '../../Cautocomplete'
 import LeafImage from '../../../../public/images/leaf.png'
 import { CardContent, CardActionArea, CardMedia } from '@mui/material'
+import { categories } from '../../Ccheckbox'
 
 const profiles = [['Seb A.', 'm'], ['Marine O.', 'f'], ['Sylvie Y.', 'f'], ['Antoine N.', 'm'], ['Eugénie A.', 'f'], ['Seb A.', 'm'], ['Marine O.', 'f'], ['Sylvie Y.', 'f'], ['Antoine N.', 'm'], ['Eugénie A.', 'f']]
-
-const categories = [
-    { firstname: 'Emilie', lastname: 'Obern' },
-    { firstname: 'Jacques', lastname: 'Illis' },
-    { firstname: 'Caroline', lastname: 'Warner' },
-  ];
 
 const _ = () => {
     return (
@@ -30,8 +23,8 @@ const _ = () => {
                 <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
                 <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-4 text-xs md:text-base" />
             </Paper>
-            <div className="p-8 w-full flex flex-col md:flex-row justify-center items-center gap-2 mb-8">
-                <div><Cautocomplete className="w-full" categories={categories} /></div>
+            <div className="p-8 w-full flex flex-col justify-center items-center gap-2 mb-8">
+                <div className="w-full"><Cautocomplete categories={categories} size="small" variant="outlined" /></div>
                 <Button variant="contained" color="primary" size="small">Search</Button>
             </div>
             <div className="flex flex-col h-full justify-center items-center gap-6 overflow-scroll">
