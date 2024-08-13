@@ -12,8 +12,8 @@ const lst = ['M', 'F', '-']
 
 interface ComponentProps {
     className: any
-    imagePath: any
-    name: any
+    imagePath?: any
+    name?: any
     edit?: Boolean
 }
 
@@ -63,7 +63,7 @@ const _: React.FC<ComponentProps> = ({ className, imagePath, name, edit}) => {
         ||
         <Card className={className}>
             <div className="w-full p-8 gap-4 flex flex-col justify-center items-center">
-                <CardMedia component="img" height="140" image={imagePath} alt="persona" className={className} />
+                { imagePath && <CardMedia component="img" height="140" image={imagePath} alt="persona" className={className} /> }
                 <CardContent className='w-full flex flex-col gap-4'>
                     <div className="flex w-full gap-2">
                         <div className="w-full"><Cselect name="Gender" list={lst} variant="outlined" /></div>

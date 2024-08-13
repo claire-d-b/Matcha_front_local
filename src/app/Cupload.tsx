@@ -50,7 +50,7 @@ const _: React.FC<ComponentProps> = ({ name }) => {
         return response.json();
     }
     catch (error) {
-        setMessage('Failed to upload file.');
+        setMessage('Failed to upload picture.');
       } finally {
         setUploading(false);
       }

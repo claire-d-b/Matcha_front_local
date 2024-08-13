@@ -2,14 +2,16 @@
 
 import React, { useState, useEffect, ChangeEvent } from 'react'
 import { ThemeProvider, Paper, Button } from '@mui/material'
-import Ctitle from '../Ctitle'
-import Cnav from '../Cnav'
+import Ctitle from './Ctitle'
+import Cnav from './Cnav'
+import Cupload from './Cupload'
 import Image from 'next/image'
-import LeafImage from '../../../public/images/leaf.png'
-import theme from '../theme'
-import Cstepper from '../Cstepper'
-import Ctextfield from '../Ctextfield'
-import Cselect from '../Cselect'
+import LeafImage from '../../public/images/leaf.png'
+import theme from './theme'
+import Cstepper from './Cstepper'
+import Cprofile from './Cprofile'
+import Ctextfield from './Ctextfield'
+import Cselect from './Cselect'
 import Stack from '@mui/material/Stack';
 import Chip from '@mui/material/Chip';
 import SearchIcon from '@mui/icons-material/Search';
@@ -60,21 +62,15 @@ const _ = () => {
 
 
     return (
-        <ThemeProvider theme={theme}>
-            <div className="flex flex-col h-screen w-screen bg-gray-400">
-                <Paper className="p-4 border border-white flex w-full justify-center items-center">
-                    <Ctitle opts="text-lg font-light" title="Matcha" />
-                    <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
-                    <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-4 text-xs md:text-base" />
-                </Paper>
-                <div className="w-full p-12 h-full">
-                    <Cstepper />
-                </div>
-                <Paper className="w-full p-4 border border-white flex flex-col justify-center items-center bg-gray-800">
-                    Copyright
-                </Paper>
+        <div className="h-full w-full rounded-lg p-8">
+                    <div className="flex flex-col gap-8 h-full">
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-gray-800 rounded-lg p-6">
+
+                <div className="text-sm font-thin mb-4">Add up to 5 pictures. They will be visible by other users.</div>
+                <Cupload name="Upload picture"/>
             </div>
-        </ThemeProvider>
+            </div>
+        </div>
     )
 }
 

@@ -42,7 +42,7 @@ const _: React.FC<ComponentProps> = ({ className, upload }) => {
             <div className="w-full h-full flex flex-col justify-center items-center">
                 <div className='w-full h-full'>
                 <Grid container spacing={4} className="flex flex-col w-full h-full justify-center items-center p-8 gap-2" >
-                    { upload &&<Cupload name="Upload file"/> }
+                    { upload && <Cupload name="Upload picture"/> }
                     { picture.length && 
                     <div className="flex flex-col h-full">
                         <div className="flex justify-center items-center h-full">
