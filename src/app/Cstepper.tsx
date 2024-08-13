@@ -50,7 +50,7 @@ const _: React.FC<ComponentProps> = () => {
             </Step>
             )) }
         </Stepper>
-        <div>
+        <div className="mx-48">
             <StepContent step={activeStep} />
         </div>
         <div className="flex justify-center items-center text-gray-800 w-full">
