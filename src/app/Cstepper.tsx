@@ -34,10 +34,15 @@ const _: React.FC<ComponentProps> = () => {
 
     const [activeStep, setActiveStep] = useState<number>(0);
     const [isStepValid, setIsStepValid] = useState(false)
+    const [alert, setAlert] = useState(false)
+    
   
     const handleNext = () => {
+      setAlert(false)
       if (isStepValid)
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
+      else
+        setAlert(true)
     };
   
     const handleBack = () => {
@@ -73,8 +78,8 @@ const _: React.FC<ComponentProps> = () => {
                 }
             </div>
         </div>
-        { !isStepValid &&
-          <Alert className="rounded-lg text-gray-800 mx-48" severity="info">You must complete all fields to create your profile.</Alert>
+        { !isStepValid && alert &&
+          <Alert className="rounded-lg text-gray-800 mx-48" severity="error">You must complete all fields to create your profile.</Alert>
         }
         { activeStep == steps.length - 1 ? <Button className="self-center mt-8" variant="contained">Create my profile</Button> : <></> }
       </div>

@@ -30,6 +30,7 @@ const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
     const [file, setFile] = useState<File | null>(null);
 
       useEffect(() => {
+        setIsValid(false)
         if (file && isValid)
             setIsValid(true);
     }, [file]);
