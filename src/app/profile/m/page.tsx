@@ -33,7 +33,7 @@ const age = 35
 const _ = () => {
     return (
         <ThemeProvider theme={theme}>
-            <div className="flex flex-col h-screen w-screen">
+            <div className="flex flex-col h-full w-full">
                 <Paper className="p-4 border border-white flex w-full justify-center items-center">
                     <Ctitle opts="text-lg font-light" title="Matcha" />
                     <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />

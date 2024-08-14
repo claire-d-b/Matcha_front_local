@@ -36,12 +36,11 @@ const _: React.FC<ComponentProps> = ({ required, setIsValid }) => {
 
     return (
         <div className="h-full w-full rounded-lg p-8">
-                    <div className="flex flex-col gap-8 h-full">
-                    <div className="w-full h-full flex flex-col items-center justify-center bg-gray-800 rounded-lg p-6">
-
-                <div className="text-sm font-thin mb-4">Add up to 5 pictures. They will be visible by other users.</div>
-                <Cupload name="Upload picture" handleFile={setFile} />
-            </div>
+            <div className="flex flex-col gap-8 h-full">
+                <div className="w-full h-full flex flex-col items-center justify-center bg-gray-800 rounded-lg p-6">
+                    <div className="text-sm font-thin mb-4">Add up to 5 pictures. They will be visible by other users.</div>
+                    <Cupload name="Upload picture" handleFile={setFile} />
+                </div>
             </div>
         </div>
     )

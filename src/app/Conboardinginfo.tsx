@@ -65,7 +65,8 @@ const _: React.FC<ComponentProps> = ({ required, setIsValid }) => {
 
     useEffect(() => {
         setIsValid(false)
-        if (!!language && !!city && !!hobbies && !!age)
+        console.log(hobbies.length)
+        if (!!language && !!city && hobbies.length > 1 && !!age)
             setIsValid(true)
     }, [language, city, hobbies, age]);
 

@@ -46,7 +46,7 @@ const _ = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className="flex flex-col h-screen w-screen justify-center items-stretch">
+      <div className="flex flex-col h-full w-full justify-center items-stretch">
           <Paper className="rounded-none h-full p-2 flex flex-col flex-grow flex-shrink-0 justify-center items-center text-lg font-thin">
             <form onSubmit={handleSubmit} className="w-full pt-10 gap-2 flex flex-col justify-center items-center">
               <Image className="w-24 h-auto" src={LeafImage} alt="matcha" />

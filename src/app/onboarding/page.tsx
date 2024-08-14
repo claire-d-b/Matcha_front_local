@@ -61,13 +61,13 @@ const _ = () => {
 
     return (
         <ThemeProvider theme={theme}>
-            <div className="flex flex-col h-screen w-screen bg-gray-400">
+            <div className="flex flex-col h-full w-full bg-gray-400">
                 <Paper className="p-4 border border-white flex w-full justify-center items-center">
                     <Ctitle opts="text-lg font-light" title="Matcha" />
                     <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
                     <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-4 text-xs md:text-base" />
                 </Paper>
-                <div className="w-full p-12 h-full">
+                <div className="flex w-full h-full p-12">
                     <Cstepper />
                 </div>
                 <Paper className="w-full p-4 border border-white flex flex-col justify-center items-center bg-gray-800">

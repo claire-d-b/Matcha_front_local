@@ -37,15 +37,15 @@ const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
     return (
         <div className="h-full w-full rounded-lg p-8">
             <div className="flex flex-col gap-8 h-full">
-            <div className="w-full h-full flex flex-col items-center justify-start bg-gray-800 rounded-lg p-6">
-                <div className="flex flex-col w-full justify-center items-center p-6">
-                    <div className="text-sm font-thin self-start mb-4">Choose your profile picture. It will be public.</div>
-                    <Cupload name="Upload picture" handleFile={setFile} />
-                </div>
-                <Cprofile className="w-full shadow-none p-6" edit={true} setIsValid={setIsValid} />
-                </div>
+                <div className="w-full h-full flex flex-col items-center justify-start bg-gray-800 rounded-lg p-6">
+                    <div className="flex flex-col w-full justify-center items-center p-6">
+                        <div className="text-sm font-thin self-start mb-4">Choose your profile picture. It will be public.</div>
+                        <Cupload name="Upload picture" handleFile={setFile} />
+                    </div>
+                    <Cprofile className="w-full shadow-none" edit={true} setIsValid={setIsValid} />
                 </div>
             </div>
+        </div>
     )
 }
 
