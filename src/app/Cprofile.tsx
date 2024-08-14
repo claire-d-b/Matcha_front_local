@@ -15,6 +15,7 @@ interface ComponentProps {
     imagePath?: any
     name?: any
     edit?: Boolean
+    required?: Boolean
 }
 
 const _: React.FC<ComponentProps> = ({ className, imagePath, name, edit}) => {
@@ -67,10 +68,10 @@ const _: React.FC<ComponentProps> = ({ className, imagePath, name, edit}) => {
                 <CardContent className='w-full flex flex-col gap-4'>
                     <div className="flex w-full gap-2">
                         <div className="w-full"><Cselect name="Gender" list={lst} variant="outlined" /></div>
-                        <Ctextfield opts="font-thin w-full" type="text" size="small" variant="outlined" label="First name" value={profileFirstName} multiline={false} onChange={handleFirstNameChange} disabled={false} />
-                        <Ctextfield opts="font-thin w-full" type="text" size="small" variant="outlined" label="Last name" value={profileLastName} multiline={false} onChange={handleLastNameChange} disabled={false} />
+                        <Ctextfield opts="font-thin w-full" type="text" size="small" variant="outlined" label="First name" value={profileFirstName} multiline={false} onChange={handleFirstNameChange} disabled={false} required />
+                        <Ctextfield opts="font-thin w-full" type="text" size="small" variant="outlined" label="Last name" value={profileLastName} multiline={false} onChange={handleLastNameChange} disabled={false} required />
                     </div>
-                    <Ctextfield opts="p-1 w-full" type="text" size="small" variant="outlined" label="biography" value={profileBio} multiline={true} rows={8} onChange={handleBioChange} disabled={false} />
+                    <Ctextfield opts="p-1 w-full" type="text" size="small" variant="outlined" label="Biography" value={profileBio} multiline={true} rows={8} onChange={handleBioChange} disabled={false} required />
                 </CardContent>
             </div>
         </Card>
