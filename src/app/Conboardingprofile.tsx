@@ -22,49 +22,17 @@ const lst = ['M', 'F', '-']
 
 interface ComponentProps {
     required?: any
+    isValid: any
     setIsValid: any
 }
 
-const _: React.FC<ComponentProps> = ({ required, setIsValid }) => {
-    const [language, setLanguage] = useState('')
-    const [city, setCity] = useState('')
-    const [hobbies, setHobbies] = useState([''])
-    const [hobby, setHobby] = useState('')
-    const [age, setAge] = useState('')
+const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
+    const [file, setFile] = useState<File | null>(null);
 
-    const handleLanguageChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setLanguage(e.target.value)
-    }
-    const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setCity(e.target.value)
-    }
-
-    const handleAge = (e: ChangeEvent<HTMLInputElement>) => {
-        setAge(e.target.value)
-    }
-
-    const handleHobby = (e: ChangeEvent<HTMLInputElement>) => {
-        setHobby(e.target.value)
-    }
-
-    const addHobbies = () => {
-        if (hobby.length) {
-        const nhobbies = [...hobbies]
-        nhobbies.push(hobby)
-        setHobbies(nhobbies)
-        }
-    }
-
-    const handleDelete = (e: ChangeEvent<HTMLInputElement>) => {
-        const nhobbies = [...hobbies]
-        nhobbies.splice(hobbies.indexOf(e.target.value), 1)
-        setHobbies(nhobbies)
-    }
-
-    useEffect(() => {
-        console.log("chip array has changed")
-    }, [hobbies]);
-
+      useEffect(() => {
+        if (file && isValid)
+            setIsValid(true);
+    }, [file]);
 
     return (
         <div className="h-full w-full rounded-lg p-8">
@@ -72,9 +40,9 @@ const _: React.FC<ComponentProps> = ({ required, setIsValid }) => {
             <div className="w-full h-full flex flex-col items-center justify-start bg-gray-800 rounded-lg p-6">
                 <div className="flex flex-col w-full justify-center items-center p-6">
                     <div className="text-sm font-thin self-start mb-4">Choose your profile picture. It will be public.</div>
-                    <Cupload name="Upload picture"/>
+                    <Cupload name="Upload picture" handleFile={setFile} />
                 </div>
-                <Cprofile className="w-full shadow-none p-6" edit={true} />
+                <Cprofile className="w-full shadow-none p-6" edit={true} setIsValid={setIsValid} />
                 </div>
                 </div>
             </div>

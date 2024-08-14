@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react'
+import React, { useState, useEffect, ChangeEvent } from 'react'
 import { Card, CardContent, CardMedia } from '@mui/material';
 import Chip from '@mui/material/Chip';
 import Ctextfield from './Ctextfield'
@@ -16,9 +16,10 @@ interface ComponentProps {
     name?: any
     edit?: Boolean
     required?: Boolean
+    setIsValid?: any
 }
 
-const _: React.FC<ComponentProps> = ({ className, imagePath, name, edit}) => {
+const _: React.FC<ComponentProps> = ({ className, imagePath, name, edit, setIsValid}) => {
     const [profileFirstName, setProfileFirstName] = useState('')
     const [profileLastName, setProfileLastName] = useState('')
     const [profileBio, setProfileBio] = useState('')
@@ -39,6 +40,17 @@ const _: React.FC<ComponentProps> = ({ className, imagePath, name, edit}) => {
     const handleLike = () => {
         setLike(l => !l)
     }
+
+      useEffect(() => {
+        if (!!profileFirstName && !!profileLastName && !!profileBio) {
+            setIsValid(true);
+            return;
+          }
+        else {
+            setIsValid(false);
+            return;
+        }
+    }, [profileFirstName, profileLastName, profileBio]);
 
     return (
         !edit && 

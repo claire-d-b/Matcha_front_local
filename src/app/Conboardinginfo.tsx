@@ -63,6 +63,12 @@ const _: React.FC<ComponentProps> = ({ required, setIsValid }) => {
         console.log("chip array has changed")
     }, [hobbies]);
 
+    useEffect(() => {
+        setIsValid(false)
+        if (!!language && !!city && !!hobbies && !!age)
+            setIsValid(true)
+    }, [language, city, hobbies, age]);
+
 
     return (
                 <div className="h-full w-full p-8">

@@ -26,45 +26,13 @@ interface ComponentProps {
 }
 
 const _: React.FC<ComponentProps> = ({ required, setIsValid }) => {
-    const [language, setLanguage] = useState('')
-    const [city, setCity] = useState('')
-    const [hobbies, setHobbies] = useState([''])
-    const [hobby, setHobby] = useState('')
-    const [age, setAge] = useState('')
+    const [file, setFile] = useState<File | null>(null);
 
-    const handleLanguageChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setLanguage(e.target.value)
-    }
-    const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setCity(e.target.value)
-    }
-
-    const handleAge = (e: ChangeEvent<HTMLInputElement>) => {
-        setAge(e.target.value)
-    }
-
-    const handleHobby = (e: ChangeEvent<HTMLInputElement>) => {
-        setHobby(e.target.value)
-    }
-
-    const addHobbies = () => {
-        if (hobby.length) {
-        const nhobbies = [...hobbies]
-        nhobbies.push(hobby)
-        setHobbies(nhobbies)
-        }
-    }
-
-    const handleDelete = (e: ChangeEvent<HTMLInputElement>) => {
-        const nhobbies = [...hobbies]
-        nhobbies.splice(hobbies.indexOf(e.target.value), 1)
-        setHobbies(nhobbies)
-    }
-
-    useEffect(() => {
-        console.log("chip array has changed")
-    }, [hobbies]);
-
+      useEffect(() => {
+        setIsValid(false)
+        if (file)
+            setIsValid(true);
+    }, [file]);
 
     return (
         <div className="h-full w-full rounded-lg p-8">
@@ -72,7 +40,7 @@ const _: React.FC<ComponentProps> = ({ required, setIsValid }) => {
                     <div className="w-full h-full flex flex-col items-center justify-center bg-gray-800 rounded-lg p-6">
 
                 <div className="text-sm font-thin mb-4">Add up to 5 pictures. They will be visible by other users.</div>
-                <Cupload name="Upload picture"/>
+                <Cupload name="Upload picture" handleFile={setFile} />
             </div>
             </div>
         </div>

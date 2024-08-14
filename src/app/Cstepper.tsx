@@ -10,14 +10,15 @@ interface ComponentProps {
   }
 
 interface StepContentProps {
-    step: number;
+    step: number
+    isStepValid: any
     setIsStepValid: any
   }
 
-const StepContent = ({ step, setIsStepValid }: StepContentProps) => {
+const StepContent = ({ step, isStepValid, setIsStepValid }: StepContentProps) => {
     switch (step) {
       case 0:
-        return <Conboardingprofile setIsValid={setIsStepValid} />;
+        return <Conboardingprofile isValid={isStepValid} setIsValid={setIsStepValid} />;
       case 1:
         return <Conboardinginfo setIsValid={setIsStepValid} />;
       case 2:
@@ -34,7 +35,7 @@ const _: React.FC<ComponentProps> = () => {
   
     const handleNext = () => {
       if (isStepValid)
-      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
   
     const handleBack = () => {
@@ -46,7 +47,7 @@ const _: React.FC<ComponentProps> = () => {
     };
 
   return (
-    <form className="w-full h-full flex flex-col">
+    <div className="w-full h-full flex flex-col">
         <Stepper activeStep={activeStep}>
             { steps.map((label, index) => ( <Step key={label}>
                 <StepLabel>{label}</StepLabel>
@@ -54,7 +55,7 @@ const _: React.FC<ComponentProps> = () => {
             )) }
         </Stepper>
         <div className="mx-48">
-            <StepContent step={activeStep} setIsStepValid />
+            <StepContent step={activeStep} isStepValid={isStepValid} setIsStepValid={setIsStepValid} />
         </div>
         <div className="flex justify-center items-center text-gray-800 w-full">
             <Button color="inherit" disabled={activeStep === 0} onClick={handleBack}>
@@ -71,7 +72,7 @@ const _: React.FC<ComponentProps> = () => {
             </div>
         </div>
         { activeStep == steps.length - 1 ? <Button className="self-center mt-8" variant="contained">Create my profile</Button> : <></> }
-      </form>
+      </div>
   );
 }
 
