@@ -20,7 +20,12 @@ import AddIcon from '@mui/icons-material/Add';
 
 const lst = ['M', 'F', '-']
 
-const _ = () => {
+interface ComponentProps {
+    required?: any
+    setIsValid: any
+}
+
+const _: React.FC<ComponentProps> = ({ required, setIsValid }) => {
     const [language, setLanguage] = useState('')
     const [city, setCity] = useState('')
     const [hobbies, setHobbies] = useState([''])

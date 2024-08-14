@@ -11,16 +11,17 @@ interface ComponentProps {
 
 interface StepContentProps {
     step: number;
+    setIsStepValid: any
   }
 
-const StepContent = ({ step }: StepContentProps) => {
+const StepContent = ({ step, setIsStepValid }: StepContentProps) => {
     switch (step) {
       case 0:
-        return <Conboardingprofile />;
+        return <Conboardingprofile setIsValid={setIsStepValid} />;
       case 1:
-        return <Conboardinginfo />;
+        return <Conboardinginfo setIsValid={setIsStepValid} />;
       case 2:
-        return <Conboardingpicture />;
+        return <Conboardingpicture setIsValid={setIsStepValid} />;
     //   default:
     //     return <div>Unknown step</div>;
     }
@@ -29,8 +30,10 @@ const StepContent = ({ step }: StepContentProps) => {
 const _: React.FC<ComponentProps> = () => {
 
     const [activeStep, setActiveStep] = useState<number>(0);
+    const [isStepValid, setIsStepValid] = useState(false)
   
     const handleNext = () => {
+      if (isStepValid)
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     };
   
@@ -51,7 +54,7 @@ const _: React.FC<ComponentProps> = () => {
             )) }
         </Stepper>
         <div className="mx-48">
-            <StepContent step={activeStep} />
+            <StepContent step={activeStep} setIsStepValid />
         </div>
         <div className="flex justify-center items-center text-gray-800 w-full">
             <Button color="inherit" disabled={activeStep === 0} onClick={handleBack}>
