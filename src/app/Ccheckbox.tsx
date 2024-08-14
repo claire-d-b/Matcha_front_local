@@ -4,7 +4,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import Ctextfield from './Ctextfield'
 import Cautocomplete from './Cautocomplete'
-import { Button } from '@mui/material'
 
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -25,11 +24,11 @@ const handleGap = (e: ChangeEvent<HTMLInputElement>) => {
 }
 
   return (
-    <div className="text-gray-800 w-full">
-        <div className="pb-4 pt-4 w-full">Filter by</div>
-          <FormGroup className={className}>
-          { values.length && values.map((v,i) => 
-          <div className="flex">
+    <div className={className}>
+        <div className="text-white p-4 flex gap-2 justify-start items-center">Filter by</div>
+          <FormGroup row className={className}>
+          { values.length && values.map((v,i) =>
+          <div className="flex gap-4 m-2">
             { i !== values.length - 1 && 
                 <div key={`value_${i}`}>
                     <FormControlLabel control={<Checkbox onChange={e => setFilter(e,i)} />} label={v} />
@@ -37,16 +36,13 @@ const handleGap = (e: ChangeEvent<HTMLInputElement>) => {
                     <Ctextfield opts="font-thin w-full" type="text" size="small" variant="outlined" label="interests" value={gap} multiline={false} onChange={handleGap} disabled={false} />
                   </div>
                 </div> ||
-                <div key={`value_${i}`} className="w-full flex flex-col justify-center items-start">
+                <div key={`value_${i}`} className="w-full flex flex-col justify-center items-start gap-2">
                   <FormControlLabel control={<Checkbox onChange={e => setFilter(e,i)} />} label={v} />
                 <div className="w-full">
-                  <Cautocomplete className="w-full flex flex-col" categories={categories} size="small" variant="outlined" />
+                  <Cautocomplete className="w-full flex flex-col" categories={categories} size="small" />
                 </div>
               </div> }
               </div>) }
-              <div className="self-end">
-                <Button variant="contained" color="primary" size="small">Apply</Button>
-              </div>
           </FormGroup>
     </div>
   );

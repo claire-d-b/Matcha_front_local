@@ -7,17 +7,16 @@ interface ComponentProps {
     className?: string
     categories: string[]
     size: any
-    variant: any
   }
 
-const _: React.FC<ComponentProps> = ({ className, categories, size, variant }) => {
+const _: React.FC<ComponentProps> = ({ className, categories, size }) => {
   return (
     <Autocomplete className={className} multiple options={categories.map(c => c)} defaultValue={[categories[1]]} freeSolo
         renderTags={(value: readonly string[], getTagProps) =>
           value.map((option: string, index: number) => {
             const { key, ...tagProps } = getTagProps({ index });
             return (
-              <Chip size={size} variant={variant} label={option} key={key} {...tagProps} />
+              <Chip size={size} label={option} key={key} {...tagProps} />
             );
           })
         }
