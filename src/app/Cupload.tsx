@@ -61,7 +61,7 @@ const _: React.FC<ComponentProps> = ({ name }) => {
           { name }
           <input type="file" hidden onChange={handleFileChange} />
         </Button>
-        <Ctextfield opts="" type="text" size="small" variant="outlined" label="Title" value={title} multiline={false} onChange={handleTitle} disabled={false} />
+        <Ctextfield opts="" type="text" size="small" variant="outlined" label="Title" value={title} multiline={false} onChange={handleTitle} disabled={false} required={true} />
         {file && <p>{ file.name }</p>}
         <Button variant="contained" color="primary" onClick={_ => handleUpload(fourpictures)} disabled={uploading || title?.length === 0}>
           <p className="text-white">{uploading ? 'Uploading...' : 'Add'}</p>

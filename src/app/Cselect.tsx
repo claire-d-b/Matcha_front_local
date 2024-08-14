@@ -9,9 +9,10 @@ interface ComponentProps {
     name: string
     list: string[]
     variant: any
+    required?: any
 }
 
-const _: React.FC<ComponentProps> = ({ className, name, list, variant }) => {
+const _: React.FC<ComponentProps> = ({ className, name, list, variant, required }) => {
   const [selectValue, setSelectValue] = React.useState('F');
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -20,9 +21,9 @@ const _: React.FC<ComponentProps> = ({ className, name, list, variant }) => {
 
   return (
     <div>
-      <FormControl fullWidth className={className}>
+      <FormControl fullWidth className={className} required={required}>
         <div><InputLabel>{ name }</InputLabel></div>
-        <Select size="small" value={selectValue} label={name} variant={variant} onChange={handleChange} >
+        <Select size="small" value={selectValue} label={name} variant={variant} onChange={handleChange} required={required}>
         { list.length && list.map((l,i) =>
             <MenuItem key={`list${i}`} value={l}>{ l }</MenuItem> )}
         </Select>
