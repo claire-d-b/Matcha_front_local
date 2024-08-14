@@ -84,7 +84,7 @@ const _ = () => {
                                 <Chip label={form.location ?? 'NA'} variant="outlined"/>
                             </Stack>
                         </Paper>
-                        <Paper className="p-8 rounded-lg flex flex-wrap gap-4 w-full font-thin">
+                        <Paper className="p-8 rounded-lg flex  gap-4 w-full font-thin">
                         <div className="w-full">Interests</div>
                         { form.interests && form.interests.split(",")?.map((h,i) =>
                             <FormGroup key={`interest_${i}`}>

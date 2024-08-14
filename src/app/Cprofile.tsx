@@ -63,11 +63,11 @@ const _: React.FC<ComponentProps> = ({ className, imagePath, name, edit}) => {
         </Card>
         ||
         <Card className={className}>
-            <div className="w-full p-8 gap-4 flex flex-col justify-center items-center">
+            <div className="w-full gap-4 flex flex-col justify-start items-center">
                 { imagePath && <CardMedia component="img" height="140" image={imagePath} alt="persona" className={className} /> }
                 <CardContent className='w-full flex flex-col gap-4'>
                     <div className="flex w-full gap-2">
-                        <div className="w-full"><Cselect name="Gender" list={lst} variant="outlined" /></div>
+                        <div className="w-full"><Cselect name="Gender" list={lst} variant="outlined" required /></div>
                         <Ctextfield opts="font-thin w-full" type="text" size="small" variant="outlined" label="First name" value={profileFirstName} multiline={false} onChange={handleFirstNameChange} disabled={false} required />
                         <Ctextfield opts="font-thin w-full" type="text" size="small" variant="outlined" label="Last name" value={profileLastName} multiline={false} onChange={handleLastNameChange} disabled={false} required />
                     </div>
