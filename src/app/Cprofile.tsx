@@ -42,15 +42,16 @@ const _: React.FC<ComponentProps> = ({ className, imagePath, name, edit, setIsVa
     }
 
       useEffect(() => {
-        if (!!profileFirstName && !!profileLastName && !!profileBio) {
-            setIsValid(true);
-            return;
-          }
-        else {
-            setIsValid(false);
-            return;
-        }
-    }, [profileFirstName, profileLastName, profileBio]);
+        if (setIsValid) {
+            if (!!profileFirstName && !!profileLastName && !!profileBio) {
+                setIsValid(true);
+                return;
+            }
+            else {
+                setIsValid(false);
+                return;
+            }
+    }}, [profileFirstName, profileLastName, profileBio]);
 
     return (
         !edit && 
