@@ -45,7 +45,7 @@ const _ = () => {
             </Paper>
             <div className="flex flex-col w-full justify-center items-start gap-2 pb-8 pl-8 bg-gray-700">
                 <Cradiogroup className="text-white" values={values} setSort={handleSort}/>
-                <Ccheckbox className="text-white flex justify-center items-center" values={values} setFilter={handleFilter}/>
+                <Ccheckbox className="text-white flex justify-center items-start" values={values} setFilter={handleFilter}/>
                 <div>
                     <div className="flex w-full"><Button variant="contained" color="primary" size="small">Apply</Button></div>
                 </div>
