@@ -24,7 +24,7 @@ const _ = () => {
                 <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-4 text-xs md:text-base" />
             </Paper>
             <div className="flex flex-col w-full justify-center items-start gap-2 py-8 px-8 bg-gray-700">
-                <div className="font-thin">Search</div>
+                <div>Search</div>
                 <Cautocomplete className="w-1/4" categories={categories} size="small" />
             </div>
             <div className="flex flex-col h-full justify-center items-center gap-6 overflow-scroll">
