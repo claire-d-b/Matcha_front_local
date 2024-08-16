@@ -6,8 +6,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import LeafImage from "../../../public/images/leaf.png";
 import Ctextfield from "../Ctextfield";
 import theme from "../theme";
-
-const API_URL = "http://127.0.0.1:5000";
+import { createUser } from "@/queries/user";
 
 const _ = () => {
   const [email, setEmail] = useState("");
@@ -16,8 +15,16 @@ const _ = () => {
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
+    // pas besoin de async avec axios
     e.preventDefault();
+    createUser({ username, password, email, firstName, lastName })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
     // await auth.signup(firstName, lastName, email, password);
   };
 
