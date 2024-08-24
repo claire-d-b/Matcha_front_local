@@ -15,16 +15,18 @@ const _ = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
+  const [id, setId] = useState();
 
   const handleSubmit = (e: FormEvent) => {
     // pas besoin de async avec axios
     e.preventDefault();
     createUser({ username, password, email, firstName, lastName })
       .then(function (response) {
-        console.log(response);
+        console.log("RESP", response);
+        // setId(response.user_uuid);
       })
       .catch(function (error) {
-        console.log(error);
+        console.log("EERROR:", error);
       });
     // await auth.signup(firstName, lastName, email, password);
   };
@@ -112,7 +114,7 @@ const _ = () => {
                 onChange={handlePasswordChange}
               />
             </div>
-            <Link href="/onboarding/" passHref>
+            <Link href={`/onboarding/${id}`} passHref>
               <Button
                 variant="contained"
                 type="submit"

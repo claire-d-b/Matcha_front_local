@@ -8,12 +8,14 @@ import LeafImage from "../../../public/images/leaf.png";
 import theme from "../theme";
 import { login } from "@/queries/user";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 const API_URL = "http://127.0.0.1:5000";
 
 const _ = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const { id } = useParams(); // Get the dynamic id
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -64,7 +66,7 @@ const _ = () => {
                 onChange={handlePasswordChange}
               />
             </div>
-            <Link href="/onboarding/" passHref>
+            <Link href={`/onboarding/${id}`} passHref>
               <Button
                 className="rounded-lg"
                 variant="contained"

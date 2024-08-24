@@ -15,6 +15,8 @@ import Chip from "@mui/material/Chip";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
+import { patchProfile } from "@/queries/user";
+import { useParams } from "next/navigation";
 
 const lst = ["M", "F", "-"];
 
@@ -31,6 +33,9 @@ const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
   const [hobby, setHobby] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("M");
+  const params = useParams();
+  const { user_uuid } = params; // Access the `id` route parameter
+  console.log(user_uuid);
 
   const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
@@ -72,8 +77,22 @@ const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
     console.log("city", !!city);
     console.log("city", !!gender);
     console.log("city", !!age);
-    if (!!gender && !!city && hobbies.length > 1 && !!age) setIsValid(true);
-    else setIsValid(false);
+    if (!!gender && !!city && hobbies.length > 1 && !!age) {
+      setIsValid(true);
+      patchProfile({
+        gender,
+        hobbies,
+        age,
+        city,
+        user_uuid,
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } else setIsValid(false);
   }, [city, hobbies, age, gender]);
 
   return (

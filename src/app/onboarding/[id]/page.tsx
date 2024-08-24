@@ -2,14 +2,14 @@
 
 import React, { useState, useEffect, ChangeEvent } from "react";
 import { ThemeProvider, Paper, Button } from "@mui/material";
-import Ctitle from "../Ctitle";
-import Cnav from "../Cnav";
+import Ctitle from "../../Ctitle";
+import Cnav from "../../Cnav";
 import Image from "next/image";
-import LeafImage from "../../../public/images/leaf.png";
-import theme from "../theme";
-import Cstepper from "../Cstepper";
-import Ctextfield from "../Ctextfield";
-import Cselect from "../Cselect";
+import LeafImage from "../../../../public/images/leaf.png";
+import theme from "../../theme";
+import Cstepper from "../../Cstepper";
+import Ctextfield from "../../Ctextfield";
+import Cselect from "../../Cselect";
 import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
 import SearchIcon from "@mui/icons-material/Search";
@@ -19,41 +19,6 @@ import AddIcon from "@mui/icons-material/Add";
 const lst = ["M", "F", "-"];
 
 const _ = () => {
-  const [language, setLanguage] = useState("");
-  const [city, setCity] = useState("");
-  const [hobbies, setHobbies] = useState([""]);
-  const [hobby, setHobby] = useState("");
-  const [age, setAge] = useState("");
-
-  const handleLanguageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setLanguage(e.target.value);
-  };
-  const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCity(e.target.value);
-  };
-
-  const handleAge = (e: ChangeEvent<HTMLInputElement>) => {
-    setAge(e.target.value);
-  };
-
-  const handleHobby = (e: ChangeEvent<HTMLInputElement>) => {
-    setHobby(e.target.value);
-  };
-
-  const addHobbies = () => {
-    if (hobby.length) {
-      const nhobbies = [...hobbies];
-      nhobbies.push(hobby);
-      setHobbies(nhobbies);
-    }
-  };
-
-  const handleDelete = (e: ChangeEvent<HTMLInputElement>) => {
-    const nhobbies = [...hobbies];
-    nhobbies.splice(hobbies.indexOf(e.target.value), 1);
-    setHobbies(nhobbies);
-  };
-
   //   useEffect(() => {
   //     console.log("chip array has changed");
   //   }, [hobbies]);

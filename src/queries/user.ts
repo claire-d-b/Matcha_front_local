@@ -26,27 +26,29 @@ export const getProfile = (user_uuid) => {
   return request.get(`http://localhost:5000/profile/<${user_uuid}>`, {});
 };
 
-export const createProfile = ({
-  first_name,
-  last_name,
-  sex,
+export const patchProfile = ({
+  profileFirstName,
+  profileLastName,
+  gender,
   preference,
-  tags,
-  biography,
-  fame_rating,
-  latitude,
-  longitude,
+  hobbies,
+  profileBio,
+  age,
+  points,
+  city,
   user_uuid,
 }) => {
-  return request.post("http://localhost:5000/change_profile", {
-    last_name: last_name,
-    sex: sex,
+  return request.post(`http://localhost:5000/patch_profile/${user_uuid}`, {
+    first_name: profileFirstName,
+    last_name: profileLastName,
+    sex: gender,
     preference: preference,
-    tags: tags,
-    biography: biography,
-    fame_rating: fame_rating,
-    latitude: latitude,
-    longitude: longitude,
+    tags: hobbies,
+    biography: profileBio,
+    age: age,
+    fame_rating: points,
+    latitude: city,
+    longitude: city,
     user_uuid: user_uuid,
   });
 };

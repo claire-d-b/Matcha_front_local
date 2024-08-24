@@ -17,7 +17,7 @@ import Stack from "@mui/material/Stack";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
-import { createProfile } from "@/queries/user";
+import { patchProfile } from "@/queries/user";
 import { useRouter } from "next/router";
 import { useParams } from "next/navigation";
 import Crating from "./Crating";
@@ -26,8 +26,8 @@ const lst = ["M", "F", "-"];
 
 const _ = () => {
   const params = useParams();
-  const { id } = params; // Access the `id` route parameter
-  console.log(id);
+  const { user_uuid } = params; // Access the `id` route parameter
+  console.log(user_uuid);
 
   const [city, setCity] = useState("");
   const [hobbies, setHobbies] = useState([""]);
@@ -74,17 +74,13 @@ const _ = () => {
     e.preventDefault;
     const router = useRouter();
     const { id } = router.query; // Extract the dynamic id from the URL
-    createProfile({
-      first_name: profileFirstName,
-      last_name: profileLastName,
-      sex: gender,
-      preference: preference,
-      tags: hobbies,
-      biography: profileBio,
-      fame_rating: points,
-      latitude: 0,
-      longitude: 0,
-      user_uuid: params,
+    patchProfile({
+      preference,
+      hobbies,
+      profileBio,
+      age,
+      city,
+      user_uuid,
     })
       .then(function (response) {
         console.log("RESP:", response);
