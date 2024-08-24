@@ -28,9 +28,13 @@ const StepContent = ({
         <Conboardingprofile isValid={isStepValid} setIsValid={setIsStepValid} />
       );
     case 1:
-      return <Conboardinginfo setIsValid={setIsStepValid} />;
+      return (
+        <Conboardinginfo isValid={isStepValid} setIsValid={setIsStepValid} />
+      );
     case 2:
-      return <Conboardingpicture setIsValid={setIsStepValid} />;
+      return (
+        <Conboardingpicture isValid={isStepValid} setIsValid={setIsStepValid} />
+      );
     //   default:
     //     return <div>Unknown step</div>;
   }

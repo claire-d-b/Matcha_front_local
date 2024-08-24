@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -9,6 +9,7 @@ interface ComponentProps {
   name: string;
   list: string[];
   value?: any;
+  defaultValue?: any;
   onChange?: any;
   variant: any;
   required?: any;
@@ -23,7 +24,7 @@ const _: React.FC<ComponentProps> = ({
   variant,
   required,
 }) => {
-  const [selectValue, setSelectValue] = React.useState("F");
+  const [selectValue, setSelectValue] = useState(value);
 
   const handleChange = (event: SelectChangeEvent) => {
     setSelectValue(event.target.value);
