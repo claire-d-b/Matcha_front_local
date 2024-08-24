@@ -29,22 +29,17 @@ const _ = () => {
   const { id } = params; // Access the `id` route parameter
   console.log(id);
 
-  const [language, setLanguage] = useState("");
   const [city, setCity] = useState("");
   const [hobbies, setHobbies] = useState([""]);
   const [hobby, setHobby] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
   const [preference, setPreference] = useState("");
-  const [data, setData] = useState({});
   const [profileFirstName, setProfileFirstName] = useState("");
   const [profileLastName, setProfileLastName] = useState("");
   const [profileBio, setProfileBio] = useState("");
   const [points, setPoints] = useState(0.0);
 
-  const handleLanguageChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setLanguage(e.target.value);
-  };
   const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
   };
@@ -139,30 +134,17 @@ const _ = () => {
                 <IconButton size="small" disabled>
                   <SearchIcon />
                 </IconButton>
-                <Stack direction="row" spacing={1}>
-                  <Ctextfield
-                    opts=""
-                    type="text"
-                    size="small"
-                    variant="outlined"
-                    label="Language"
-                    value={language}
-                    multiline={false}
-                    onChange={handleLanguageChange}
-                    disabled={false}
-                  />
-                  <Ctextfield
-                    opts=""
-                    type="text"
-                    size="small"
-                    variant="outlined"
-                    label="City"
-                    value={city}
-                    multiline={false}
-                    onChange={handleCityChange}
-                    disabled={false}
-                  />
-                </Stack>
+                <Ctextfield
+                  opts=""
+                  type="text"
+                  size="small"
+                  variant="outlined"
+                  label="City"
+                  value={city}
+                  multiline={false}
+                  onChange={handleCityChange}
+                  disabled={false}
+                />
               </Paper>
             </div>
             <Paper className="p-8 rounded-lg text-lg font-thin flex flex-col w-full justify-center items-between gap-4">
@@ -205,12 +187,12 @@ const _ = () => {
               </div>
             </Paper>
             <div className="flex flex-col md:flex-row w-full gap-4">
-              <Paper className="w-1/2 p-8 rounded-lg flex flex-col gap-4 w-full font-thin justify-center items-start">
+              <Paper className="w-full p-8 rounded-lg flex flex-col gap-4 w-full font-thin justify-center items-start">
                 <div className="flex items-center justify-start gap-2 font-thin">
                   Sexual preferences
                 </div>
                 {/* <Ctextfield opts="w-full rounded-lg p-4 text-sm" type="text" size="small" variant="outlined" multiline={true} rows={6} value={objective} onChange={handleObjective} /> */}
-                <div className="w-full flex justify-start items-center gap-2">
+                <div className="w-full flex flex-col md:flex-row justify-start items-start gap-4">
                   <Ctextfield
                     opts="self-start"
                     type="text"
@@ -231,7 +213,7 @@ const _ = () => {
                   />
                 </div>
               </Paper>
-              <Paper className="w-1/2 rounded-lg">
+              <Paper className="w-full rounded-lg">
                 <a
                   href="/profile/picture/"
                   className="p-8 flex w-full font-thin text-md justify-center items-start"
