@@ -49,6 +49,7 @@ const _ = () => {
   const { id } = params; // Access the `id` route parameter
   console.log(id);
   const [data, setData] = useState({});
+  const [points, setPoints] = useState(0.0);
   const form = {
     firstname: "Emma",
     location: "London",
@@ -94,7 +95,12 @@ const _ = () => {
             />
             <div className="w-full p-8 gap-4 flex flex-col justify-center items-center">
               <Paper className="p-8 rounded-lg w-full font-thin">
-                <Crating className="w-full" rating={2.5} precision={0.5} />
+                <Crating
+                  className="w-full"
+                  rating={points}
+                  setPoints={setPoints}
+                  precision={0.5}
+                />
               </Paper>
               <Paper className="p-8 rounded-lg flex flex-col gap-4 w-full font-thin">
                 <div className="flex items-center justify-start gap-2">

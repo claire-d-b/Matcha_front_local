@@ -7,6 +7,7 @@ import LeafImage from "../../../public/images/leaf.png";
 import Ctextfield from "../Ctextfield";
 import theme from "../theme";
 import { createUser } from "@/queries/user";
+import Link from "next/link";
 
 const _ = () => {
   const [email, setEmail] = useState("");
@@ -111,14 +112,19 @@ const _ = () => {
                 onChange={handlePasswordChange}
               />
             </div>
-            <Button
-              variant="contained"
-              type="submit"
-              className="rounded-lg"
-              size="small"
+            <Link
+              href="/profile/f/0e531c73-6815-4e98-89da-90172af5d324"
+              passHref
             >
-              Login
-            </Button>
+              <Button
+                variant="contained"
+                type="submit"
+                className="rounded-lg"
+                size="small"
+              >
+                Login
+              </Button>
+            </Link>
           </form>
         </Paper>
       </div>

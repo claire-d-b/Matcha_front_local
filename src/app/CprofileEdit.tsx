@@ -17,9 +17,10 @@ import Stack from "@mui/material/Stack";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
-import { getProfile } from "@/queries/user";
+import { createProfile } from "@/queries/user";
 import { useRouter } from "next/router";
 import { useParams } from "next/navigation";
+import Crating from "./Crating";
 
 const lst = ["M", "F", "-"];
 
@@ -33,16 +34,23 @@ const _ = () => {
   const [hobbies, setHobbies] = useState([""]);
   const [hobby, setHobby] = useState("");
   const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
+  const [preference, setPreference] = useState("");
   const [data, setData] = useState({});
   const [profileFirstName, setProfileFirstName] = useState("");
   const [profileLastName, setProfileLastName] = useState("");
   const [profileBio, setProfileBio] = useState("");
+  const [points, setPoints] = useState(0.0);
 
   const handleLanguageChange = (e: ChangeEvent<HTMLInputElement>) => {
     setLanguage(e.target.value);
   };
   const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
+  };
+
+  const handlePreference = (e: ChangeEvent<HTMLInputElement>) => {
+    setPreference(e.target.value);
   };
 
   const handleAge = (e: ChangeEvent<HTMLInputElement>) => {
@@ -71,7 +79,18 @@ const _ = () => {
     e.preventDefault;
     const router = useRouter();
     const { id } = router.query; // Extract the dynamic id from the URL
-    getProfile({ id })
+    createProfile({
+      first_name: profileFirstName,
+      last_name: profileLastName,
+      sex: gender,
+      preference: preference,
+      tags: hobbies,
+      biography: profileBio,
+      fame_rating: points,
+      latitude: 0,
+      longitude: 0,
+      user_uuid: params,
+    })
       .then(function (response) {
         console.log(response);
       })
@@ -99,43 +118,53 @@ const _ = () => {
             setProfileFirstName={setProfileFirstName}
             setProfileLastName={setProfileLastName}
             setProfileBio={setProfileBio}
+            gender={gender}
+            setGender={setGender}
           />
           <form
             onSubmit={handleSubmit}
             className="w-full p-8 gap-4 flex flex-col justify-center items-center"
           >
-            <Paper className="p-8 rounded-lg flex flex-col gap-4 w-full text-lg font-thin">
-              <div className="flex items-center justify-start gap-2">
+            <div className="rounded-lg flex flex-col gap-4 w-full text-lg font-thin">
+              <Paper className="p-8 w-full font-thin text-md rounded-lg">
+                <Crating
+                  className="w-full"
+                  rating={points}
+                  setPoints={setPoints}
+                  precision={0.5}
+                />
+              </Paper>
+              <Paper className="flex flex-col md:flex-row flex-wrap items-center justify-start gap-2 p-8">
                 <div className="font-thin text-md">Location</div>
                 <IconButton size="small" disabled>
                   <SearchIcon />
                 </IconButton>
-              </div>
-              <Stack direction="row" spacing={1}>
-                <Ctextfield
-                  opts=""
-                  type="text"
-                  size="small"
-                  variant="outlined"
-                  label="Language"
-                  value={language}
-                  multiline={false}
-                  onChange={handleLanguageChange}
-                  disabled={false}
-                />
-                <Ctextfield
-                  opts=""
-                  type="text"
-                  size="small"
-                  variant="outlined"
-                  label="City"
-                  value={city}
-                  multiline={false}
-                  onChange={handleCityChange}
-                  disabled={false}
-                />
-              </Stack>
-            </Paper>
+                <Stack direction="row" spacing={1}>
+                  <Ctextfield
+                    opts=""
+                    type="text"
+                    size="small"
+                    variant="outlined"
+                    label="Language"
+                    value={language}
+                    multiline={false}
+                    onChange={handleLanguageChange}
+                    disabled={false}
+                  />
+                  <Ctextfield
+                    opts=""
+                    type="text"
+                    size="small"
+                    variant="outlined"
+                    label="City"
+                    value={city}
+                    multiline={false}
+                    onChange={handleCityChange}
+                    disabled={false}
+                  />
+                </Stack>
+              </Paper>
+            </div>
             <Paper className="p-8 rounded-lg text-lg font-thin flex flex-col w-full justify-center items-between gap-4">
               <div className="font-thin text-md">Interests</div>
               <div className="flex flex-col justify-center items-start">
@@ -196,6 +225,8 @@ const _ = () => {
                     className="w-full"
                     name="Gender"
                     list={lst}
+                    value={preference}
+                    onChange={handlePreference}
                     variant="outlined"
                   />
                 </div>

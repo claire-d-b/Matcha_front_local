@@ -24,6 +24,8 @@ interface ComponentProps {
   setProfileFirstName?: any;
   setProfileLastName?: any;
   setProfileBio?: any;
+  gender?: any;
+  setGender?: any;
 }
 
 const _: React.FC<ComponentProps> = ({
@@ -38,6 +40,8 @@ const _: React.FC<ComponentProps> = ({
   setProfileFirstName,
   setProfileLastName,
   setProfileBio,
+  gender,
+  setGender,
 }) => {
   //   const [profileFirstName, setProfileFirstName] = useState("");
   //   const [profileLastName, setProfileLastName] = useState("");
@@ -53,6 +57,10 @@ const _: React.FC<ComponentProps> = ({
 
   const handleBioChange = (e: ChangeEvent<HTMLInputElement>) => {
     setProfileBio(e.target.value);
+  };
+
+  const handleGender = (e: ChangeEvent<HTMLInputElement>) => {
+    setGender(e.target.value);
   };
   const [like, setLike] = useState(false);
 
@@ -118,7 +126,14 @@ const _: React.FC<ComponentProps> = ({
           <CardContent className="w-full flex flex-col gap-4">
             <div className="flex w-full gap-2">
               <div className="w-full">
-                <Cselect name="Gender" list={lst} variant="outlined" required />
+                <Cselect
+                  name="Gender"
+                  list={lst}
+                  value={gender}
+                  onChange={handleGender}
+                  variant="outlined"
+                  required
+                />
               </div>
               <Ctextfield
                 opts="font-thin w-full"
