@@ -144,6 +144,7 @@ const _ = () => {
                   multiline={false}
                   onChange={handleCityChange}
                   disabled={false}
+                  required
                 />
               </Paper>
             </div>
@@ -160,6 +161,7 @@ const _ = () => {
                     value={hobby}
                     multiline={false}
                     onChange={handleHobby}
+                    required
                   />
                   {hobbies.length &&
                     hobbies.map((h, i) => (
@@ -192,25 +194,31 @@ const _ = () => {
                   Sexual preferences
                 </div>
                 {/* <Ctextfield opts="w-full rounded-lg p-4 text-sm" type="text" size="small" variant="outlined" multiline={true} rows={6} value={objective} onChange={handleObjective} /> */}
-                <div className="w-full flex flex-col md:flex-row justify-start items-start gap-4">
-                  <Ctextfield
-                    opts="self-start"
-                    type="text"
-                    size="small"
-                    variant="outlined"
-                    label={"Age"}
-                    value={age}
-                    multiline={false}
-                    onChange={handleAge}
-                  />
-                  <Cselect
-                    className="w-full"
-                    name="Gender"
-                    list={lst}
-                    value={preference}
-                    onChange={handlePreference}
-                    variant="outlined"
-                  />
+                <div className="w-full flex flex-col justify-start items-start gap-4">
+                  <div className="w-full">
+                    <Ctextfield
+                      opts="w-full"
+                      type="text"
+                      size="small"
+                      variant="outlined"
+                      label={"Age"}
+                      value={age}
+                      multiline={false}
+                      onChange={handleAge}
+                      required
+                    />
+                  </div>
+                  <div className="w-full">
+                    <Cselect
+                      className=""
+                      name="Gender"
+                      list={lst}
+                      value={preference}
+                      onChange={handlePreference}
+                      variant="outlined"
+                      required
+                    />
+                  </div>
                 </div>
               </Paper>
               <Paper className="w-full rounded-lg">
