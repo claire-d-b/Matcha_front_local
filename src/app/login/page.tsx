@@ -64,10 +64,7 @@ const _ = () => {
                 onChange={handlePasswordChange}
               />
             </div>
-            <Link
-              href="/profile/f/0e531c73-6815-4e98-89da-90172af5d324"
-              passHref
-            >
+            <Link href="/onboarding/" passHref>
               <Button
                 className="rounded-lg"
                 variant="contained"

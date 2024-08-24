@@ -87,7 +87,7 @@ const _ = () => {
       user_uuid: params,
     })
       .then(function (response) {
-        console.log(response);
+        console.log("RESP:", response);
       })
       .catch(function (error) {
         console.log(error);
