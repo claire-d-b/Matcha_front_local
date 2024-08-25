@@ -17,6 +17,8 @@ import Chip from "@mui/material/Chip";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
+import { patchProfile } from "@/queries/user";
+import { useParams } from "next/navigation";
 
 const lst = ["M", "F", "-"];
 
@@ -36,10 +38,26 @@ const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
   const [profileFirstName, setProfileFirstName] = useState("");
   const [profileLastName, setProfileLastName] = useState("");
   const [profileBio, setProfileBio] = useState("");
+  const params = useParams();
+  const { user_uuid } = params; // Access the `id` route parameter
 
   useEffect(() => {
-    if (file) setIsValid(true);
-    else setIsValid(false);
+    if (file) {
+      setIsValid(true);
+      patchProfile({
+        profileFirstName,
+        profileLastName,
+        profileBio,
+        gender,
+        user_uuid,
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    } else setIsValid(false);
   }, [file]);
 
   return (

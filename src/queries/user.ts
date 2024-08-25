@@ -38,7 +38,7 @@ export const patchProfile = ({
   city,
   user_uuid,
 }) => {
-  return request.post(`http://localhost:5000/patch_profile/${user_uuid}`, {
+  return request.patch(`http://localhost:5000/patch_profile/${user_uuid}`, {
     first_name: profileFirstName,
     last_name: profileLastName,
     sex: gender,

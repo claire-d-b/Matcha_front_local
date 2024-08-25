@@ -8,6 +8,7 @@ import Ctextfield from "../Ctextfield";
 import theme from "../theme";
 import { createUser } from "@/queries/user";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // for app directory
 
 const _ = () => {
   const [email, setEmail] = useState("");
@@ -15,21 +16,40 @@ const _ = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
-  const [id, setId] = useState();
+  const [id, setId] = useState("");
+  const router = useRouter();
 
-  const handleSubmit = (e: FormEvent) => {
-    // pas besoin de async avec axios
-    e.preventDefault();
+  const handleClick = () => {
+    // Perform your action here
     createUser({ username, password, email, firstName, lastName })
       .then(function (response) {
         console.log("RESP", response);
-        // setId(response.user_uuid);
+        // Perform any action you need here
+        console.log("Button clicked!");
+
+        // Navigate to the profile page
+        router.push(`/onboarding/${response.data.user_uuid}`);
+        setId(response.data.user_uuid);
       })
       .catch(function (error) {
-        console.log("EERROR:", error);
+        console.log(error);
       });
-    // await auth.signup(firstName, lastName, email, password);
   };
+
+  // const handleSubmit = (e: FormEvent) => {
+  //   // pas besoin de async avec axios
+  //   console.log("ICI");
+  //   e.preventDefault();
+  //   createUser({ username, password, email, firstName, lastName })
+  //     .then(function (response) {
+  //       console.log("RESP", response);
+  //       // setId(response.user_uuid);
+  //     })
+  //     .catch(function (error) {
+  //       console.log("EERROR:", error);
+  //     });
+  //   // await auth.signup(firstName, lastName, email, password);
+  // };
 
   const handleFirstNameChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFirstName(e.target.value);
@@ -55,10 +75,7 @@ const _ = () => {
     <ThemeProvider theme={theme}>
       <div className="flex flex-col h-full w-full justify-center items-stretch">
         <Paper className="rounded-none h-full p-2 flex flex-col flex-grow flex-shrink-0 justify-center items-center text-lg font-thin">
-          <form
-            onSubmit={handleSubmit}
-            className="w-full pt-10 gap-2 flex flex-col justify-center items-center"
-          >
+          <div className="w-full pt-10 gap-2 flex flex-col justify-center items-center">
             <Image className="w-24 h-auto" src={LeafImage} alt="matcha" />
             <div className="w-full flex flex-col md:flex-row gap-2 justify-center items-center mb-2">
               <Ctextfield
@@ -114,17 +131,15 @@ const _ = () => {
                 onChange={handlePasswordChange}
               />
             </div>
-            <Link href={`/onboarding/${id}`} passHref>
-              <Button
-                variant="contained"
-                type="submit"
-                className="rounded-lg"
-                size="small"
-              >
-                Login
-              </Button>
-            </Link>
-          </form>
+            <Button
+              variant="contained"
+              onClick={handleClick}
+              className="rounded-lg"
+              size="small"
+            >
+              Login
+            </Button>
+          </div>
         </Paper>
       </div>
     </ThemeProvider>

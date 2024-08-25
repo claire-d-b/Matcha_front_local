@@ -72,8 +72,6 @@ const _ = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault;
-    const router = useRouter();
-    const { id } = router.query; // Extract the dynamic id from the URL
     patchProfile({
       preference,
       hobbies,
