@@ -5,10 +5,13 @@ import Conboardingpicture from "./Conboardingpicture";
 import { Button, Stepper, Step, StepLabel, Box } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import { useRouter } from "next/navigation"; // for app directory
+import { patchProfile } from "@/queries/user";
+import { useParams } from "next/navigation";
 
 const steps = ["Create your profile", "Set your information", "Add pictures"];
 
 interface ComponentProps {
+  user_uuid: any;
   className: any;
 }
 
@@ -107,7 +110,7 @@ const StepContent = ({
   }
 };
 
-const _: React.FC<ComponentProps> = ({ className }) => {
+const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [isStepValid, setIsStepValid] = useState(false);
   const [alert, setAlert] = useState(false);
@@ -122,7 +125,8 @@ const _: React.FC<ComponentProps> = ({ className }) => {
   const [profileBio, setProfileBio] = useState("");
   const [hobbies, setHobbies] = useState([""]);
   const [points, setPoints] = useState(0.0);
-  const router = useRouter();
+
+  console.log("uuid:::", user_uuid);
 
   const handleNext = () => {
     setAlert(false);
@@ -138,7 +142,7 @@ const _: React.FC<ComponentProps> = ({ className }) => {
     setActiveStep(0);
   };
 
-  const handleSubmit = () => {
+  const handleClick = () => {
     patchProfile({
       profileFirstName,
       profileLastName,
@@ -152,8 +156,9 @@ const _: React.FC<ComponentProps> = ({ className }) => {
       user_uuid,
     })
       .then(function (response) {
+        console.log(response);
         // Navigate to the profile page
-        router.push(`/onboarding/${response.data.user_uuid}`);
+        // router.push(`/onboarding/${response.data.user_uuid}`);
       })
       .catch(function (error) {
         console.log(error);
@@ -161,7 +166,7 @@ const _: React.FC<ComponentProps> = ({ className }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full h-full flex flex-col">
+    <div className="w-full h-full flex flex-col">
       <Stepper className={className} activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label}>
@@ -222,13 +227,17 @@ const _: React.FC<ComponentProps> = ({ className }) => {
         </Alert>
       )}
       {activeStep == steps.length - 1 ? (
-        <Button type="submit" className="self-center mt-8" variant="contained">
+        <Button
+          onClick={handleClick}
+          className="self-center mt-8"
+          variant="contained"
+        >
           Create my profile
         </Button>
       ) : (
         <></>
       )}
-    </form>
+    </div>
   );
 };
 

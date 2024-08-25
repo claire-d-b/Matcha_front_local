@@ -15,8 +15,6 @@ import Chip from "@mui/material/Chip";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
-import { patchProfile } from "@/queries/user";
-import { useParams } from "next/navigation";
 
 const lst = ["M", "F", "-"];
 
@@ -51,10 +49,6 @@ const _: React.FC<ComponentProps> = ({
   preference,
   setPreference,
 }) => {
-  const params = useParams();
-  const { user_uuid } = params; // Access the `id` route parameter
-  console.log(user_uuid);
-
   const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
   };
