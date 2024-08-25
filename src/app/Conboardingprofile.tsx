@@ -19,6 +19,7 @@ import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 import { patchProfile } from "@/queries/user";
 import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation"; // for app directory
 
 const lst = ["M", "F", "-"];
 
@@ -26,37 +27,38 @@ interface ComponentProps {
   required?: any;
   isValid: any;
   setIsValid: any;
+  file: any;
+  setFile: any;
+  profileFirstName: any;
+  setProfileFirstName: any;
+  profileLastName: any;
+  setProfileLastName: any;
+  profileBio: any;
+  setProfileBio: any;
+  gender: any;
+  setGender: any;
 }
 
-const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
-  const [file, setFile] = useState<File | null>(null);
-  const [city, setCity] = useState("");
-  const [hobby, setHobby] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("M");
-  const [preference, setPreference] = useState("");
-  const [profileFirstName, setProfileFirstName] = useState("");
-  const [profileLastName, setProfileLastName] = useState("");
-  const [profileBio, setProfileBio] = useState("");
-  const params = useParams();
-  const { user_uuid } = params; // Access the `id` route parameter
+const _: React.FC<ComponentProps> = ({
+  required,
+  isValid,
+  setIsValid,
+  file,
+  setFile,
+  profileFirstName,
+  setProfileFirstName,
+  profileLastName,
+  setProfileLastName,
+  profileBio,
+  setProfileBio,
+  gender,
+  setGender,
+}) => {
+  const router = useRouter();
 
   useEffect(() => {
     if (file) {
       setIsValid(true);
-      patchProfile({
-        profileFirstName,
-        profileLastName,
-        profileBio,
-        gender,
-        user_uuid,
-      })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
     } else setIsValid(false);
   }, [file]);
 

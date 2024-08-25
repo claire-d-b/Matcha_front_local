@@ -24,15 +24,33 @@ interface ComponentProps {
   required?: any;
   isValid: any;
   setIsValid: any;
+  city: any;
+  setCity: any;
+  hobby: any;
+  setHobby: any;
+  hobbies: any;
+  setHobbies: any;
+  age: any;
+  setAge: any;
+  preference: any;
+  setPreference: any;
 }
 
-const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
-  const [language, setLanguage] = useState("");
-  const [city, setCity] = useState("");
-  const [hobbies, setHobbies] = useState([""]);
-  const [hobby, setHobby] = useState("");
-  const [age, setAge] = useState("");
-  const [gender, setGender] = useState("M");
+const _: React.FC<ComponentProps> = ({
+  required,
+  isValid,
+  setIsValid,
+  city,
+  setCity,
+  hobby,
+  setHobby,
+  hobbies,
+  setHobbies,
+  age,
+  setAge,
+  preference,
+  setPreference,
+}) => {
   const params = useParams();
   const { user_uuid } = params; // Access the `id` route parameter
   console.log(user_uuid);
@@ -49,9 +67,9 @@ const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
     setHobby(e.target.value);
   };
 
-  const handleGender = (e: ChangeEvent<HTMLInputElement>) => {
-    setGender(e.target.value);
-    console.log("GENDER:", gender);
+  const handlepreference = (e: ChangeEvent<HTMLInputElement>) => {
+    setPreference(e.target.value);
+    console.log("preference:", preference);
   };
 
   const addHobbies = () => {
@@ -75,25 +93,12 @@ const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
   useEffect(() => {
     console.log("lEN:", hobbies.length);
     console.log("city", !!city);
-    console.log("city", !!gender);
+    console.log("city", !!preference);
     console.log("city", !!age);
-    if (!!gender && !!city && hobbies.length > 1 && !!age) {
+    if (!!preference && !!city && hobbies.length > 1 && !!age) {
       setIsValid(true);
-      patchProfile({
-        gender,
-        hobbies,
-        age,
-        city,
-        user_uuid,
-      })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
     } else setIsValid(false);
-  }, [city, hobbies, age, gender]);
+  }, [city, hobbies, age, preference]);
 
   return (
     <div className="h-full w-full p-8">
@@ -171,8 +176,8 @@ const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
                     name="Preferences"
                     list={lst}
                     variant="outlined"
-                    value={gender}
-                    onChange={handleGender}
+                    value={preference}
+                    onChange={handlepreference}
                     required
                   />
                 </div>

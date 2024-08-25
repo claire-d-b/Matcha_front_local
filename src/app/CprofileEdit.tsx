@@ -72,20 +72,20 @@ const _ = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault;
-    patchProfile({
-      preference,
-      hobbies,
-      profileBio,
-      age,
-      city,
-      user_uuid,
-    })
-      .then(function (response) {
-        console.log("RESP:", response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // patchProfile({
+    //   preference,
+    //   hobbies,
+    //   profileBio,
+    //   age,
+    //   city,
+    //   user_uuid,
+    // })
+    //   .then(function (response) {
+    //     console.log("RESP:", response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
   };
 
   // useEffect(() => {

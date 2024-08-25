@@ -15,13 +15,16 @@ import Chip from "@mui/material/Chip";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
+import { useRouter } from "next/navigation";
 
 const lst = ["M", "F", "-"];
 
-const _ = () => {
+const _ = ({ params }) => {
   //   useEffect(() => {
   //     console.log("chip array has changed");
   //   }, [hobbies]);
+  const { id } = params;
+  console.log(id);
 
   return (
     <ThemeProvider theme={theme}>

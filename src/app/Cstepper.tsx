@@ -4,6 +4,7 @@ import Conboardinginfo from "./Conboardinginfo";
 import Conboardingpicture from "./Conboardingpicture";
 import { Button, Stepper, Step, StepLabel, Box } from "@mui/material";
 import Alert from "@mui/material/Alert";
+import { useRouter } from "next/navigation"; // for app directory
 
 const steps = ["Create your profile", "Set your information", "Add pictures"];
 
@@ -12,12 +13,52 @@ interface ComponentProps {
 }
 
 interface StepContentProps {
+  file: any;
+  setFile: any;
+  profileFirstName: any;
+  setProfileFirstName: any;
+  profileLastName: any;
+  setProfileLastName: any;
+  profileBio: any;
+  setProfileBio: any;
+  gender: any;
+  setGender: any;
+  city: any;
+  setCity: any;
+  hobby: any;
+  setHobby: any;
+  hobbies: any;
+  setHobbies: any;
+  age: any;
+  setAge: any;
+  preference: any;
+  setPreference: any;
   step: number;
   isStepValid: any;
   setIsStepValid: any;
 }
 
 const StepContent = ({
+  file,
+  setFile,
+  profileFirstName,
+  setProfileFirstName,
+  profileLastName,
+  setProfileLastName,
+  profileBio,
+  setProfileBio,
+  gender,
+  setGender,
+  city,
+  setCity,
+  hobby,
+  setHobby,
+  hobbies,
+  setHobbies,
+  age,
+  setAge,
+  preference,
+  setPreference,
   step,
   isStepValid,
   setIsStepValid,
@@ -25,11 +66,37 @@ const StepContent = ({
   switch (step) {
     case 0:
       return (
-        <Conboardingprofile isValid={isStepValid} setIsValid={setIsStepValid} />
+        <Conboardingprofile
+          file={file}
+          setFile={setFile}
+          profileFirstName={profileFirstName}
+          setProfileFirstName={setProfileFirstName}
+          profileLastName={profileLastName}
+          setProfileLastName={setProfileLastName}
+          profileBio={profileBio}
+          setProfileBio={setProfileBio}
+          gender={gender}
+          setGender={setGender}
+          isValid={isStepValid}
+          setIsValid={setIsStepValid}
+        />
       );
     case 1:
       return (
-        <Conboardinginfo isValid={isStepValid} setIsValid={setIsStepValid} />
+        <Conboardinginfo
+          isValid={isStepValid}
+          setIsValid={setIsStepValid}
+          city={city}
+          setCity={setCity}
+          hobby={hobby}
+          setHobby={setHobby}
+          hobbies={hobbies}
+          setHobbies={setHobbies}
+          age={age}
+          setAge={setAge}
+          preference={preference}
+          setPreference={setPreference}
+        />
       );
     case 2:
       return (
@@ -44,6 +111,18 @@ const _: React.FC<ComponentProps> = ({ className }) => {
   const [activeStep, setActiveStep] = useState<number>(0);
   const [isStepValid, setIsStepValid] = useState(false);
   const [alert, setAlert] = useState(false);
+  const [file, setFile] = useState<File | null>(null);
+  const [city, setCity] = useState("");
+  const [hobby, setHobby] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("M");
+  const [preference, setPreference] = useState("M");
+  const [profileFirstName, setProfileFirstName] = useState("");
+  const [profileLastName, setProfileLastName] = useState("");
+  const [profileBio, setProfileBio] = useState("");
+  const [hobbies, setHobbies] = useState([""]);
+  const [points, setPoints] = useState(0.0);
+  const router = useRouter();
 
   const handleNext = () => {
     setAlert(false);
@@ -59,8 +138,30 @@ const _: React.FC<ComponentProps> = ({ className }) => {
     setActiveStep(0);
   };
 
+  const handleSubmit = () => {
+    patchProfile({
+      profileFirstName,
+      profileLastName,
+      gender,
+      preference,
+      hobbies,
+      profileBio,
+      age,
+      points,
+      city,
+      user_uuid,
+    })
+      .then(function (response) {
+        // Navigate to the profile page
+        router.push(`/onboarding/${response.data.user_uuid}`);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   return (
-    <div className="w-full h-full flex flex-col">
+    <form onSubmit={handleSubmit} className="w-full h-full flex flex-col">
       <Stepper className={className} activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label}>
@@ -70,6 +171,26 @@ const _: React.FC<ComponentProps> = ({ className }) => {
       </Stepper>
       <div className="mx-48 h-full">
         <StepContent
+          file={file}
+          setFile={setFile}
+          profileFirstName={profileFirstName}
+          setProfileFirstName={setProfileFirstName}
+          profileLastName={profileLastName}
+          setProfileLastName={setProfileLastName}
+          profileBio={profileBio}
+          setProfileBio={setProfileBio}
+          gender={gender}
+          setGender={setGender}
+          city={city}
+          setCity={setCity}
+          hobby={hobby}
+          setHobby={setHobby}
+          hobbies={hobbies}
+          setHobbies={setHobbies}
+          age={age}
+          setAge={setAge}
+          preference={preference}
+          setPreference={setPreference}
           step={activeStep}
           isStepValid={isStepValid}
           setIsStepValid={setIsStepValid}
@@ -89,7 +210,7 @@ const _: React.FC<ComponentProps> = ({ className }) => {
               Reset
             </Button>
           ) : (
-            <Button type="submit" color="inherit" onClick={handleNext}>
+            <Button color="inherit" onClick={handleNext}>
               {activeStep === steps.length - 1 ? "Finish" : "Next"}
             </Button>
           )}
@@ -101,13 +222,13 @@ const _: React.FC<ComponentProps> = ({ className }) => {
         </Alert>
       )}
       {activeStep == steps.length - 1 ? (
-        <Button className="self-center mt-8" variant="contained">
+        <Button type="submit" className="self-center mt-8" variant="contained">
           Create my profile
         </Button>
       ) : (
         <></>
       )}
-    </div>
+    </form>
   );
 };
 
