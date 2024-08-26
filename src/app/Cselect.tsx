@@ -27,8 +27,9 @@ const _: React.FC<ComponentProps> = ({
   const [selectValue, setSelectValue] = useState(value);
 
   const handleChange = (event: SelectChangeEvent) => {
-    if (onChange) onChange(event);
     setSelectValue(event.target.value);
+    if (onChange) onChange(event);
+    // if (onChange) onChange(event.target.value || "");
   };
 
   return (

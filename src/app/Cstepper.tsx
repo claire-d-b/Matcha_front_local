@@ -160,7 +160,6 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
 
   const handlePreference = (event: SelectChangeEvent) => {
     setPreference(event.target.value);
-    console.log("event:::", event);
   };
 
   const addHobbies = () => {
