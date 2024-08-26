@@ -23,7 +23,7 @@ export const login = ({ username, password }) => {
   });
 };
 export const getProfile = (user_uuid) => {
-  return request.get(`http://localhost:5000/profile/<${user_uuid}>`, {});
+  return request.get(`http://localhost:5000/profile/${user_uuid}`, {});
 };
 
 export const patchProfile = ({

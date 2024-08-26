@@ -16,14 +16,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 
 const lst = ["M", "F", "-"];
 
-const _ = ({ params }) => {
-  //   useEffect(() => {
-  //     console.log("chip array has changed");
-  //   }, [hobbies]);
-  const { id } = params;
+const _ = () => {
+  const params = useParams();
+  const { id } = params; // Access the `id` route parameter
   console.log(id);
 
   return (

@@ -3,7 +3,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./home/page";
-import Profile from "./profile/f/[id]/page";
+import Profile from "./profile/view/[id]/page";
 
 const _ = () => {
   return (
