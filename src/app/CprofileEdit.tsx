@@ -87,47 +87,7 @@ const _: React.FC<ComponentProps> = ({
   handleDelete,
   handleClick,
 }) => {
-  // const [city, setCity] = useState("");
-  // const [hobbies, setHobbies] = useState([""]);
-  // const [hobby, setHobby] = useState("");
-  // const [age, setAge] = useState("");
-  // const [gender, setGender] = useState("");
-  // const [preference, setPreference] = useState("");
-  // const [profileFirstName, setProfileFirstName] = useState("");
-  // const [profileLastName, setProfileLastName] = useState("");
-  // const [profileBio, setProfileBio] = useState("");
-  // const [points, setPoints] = useState(0.0);
   const [alert, setAlert] = useState(false);
-
-  // const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
-  //   setCity(e.target.value);
-  // };
-
-  // const handlePreference = (e: ChangeEvent<HTMLInputElement>) => {
-  //   setPreference(e.target.value);
-  // };
-
-  // const handleAge = (e: ChangeEvent<HTMLInputElement>) => {
-  //   setAge(e.target.value);
-  // };
-
-  // const handleHobby = (e: ChangeEvent<HTMLInputElement>) => {
-  //   setHobby(e.target.value);
-  // };
-
-  // const addHobbies = () => {
-  //   if (hobby.length) {
-  //     const nhobbies = [...hobbies];
-  //     nhobbies.push(hobby);
-  //     setHobbies(nhobbies);
-  //   }
-  // };
-
-  // const handleDelete = (e: ChangeEvent<HTMLInputElement>) => {
-  //   const nhobbies = [...hobbies];
-  //   nhobbies.splice(hobbies.indexOf(e.target.value), 1);
-  //   setHobbies(nhobbies);
-  // };
 
   return (
     <div className="flex flex-col w-full h-full">

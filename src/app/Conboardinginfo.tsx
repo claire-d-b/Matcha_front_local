@@ -62,10 +62,6 @@ const _: React.FC<ComponentProps> = ({
   addHobbies,
   handleDelete,
 }) => {
-  //   useEffect(() => {
-  //     console.log("chip array has changed");
-  //   }, [hobbies]);
-
   useEffect(() => {
     console.log("lEN:", hobbies.length);
     console.log("city", !!city);
