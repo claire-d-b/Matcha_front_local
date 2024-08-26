@@ -125,6 +125,7 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
   const [profileBio, setProfileBio] = useState("");
   const [hobbies, setHobbies] = useState([""]);
   const [points, setPoints] = useState(0.0);
+  const router = useRouter();
 
   console.log("uuid:::", user_uuid);
 
@@ -158,7 +159,7 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
       .then(function (response) {
         console.log(response);
         // Navigate to the profile page
-        // router.push(`/onboarding/${response.data.user_uuid}`);
+        router.push(`/profile/search/${response.data.user_uuid}`);
       })
       .catch(function (error) {
         console.log(error);
