@@ -191,7 +191,7 @@ const _: React.FC<ComponentProps> = ({
                   required
                 />
                 {hobbies.length &&
-                  hobbies.map((h, i) => (
+                  hobbies.map((h: string, i: number) => (
                     <div key={`hobbies_${i}`}>
                       <Chip
                         label={h}
@@ -238,7 +238,7 @@ const _: React.FC<ComponentProps> = ({
                 <div className="w-full">
                   <Cselect
                     className=""
-                    name="Gender"
+                    name="Preference"
                     list={lst}
                     value={preference}
                     onChange={handlePreference}

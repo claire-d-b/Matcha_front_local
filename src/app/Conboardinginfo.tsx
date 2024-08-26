@@ -15,6 +15,7 @@ import Chip from "@mui/material/Chip";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 const lst = ["M", "F", "-"];
 
@@ -32,6 +33,12 @@ interface ComponentProps {
   setAge: any;
   preference: any;
   setPreference: any;
+  handleCityChange: any;
+  handleAge: any;
+  handleHobby: any;
+  handlePreference: any;
+  addHobbies: any;
+  handleDelete: any;
 }
 
 const _: React.FC<ComponentProps> = ({
@@ -48,38 +55,13 @@ const _: React.FC<ComponentProps> = ({
   setAge,
   preference,
   setPreference,
+  handleCityChange,
+  handleAge,
+  handleHobby,
+  handlePreference,
+  addHobbies,
+  handleDelete,
 }) => {
-  const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setCity(e.target.value);
-  };
-
-  const handleAge = (e: ChangeEvent<HTMLInputElement>) => {
-    setAge(e.target.value);
-  };
-
-  const handleHobby = (e: ChangeEvent<HTMLInputElement>) => {
-    setHobby(e.target.value);
-  };
-
-  const handlepreference = (e: ChangeEvent<HTMLInputElement>) => {
-    setPreference(e.target.value);
-    console.log("preference:", preference);
-  };
-
-  const addHobbies = () => {
-    if (hobby.length) {
-      const nhobbies = [...hobbies];
-      nhobbies.push(hobby);
-      setHobbies(nhobbies);
-    }
-  };
-
-  const handleDelete = (e: ChangeEvent<HTMLInputElement>) => {
-    const nhobbies = [...hobbies];
-    nhobbies.splice(hobbies.indexOf(e.target.value), 1);
-    setHobbies(nhobbies);
-  };
-
   //   useEffect(() => {
   //     console.log("chip array has changed");
   //   }, [hobbies]);
@@ -87,8 +69,8 @@ const _: React.FC<ComponentProps> = ({
   useEffect(() => {
     console.log("lEN:", hobbies.length);
     console.log("city", !!city);
-    console.log("city", !!preference);
-    console.log("city", !!age);
+    console.log("pref", preference);
+    console.log("age", !!age);
     if (!!preference && !!city && hobbies.length > 1 && !!age) {
       setIsValid(true);
     } else setIsValid(false);
@@ -134,7 +116,7 @@ const _: React.FC<ComponentProps> = ({
                   required
                 />
                 {hobbies.length &&
-                  hobbies.map((h, i) => (
+                  hobbies.map((h: string, i: number) => (
                     <div key={`hobbies_${i}`}>
                       <Chip
                         label={h}
@@ -167,11 +149,12 @@ const _: React.FC<ComponentProps> = ({
                 Preferences
                 <div className="w-full">
                   <Cselect
+                    className=""
                     name="Preferences"
                     list={lst}
-                    variant="outlined"
                     value={preference}
-                    onChange={handlepreference}
+                    onChange={handlePreference}
+                    variant="outlined"
                     required
                   />
                 </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import Conboardingprofile from "./Conboardingprofile";
 import Conboardinginfo from "./Conboardinginfo";
 import Conboardingpicture from "./Conboardingpicture";
@@ -7,6 +7,7 @@ import Alert from "@mui/material/Alert";
 import { useRouter } from "next/navigation"; // for app directory
 import { patchProfile } from "@/queries/user";
 import { useParams } from "next/navigation";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 const steps = ["Create your profile", "Set your information", "Add pictures"];
 
@@ -36,6 +37,12 @@ interface StepContentProps {
   setAge: any;
   preference: any;
   setPreference: any;
+  handleCityChange: any;
+  handleAge: any;
+  handleHobby: any;
+  handlePreference: any;
+  addHobbies: any;
+  handleDelete: any;
   step: number;
   isStepValid: any;
   setIsStepValid: any;
@@ -62,6 +69,12 @@ const StepContent = ({
   setAge,
   preference,
   setPreference,
+  handleCityChange,
+  handleAge,
+  handleHobby,
+  handlePreference,
+  addHobbies,
+  handleDelete,
   step,
   isStepValid,
   setIsStepValid,
@@ -99,6 +112,12 @@ const StepContent = ({
           setAge={setAge}
           preference={preference}
           setPreference={setPreference}
+          handleCityChange={handleCityChange}
+          handleAge={handleAge}
+          handleHobby={handleHobby}
+          handlePreference={handlePreference}
+          addHobbies={addHobbies}
+          handleDelete={handleDelete}
         />
       );
     case 2:
@@ -118,14 +137,45 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
   const [city, setCity] = useState("");
   const [hobby, setHobby] = useState("");
   const [age, setAge] = useState("");
-  const [gender, setGender] = useState("M");
-  const [preference, setPreference] = useState("M");
+  const [gender, setGender] = useState("");
+  const [preference, setPreference] = useState("");
   const [profileFirstName, setProfileFirstName] = useState("");
   const [profileLastName, setProfileLastName] = useState("");
   const [profileBio, setProfileBio] = useState("");
   const [hobbies, setHobbies] = useState([""]);
   const [points, setPoints] = useState(0.0);
   const router = useRouter();
+
+  const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setCity(e.target.value);
+  };
+
+  const handleAge = (e: ChangeEvent<HTMLInputElement>) => {
+    setAge(e.target.value);
+  };
+
+  const handleHobby = (e: ChangeEvent<HTMLInputElement>) => {
+    setHobby(e.target.value);
+  };
+
+  const handlePreference = (event: SelectChangeEvent) => {
+    setPreference(event.target.value);
+    console.log("event:::", event);
+  };
+
+  const addHobbies = () => {
+    if (hobby.length) {
+      const nhobbies = [...hobbies];
+      nhobbies.push(hobby);
+      setHobbies(nhobbies);
+    }
+  };
+
+  const handleDelete = (e: ChangeEvent<HTMLInputElement>) => {
+    const nhobbies = [...hobbies];
+    nhobbies.splice(hobbies.indexOf(e.target.value), 1);
+    setHobbies(nhobbies);
+  };
 
   console.log("uuid:::", user_uuid);
 
@@ -197,6 +247,12 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
           setAge={setAge}
           preference={preference}
           setPreference={setPreference}
+          handleCityChange={handleCityChange}
+          handleAge={handleAge}
+          handleHobby={handleHobby}
+          handlePreference={handlePreference}
+          addHobbies={addHobbies}
+          handleDelete={handleDelete}
           step={activeStep}
           isStepValid={isStepValid}
           setIsStepValid={setIsStepValid}

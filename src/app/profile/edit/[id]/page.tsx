@@ -19,6 +19,7 @@ import { useRouter } from "next/navigation";
 import { getProfile } from "@/queries/user";
 import { patchProfile } from "@/queries/user";
 import { useParams } from "next/navigation";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 const lst = ["M", "F", "-"];
 
@@ -39,8 +40,8 @@ const _ = ({ fullPage = true }) => {
     setCity(e.target.value);
   };
 
-  const handlePreference = (e: ChangeEvent<HTMLInputElement>) => {
-    setPreference(e.target.value);
+  const handlePreference = (event: SelectChangeEvent) => {
+    setPreference(event.target.value);
   };
 
   const handleAge = (e: ChangeEvent<HTMLInputElement>) => {
@@ -94,10 +95,10 @@ const _ = ({ fullPage = true }) => {
       patchProfile({
         profileFirstName,
         profileLastName,
+        profileBio,
         gender,
         preference,
         hobbies,
-        profileBio,
         age,
         points,
         city,
