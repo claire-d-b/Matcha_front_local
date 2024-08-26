@@ -156,7 +156,7 @@ const _: React.FC<ComponentProps> = ({
                 precision={0.5}
               />
             </Paper>
-            <Paper className="flex flex-col md:flex-row flex-wrap items-start justify-center gap-2 p-8">
+            <Paper className="flex flex-col md:flex-row flex-wrap items-center justify-start gap-2 p-8">
               <div className="font-thin text-md">Location</div>
               <IconButton size="small" disabled>
                 <SearchIcon />
