@@ -37,6 +37,9 @@ interface ComponentProps {
   setProfileBio: any;
   gender: any;
   setGender: any;
+  title: any;
+  setTitle: any;
+  handleTitle: any;
 }
 
 const _: React.FC<ComponentProps> = ({
@@ -53,8 +56,12 @@ const _: React.FC<ComponentProps> = ({
   setProfileBio,
   gender,
   setGender,
+  title,
+  setTitle,
 }) => {
-  const router = useRouter();
+  const params = useParams();
+  const { id } = params; // Access the `id` route parameter
+  console.log(id);
 
   useEffect(() => {
     if (file) {
@@ -70,7 +77,13 @@ const _: React.FC<ComponentProps> = ({
             <div className="text-sm font-thin self-start mb-4">
               Choose your profile picture. It will be public.
             </div>
-            <Cupload name="Upload picture" handleFile={setFile} />
+            <Cupload
+              title={title}
+              setTitle={setTitle}
+              user_uuid={id}
+              name="Upload picture"
+              handleFile={setFile}
+            />
           </div>
           <Cprofile
             className="w-full shadow-none"

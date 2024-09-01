@@ -1,8 +1,13 @@
 import React, { useState, ChangeEvent } from "react";
 import { ThemeProvider, Paper, Button } from "@mui/material";
 import Ctextfield from "./Ctextfield";
+import { postPicture } from "@/queries/user";
 
 interface ComponentProps {
+  title: any;
+  setTitle: any;
+  handleTitle: any;
+  user_uuid?: any;
   name: string;
   handleFile?: any;
 }
@@ -10,20 +15,27 @@ interface ComponentProps {
 const fourpictures = ["un", "deux", "trois", "quatre"];
 const fivepictures = ["un", "deux", "trois", "quatre", "cinq"];
 
-const _: React.FC<ComponentProps> = ({ name, handleFile }) => {
+const _: React.FC<ComponentProps> = ({
+  title,
+  setTitle,
+  user_uuid,
+  name,
+  handleFile,
+}) => {
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState("");
-  const [title, setTitle] = useState("");
 
-  const handleTitle = (event: React.ChangeEvent<unknown>, value: string) => {
-    setTitle(value);
+  const handleTitle = (e: ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
   };
 
   const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length) {
       setFile(e.target.files[0]);
     }
+    if (handleFile && e.target.files && e.target.files.length)
+      handleFile(e.target.files[0]);
   };
 
   const handleUpload = async (pictures: string[]) => {
@@ -31,28 +43,12 @@ const _: React.FC<ComponentProps> = ({ name, handleFile }) => {
       if (!file) setMessage("Please select a file first.");
       else setMessage("You can upload up to 5 pictures.");
 
-      return;
+      setUploading(true);
+      const formData = new FormData();
+      if (file)
+        formData.append("file", file); // `file` is guaranteed to be `File` here
+      else console.error("File is null");
     }
-
-    setUploading(true);
-    const formData = new FormData();
-    formData.append("file", file);
-
-    // try {
-    //     const response = await fetch('http://127.0.0.1:5000/picture', {
-    //     method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //         },
-    //         credentials: 'include', // Include cookies in the request
-    //     });
-    //     return response.json();
-    // }
-    // catch (error) {
-    //     setMessage('Failed to upload picture.');
-    //   } finally {
-    //     setUploading(false);
-    //   }
   };
   return (
     <div className="w-full gap-4 flex flex-col md:flex-row md:flex-wrap justify-start items-center">

@@ -41,7 +41,7 @@ const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
           <div className="text-sm font-thin mb-4">
             Add up to 5 pictures. They will be visible by other users.
           </div>
-          <Cupload name="Upload picture" handleFile={setFile} />
+          {/* <Cupload name="Upload picture" handleFile={setFile} /> */}
         </div>
       </div>
     </div>

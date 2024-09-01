@@ -6,6 +6,7 @@ import { Button, Stepper, Step, StepLabel, Box } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import { useRouter } from "next/navigation"; // for app directory
 import { patchProfile } from "@/queries/user";
+import { postPicture } from "@/queries/user";
 import { useParams } from "next/navigation";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
@@ -43,6 +44,9 @@ interface StepContentProps {
   handlePreference: any;
   addHobbies: any;
   handleDelete: any;
+  title: any;
+  setTitle: any;
+  handleTitle: any;
   step: number;
   isStepValid: any;
   setIsStepValid: any;
@@ -75,6 +79,9 @@ const StepContent = ({
   handlePreference,
   addHobbies,
   handleDelete,
+  title,
+  setTitle,
+  handleTitle,
   step,
   isStepValid,
   setIsStepValid,
@@ -95,6 +102,9 @@ const StepContent = ({
           setGender={setGender}
           isValid={isStepValid}
           setIsValid={setIsStepValid}
+          title={title}
+          setTitle={setTitle}
+          handleTitle={handleTitle}
         />
       );
     case 1:
@@ -145,6 +155,11 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
   const [hobbies, setHobbies] = useState([""]);
   const [points, setPoints] = useState(0.0);
   const router = useRouter();
+  const [title, setTitle] = useState("");
+
+  const handleTitle = (event: React.ChangeEvent<unknown>, value: string) => {
+    setTitle(value);
+  };
 
   const handleCityChange = (e: ChangeEvent<HTMLInputElement>) => {
     setCity(e.target.value);
@@ -176,8 +191,6 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
     setHobbies(nhobbies);
   };
 
-  console.log("uuid:::", user_uuid);
-
   const handleNext = () => {
     setAlert(false);
     if (isStepValid) setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -208,11 +221,22 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
       .then(function (response) {
         console.log(response);
         // Navigate to the profile page
-        router.push(`/profile/search/${response.data.user_uuid}`);
       })
       .catch(function (error) {
         console.log(error);
       });
+
+    postPicture({ file, title, user_uuid })
+      .then(function (response) {
+        console.log(response);
+        console.log("uuid:::", user_uuid);
+        console.log("FILE:", file);
+        console.log("TITLE", title);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    router.push(`/profile/search/${user_uuid}`);
   };
 
   return (
@@ -255,6 +279,9 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
           step={activeStep}
           isStepValid={isStepValid}
           setIsStepValid={setIsStepValid}
+          title={title}
+          setTitle={setTitle}
+          handleTitle={handleTitle}
         />
       </div>
       <div className="flex justify-center items-center text-gray-800 w-full h-full">
