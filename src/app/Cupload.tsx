@@ -3,6 +3,8 @@ import { ThemeProvider, Paper, Button } from "@mui/material";
 import Ctextfield from "./Ctextfield";
 import { postPicture, getUserPictures, postOtherPicture } from "@/queries/user";
 import { useParams } from "next/navigation";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 interface ComponentProps {
   title: any;
@@ -46,6 +48,15 @@ const _: React.FC<ComponentProps> = ({
     }
     if (handleFile && e.target.files && e.target.files.length)
       handleFile(e.target.files[0]);
+  };
+
+  const handleDelete = (_: React.ChangeEvent<unknown>, i: number) => {
+    const npictures = [...pictures];
+    npictures.splice(i, 1);
+    setPictures(npictures);
+    const nnames = [...names];
+    nnames.splice(i, 1);
+    setNames(nnames);
   };
 
   useEffect(() => {
@@ -113,7 +124,7 @@ const _: React.FC<ComponentProps> = ({
             console.error("Error converting file to base64: ", error);
           };
         };
-        if (setPictures && pictures.length > 4) setUploading(true);
+        if (setPictures && pictures.length >= 4) setUploading(true);
       } else console.error("File is null");
     }
   };
@@ -150,7 +161,16 @@ const _: React.FC<ComponentProps> = ({
           <div key={`pic${i}`}>
             {base64String[i] && (
               <>
-                <div className="w-full">{names[i]}</div>
+                <div className="flex justify-between align-center">
+                  <div className="w-full">{names[i]}</div>
+                  <IconButton
+                    className="bg-transparent"
+                    size="small"
+                    onClick={(_) => handleDelete(_, i)}
+                  >
+                    <CloseIcon className="text-white" />
+                  </IconButton>
+                </div>
                 <img src={base64String[i]} alt={names[i]} />
               </>
             )}

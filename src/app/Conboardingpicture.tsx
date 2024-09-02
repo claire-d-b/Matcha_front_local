@@ -15,9 +15,9 @@ import Cselect from "./Cselect";
 import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
 import SearchIcon from "@mui/icons-material/Search";
-import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 import { useParams } from "next/navigation";
+import Alert from "@mui/material/Alert";
 import { getUserPictures } from "@/queries/user";
 
 const lst = ["M", "F", "-"];
@@ -70,6 +70,11 @@ const _: React.FC<ComponentProps> = ({
             />
           </div>
         </div>
+        {pictures && pictures.length >= 4 && (
+          <Alert className="rounded-lg text-gray-800 mx-48" severity="error">
+            You cannot upload more than 5 pictures.
+          </Alert>
+        )}
       </div>
     </div>
   );
