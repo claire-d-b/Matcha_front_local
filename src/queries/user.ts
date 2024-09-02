@@ -87,7 +87,7 @@ export const postOtherPicture = ({ file, title, user_uuid }) => {
   formData.append("user_uuid", JSON.stringify(user_uuid));
 
   return request.post(
-    `http://localhost:5000/post_profile_picture/${user_uuid}`,
+    `http://localhost:5000/post_other_pictures/${user_uuid}`,
     {
       creation: formData.get("creation"),
       address: formData.get("address"),

@@ -67,12 +67,6 @@ const _: React.FC<ComponentProps> = ({
             setPictures={setPictures}
             handleTitle={handleTitle}
           />
-          {pictures.length &&
-            pictures.map((p: any, i: number) => (
-              <div className="w-full" key={`pic${i}`}>
-                <div className="w-full">{p.title}</div>
-              </div>
-            ))}
         </div>
       </div>
     </div>

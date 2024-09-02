@@ -1,7 +1,7 @@
-import React, { useState, useEffect, ChangeEvent } from "react";
+import React, { useState, useEffect, ChangeEvent, use } from "react";
 import { ThemeProvider, Paper, Button } from "@mui/material";
 import Ctextfield from "./Ctextfield";
-import { postPicture, getUserPictures } from "@/queries/user";
+import { postPicture, getUserPictures, postOtherPicture } from "@/queries/user";
 import { useParams } from "next/navigation";
 
 interface ComponentProps {
@@ -33,6 +33,7 @@ const _: React.FC<ComponentProps> = ({
   const [file, setFile] = useState<File | null>(null);
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState("");
+  const [names, setNames] = useState([""]);
 
   const handleTitle = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -46,22 +47,50 @@ const _: React.FC<ComponentProps> = ({
       handleFile(e.target.files[0]);
   };
 
+  useEffect(() => {
+    getUserPictures({ user_uuid })
+      .then(function (response) {
+        const npictures = [...pictures];
+        npictures.push(response.data);
+        setPictures(npictures);
+        console.log(response);
+        console.log("uuid:::", user_uuid);
+        console.log("TITLE", title);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }, [user_uuid]);
+
   const handleUpload = async () => {
     // if (!file || pictures.length >= 5) {
     //   if (!file) setMessage("Please select a file first.");
     //   else setMessage("You can upload up to 5 pictures.");
     if (setPictures) {
-      setPictures([...pictures, file]);
-      getUserPictures({ user_uuid })
+      const npictures = [...pictures];
+      npictures.push(file);
+      setPictures(npictures);
+      const nnames = [...names];
+      nnames.push(title);
+      setNames(nnames);
+
+      postOtherPicture({
+        file,
+        title,
+        user_uuid,
+      })
         .then(function (response) {
-          setPictures([...pictures, response]);
           console.log(response);
           console.log("uuid:::", user_uuid);
+          console.log("PICS:", pictures);
           console.log("TITLE", title);
         })
         .catch(function (error) {
           console.log(error);
         });
+      console.log("PIX", npictures);
+
+      setUploading(false);
     }
     if (!file) setMessage("Please select a file first.");
     setUploading(true);
@@ -91,12 +120,19 @@ const _: React.FC<ComponentProps> = ({
       <Button
         variant="contained"
         color="primary"
-        onClick={(_) => handleUpload()}
-        disabled={uploading || title?.length === 0}
+        onClick={handleUpload}
+        disabled={title?.length === 0}
       >
         <p className="text-white">{uploading ? "Uploading..." : "Add"}</p>
       </Button>
       {message && <p>{message}</p>}
+      {pictures &&
+        !!pictures.length &&
+        pictures.map((p: any, i: number) => (
+          <div className="w-full h-full" key={`pic${i}`}>
+            <div className="w-full h-full">{names[i]}</div>
+          </div>
+        ))}
     </div>
   );
 };

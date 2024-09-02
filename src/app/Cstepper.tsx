@@ -251,16 +251,6 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
         console.log(error);
       });
     // router.push(`/profile/search/${user_uuid}`);
-    postOtherPicture({ file: pictures, title, user_uuid })
-      .then(function (response) {
-        console.log(response);
-        console.log("uuid:::", user_uuid);
-        console.log("PICS:", pictures);
-        console.log("TITLE", title);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
   };
   return (
     <div className="w-full h-full flex flex-col">
