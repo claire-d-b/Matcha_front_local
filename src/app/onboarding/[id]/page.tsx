@@ -34,7 +34,7 @@ const _ = () => {
           <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-4 text-xs md:text-base" />
         </Paper>
         <div className="flex w-full h-full p-12 bg-gray-400">
-          <Cstepper user_uuid={id} className="w-full h-full" />
+          <Cstepper user_uuid={id} className="w-full h-full overflow-scroll" />
         </div>
         <Paper className="w-full p-4 border border-white flex flex-col justify-center items-center bg-gray-800">
           Copyright

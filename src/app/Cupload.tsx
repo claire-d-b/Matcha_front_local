@@ -34,6 +34,7 @@ const _: React.FC<ComponentProps> = ({
   const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState("");
   const [names, setNames] = useState([""]);
+  const [base64String, setBase64String] = useState([""]);
 
   const handleTitle = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -93,11 +94,28 @@ const _: React.FC<ComponentProps> = ({
       setUploading(false);
     }
     if (!file) setMessage("Please select a file first.");
-    setUploading(true);
+    if (!setPictures) setUploading(true);
     const formData = new FormData();
-    if (file)
+    if (file) {
       formData.append("file", file); // `file` is guaranteed to be `File` here
-    else console.error("File is null");
+      if (file) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.onloadend = () => {
+          if (typeof reader.result === "string") {
+            const nbase64string = [...base64String];
+            nbase64string.push(reader.result);
+            setBase64String(nbase64string);
+          }
+
+          reader.onerror = (error) => {
+            console.error("Error converting file to base64: ", error);
+          };
+        };
+        if (setPictures && pictures.length > 4) setUploading(true);
+      } else console.error("File is null");
+    }
   };
   return (
     <div className="w-full gap-4 flex flex-col md:flex-row md:flex-wrap justify-start items-center">
@@ -121,7 +139,7 @@ const _: React.FC<ComponentProps> = ({
         variant="contained"
         color="primary"
         onClick={handleUpload}
-        disabled={title?.length === 0}
+        disabled={uploading || title?.length === 0}
       >
         <p className="text-white">{uploading ? "Uploading..." : "Add"}</p>
       </Button>
@@ -129,8 +147,13 @@ const _: React.FC<ComponentProps> = ({
       {pictures &&
         !!pictures.length &&
         pictures.map((p: any, i: number) => (
-          <div className="w-full h-full" key={`pic${i}`}>
-            <div className="w-full h-full">{names[i]}</div>
+          <div key={`pic${i}`}>
+            {base64String[i] && (
+              <>
+                <div className="w-full">{names[i]}</div>
+                <img src={base64String[i]} alt={names[i]} />
+              </>
+            )}
           </div>
         ))}
     </div>

@@ -84,14 +84,16 @@ const _: React.FC<ComponentProps> = ({
             <div className="text-sm font-thin self-start mb-4">
               Choose your profile picture. It will be public.
             </div>
-            <Cupload
-              title={title}
-              setTitle={setTitle}
-              user_uuid={id}
-              nname="Upload picture"
-              handleFile={setFile}
-              handleTitle={handleTitle}
-            />
+            <div className="h-full self-start overflow-scroll pt-6">
+              <Cupload
+                title={title}
+                setTitle={setTitle}
+                user_uuid={id}
+                nname="Upload picture"
+                handleFile={setFile}
+                handleTitle={handleTitle}
+              />
+            </div>
           </div>
           <Cprofile
             className="w-full shadow-none"

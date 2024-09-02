@@ -53,20 +53,22 @@ const _: React.FC<ComponentProps> = ({
 
   return (
     <div className="h-full w-full rounded-lg p-8">
-      <div className="flex flex-col gap-8 h-full w-full">
-        <div className="w-full h-full flex flex-col items-center justify-center bg-gray-800 rounded-lg p-6">
+      <div className="flex flex-col gap-8 h-full">
+        <div className="h-full w-full flex flex-col items-center justify-center bg-gray-800 rounded-lg p-6">
           <div className="text-sm font-thin mb-4">
             Add up to 5 pictures. They will be visible by other users.
           </div>
-          <Cupload
-            title={title}
-            setTitle={setTitle}
-            user_uuid={id}
-            nname="Upload picture"
-            pictures={pictures}
-            setPictures={setPictures}
-            handleTitle={handleTitle}
-          />
+          <div className="h-full self-start overflow-scroll pt-6">
+            <Cupload
+              title={title}
+              setTitle={setTitle}
+              user_uuid={id}
+              nname="Upload picture"
+              pictures={pictures}
+              setPictures={setPictures}
+              handleTitle={handleTitle}
+            />
+          </div>
         </div>
       </div>
     </div>
