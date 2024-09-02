@@ -1,10 +1,11 @@
 import React, { useState, useEffect, ChangeEvent, use } from "react";
 import { ThemeProvider, Paper, Button } from "@mui/material";
 import Ctextfield from "./Ctextfield";
-import { postPicture, getUserPictures, postOtherPicture } from "@/queries/user";
+import { getUserPictures, postOtherPicture } from "@/queries/user";
 import { useParams } from "next/navigation";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import Cswitch from "./Cswitch";
 
 interface ComponentProps {
   title: any;
@@ -72,7 +73,7 @@ const _: React.FC<ComponentProps> = ({
       .catch(function (error) {
         console.log(error);
       });
-  }, [user_uuid]);
+  }, [user_uuid, pictures]);
 
   const handleUpload = async () => {
     // if (!file || pictures.length >= 5) {
@@ -105,7 +106,6 @@ const _: React.FC<ComponentProps> = ({
       setUploading(false);
     }
     if (!file) setMessage("Please select a file first.");
-    if (!setPictures) setUploading(true);
     const formData = new FormData();
     if (file) {
       formData.append("file", file); // `file` is guaranteed to be `File` here
@@ -124,7 +124,7 @@ const _: React.FC<ComponentProps> = ({
             console.error("Error converting file to base64: ", error);
           };
         };
-        if (setPictures && pictures.length >= 4) setUploading(true);
+        if (pictures.length >= 5) setUploading(true);
       } else console.error("File is null");
     }
   };
@@ -171,7 +171,13 @@ const _: React.FC<ComponentProps> = ({
                     <CloseIcon className="text-white" />
                   </IconButton>
                 </div>
-                <img src={base64String[i]} alt={names[i]} />
+                <div>
+                  <img src={base64String[i]} alt={names[i]} />
+                  <Cswitch
+                    className="flex w-full text-sm justify-end items-center"
+                    name="Set as profile picture"
+                  />
+                </div>
               </>
             )}
           </div>

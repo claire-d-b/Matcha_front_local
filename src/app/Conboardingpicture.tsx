@@ -70,7 +70,7 @@ const _: React.FC<ComponentProps> = ({
             />
           </div>
         </div>
-        {pictures && pictures.length >= 4 && (
+        {pictures && pictures.length >= 5 && (
           <Alert className="rounded-lg text-gray-800 mx-48" severity="error">
             You cannot upload more than 5 pictures.
           </Alert>

@@ -6,7 +6,6 @@ import { Button, Stepper, Step, StepLabel, Box } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import { useRouter } from "next/navigation"; // for app directory
 import { patchProfile } from "@/queries/user";
-import { postPicture } from "@/queries/user";
 import { postOtherPicture, getUserPictures } from "@/queries/user";
 import { useParams } from "next/navigation";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
@@ -240,7 +239,7 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
         console.log(error);
       });
 
-    postPicture({ file, title, user_uuid })
+    /* postPicture({ file, title, user_uuid })
       .then(function (response) {
         console.log(response);
         console.log("uuid:::", user_uuid);
@@ -249,7 +248,7 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
       })
       .catch(function (error) {
         console.log(error);
-      });
+      }); */
     // router.push(`/profile/search/${user_uuid}`);
   };
   return (

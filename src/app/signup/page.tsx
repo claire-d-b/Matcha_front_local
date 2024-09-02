@@ -20,6 +20,7 @@ const _ = () => {
   const router = useRouter();
 
   const handleClick = () => {
+    console.log("lalala");
     // Perform your action here
     createUser({ username, password, email, firstName, lastName })
       .then(function (response) {
@@ -132,12 +133,13 @@ const _ = () => {
               />
             </div>
             <Button
+              type="submit"
               variant="contained"
               onClick={handleClick}
               className="rounded-lg"
               size="small"
             >
-              Login
+              Register
             </Button>
           </div>
         </Paper>

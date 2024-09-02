@@ -53,30 +53,30 @@ export const patchProfile = ({
   });
 };
 
-export const postPicture = ({ file, title, user_uuid }) => {
-  const formData = new FormData();
-  formData.append("creation", JSON.stringify(""));
-  formData.append("address", file);
-  formData.append("is_profile_picure", JSON.stringify("true"));
-  formData.append("title", JSON.stringify(title));
-  formData.append("user_uuid", JSON.stringify(user_uuid));
+// export const postPicture = ({ file, title, user_uuid }) => {
+//   const formData = new FormData();
+//   formData.append("creation", JSON.stringify(""));
+//   formData.append("address", file);
+//   formData.append("is_profile_picure", JSON.stringify("true"));
+//   formData.append("title", JSON.stringify(title));
+//   formData.append("user_uuid", JSON.stringify(user_uuid));
 
-  return request.post(
-    `http://localhost:5000/post_profile_picture/${user_uuid}`,
-    {
-      creation: formData.get("creation"),
-      address: formData.get("address"),
-      is_profile_picure: formData.get("is_profile_picure"),
-      title: formData.get("title"),
-      user_uuid: formData.get("user_uuid"),
-    },
-    {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    },
-  );
-};
+//   return request.post(
+//     `http://localhost:5000/post_profile_picture/${user_uuid}`,
+//     {
+//       creation: formData.get("creation"),
+//       address: formData.get("address"),
+//       is_profile_picure: formData.get("is_profile_picure"),
+//       title: formData.get("title"),
+//       user_uuid: formData.get("user_uuid"),
+//     },
+//     {
+//       headers: {
+//         "Content-Type": "multipart/form-data",
+//       },
+//     },
+//   );
+// };
 
 export const postOtherPicture = ({ file, title, user_uuid }) => {
   const formData = new FormData();
