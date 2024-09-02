@@ -17,22 +17,39 @@ import Chip from "@mui/material/Chip";
 import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
+import { useParams } from "next/navigation";
+import { getUserPictures } from "@/queries/user";
 
 const lst = ["M", "F", "-"];
 
 interface ComponentProps {
+  title: any;
+  setTitle: any;
+  pictures: any;
+  setPictures: any;
   required?: any;
   isValid: any;
   setIsValid: any;
 }
 
-const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
+const _: React.FC<ComponentProps> = ({
+  required,
+  title,
+  setTitle,
+  pictures,
+  setPictures,
+  isValid,
+  setIsValid,
+}) => {
   const [file, setFile] = useState<File | null>(null);
 
-  useEffect(() => {
-    if (file) setIsValid(true);
-    else setIsValid(false);
-  }, [file]);
+  const params = useParams();
+  const { id } = params; // Access the `id` route parameter
+  console.log(id);
+
+  const handleTitle = (e: ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
 
   return (
     <div className="h-full w-full rounded-lg p-8">
@@ -41,7 +58,21 @@ const _: React.FC<ComponentProps> = ({ required, isValid, setIsValid }) => {
           <div className="text-sm font-thin mb-4">
             Add up to 5 pictures. They will be visible by other users.
           </div>
-          {/* <Cupload name="Upload picture" handleFile={setFile} /> */}
+          <Cupload
+            title={title}
+            setTitle={setTitle}
+            user_uuid={id}
+            nname="Upload picture"
+            pictures={pictures}
+            setPictures={setPictures}
+            handleTitle={handleTitle}
+          />
+          {pictures.length &&
+            pictures.map((p: any, i: number) => (
+              <div className="w-full" key={`pic${i}`}>
+                <div className="w-full">{p.title}</div>
+              </div>
+            ))}
         </div>
       </div>
     </div>

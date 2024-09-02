@@ -7,6 +7,7 @@ import Alert from "@mui/material/Alert";
 import { useRouter } from "next/navigation"; // for app directory
 import { patchProfile } from "@/queries/user";
 import { postPicture } from "@/queries/user";
+import { postOtherPicture, getUserPictures } from "@/queries/user";
 import { useParams } from "next/navigation";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 
@@ -47,6 +48,8 @@ interface StepContentProps {
   title: any;
   setTitle: any;
   handleTitle: any;
+  pictures: any;
+  setPictures: any;
   step: number;
   isStepValid: any;
   setIsStepValid: any;
@@ -82,6 +85,8 @@ const StepContent = ({
   title,
   setTitle,
   handleTitle,
+  pictures,
+  setPictures,
   step,
   isStepValid,
   setIsStepValid,
@@ -104,7 +109,8 @@ const StepContent = ({
           setIsValid={setIsStepValid}
           title={title}
           setTitle={setTitle}
-          handleTitle={handleTitle}
+          pictures={pictures}
+          setPictures={setPictures}
         />
       );
     case 1:
@@ -132,7 +138,14 @@ const StepContent = ({
       );
     case 2:
       return (
-        <Conboardingpicture isValid={isStepValid} setIsValid={setIsStepValid} />
+        <Conboardingpicture
+          title={title}
+          setTitle={setTitle}
+          pictures={pictures}
+          setPictures={setPictures}
+          isValid={isStepValid}
+          setIsValid={setIsStepValid}
+        />
       );
     //   default:
     //     return <div>Unknown step</div>;
@@ -156,6 +169,7 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
   const [points, setPoints] = useState(0.0);
   const router = useRouter();
   const [title, setTitle] = useState("");
+  const [pictures, setPictures] = useState([]);
 
   const handleTitle = (event: React.ChangeEvent<unknown>, value: string) => {
     setTitle(value);
@@ -236,9 +250,18 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
       .catch(function (error) {
         console.log(error);
       });
-    router.push(`/profile/search/${user_uuid}`);
+    // router.push(`/profile/search/${user_uuid}`);
+    postOtherPicture({ file: pictures, title, user_uuid })
+      .then(function (response) {
+        console.log(response);
+        console.log("uuid:::", user_uuid);
+        console.log("PICS:", pictures);
+        console.log("TITLE", title);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
-
   return (
     <div className="w-full h-full flex flex-col">
       <Stepper className={className} activeStep={activeStep}>
@@ -282,6 +305,8 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
           title={title}
           setTitle={setTitle}
           handleTitle={handleTitle}
+          pictures={pictures}
+          setPictures={setPictures}
         />
       </div>
       <div className="flex justify-center items-center text-gray-800 w-full h-full">

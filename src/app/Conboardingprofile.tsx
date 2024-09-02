@@ -39,7 +39,8 @@ interface ComponentProps {
   setGender: any;
   title: any;
   setTitle: any;
-  handleTitle: any;
+  pictures?: any;
+  setPictures?: any;
 }
 
 const _: React.FC<ComponentProps> = ({
@@ -58,10 +59,16 @@ const _: React.FC<ComponentProps> = ({
   setGender,
   title,
   setTitle,
+  pictures,
+  setPictures,
 }) => {
   const params = useParams();
   const { id } = params; // Access the `id` route parameter
   console.log(id);
+
+  const handleTitle = (e: ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
 
   useEffect(() => {
     if (file) {
@@ -81,8 +88,9 @@ const _: React.FC<ComponentProps> = ({
               title={title}
               setTitle={setTitle}
               user_uuid={id}
-              name="Upload picture"
+              nname="Upload picture"
               handleFile={setFile}
+              handleTitle={handleTitle}
             />
           </div>
           <Cprofile
