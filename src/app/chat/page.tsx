@@ -110,7 +110,7 @@ const _ = ({ params }) => {
                               {c.otherUser[0].toUpperCase()}
                             </Avatar>
                             <Paper
-                              sx={{ backgroundColor: "#629c8d" }}
+                              sx={{ backgroundColor: "#7fd5a6" }}
                               className="py-1 px-2 md:px-4 md:py-2 rounded-lg text-xs text-white font-normal bg-opacity-50"
                             >
                               You : {c.messages[c.messages.length - 1].content}
