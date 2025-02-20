@@ -1,0 +1,44 @@
+# frontend-config.yaml
+
+# j'envoie ces variables au back
+createUser:
+  username: string
+  password: string
+  email: string
+  firstName: string
+  lastName: string
+
+# j'envoie ces variables au back
+login:
+  username: string
+  password: string
+
+# je recois cette variable du back
+getProfile:
+  user_uuid: string
+
+# j'envoie ces variables au back
+patchProfile:
+  profileFirstName: string
+  profileLastName: string
+  gender: string
+  preference: string
+  hobbies: Array<string>
+  profileBio: string
+  age: string
+  points: number
+  city: string
+  user_uuid: string
+
+# j'envoie ces variables au back
+postOtherPicture:
+  formData: FormData
+      creation: string
+      address: File
+      is_profile_picture: string
+      title: string
+      user_uuid: string (?)
+
+# je recois cette variable du back
+getUserPictures:
+  user_uuid: string
