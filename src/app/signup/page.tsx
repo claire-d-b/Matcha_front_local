@@ -136,11 +136,17 @@ const _ = () => {
               type="submit"
               variant="contained"
               onClick={handleClick}
-              className="rounded-lg"
+              className="rounded-lg font-semibold"
               size="small"
             >
               Register
             </Button>
+          </div>
+          <div className="text-sm font-thin pt-6">
+            Already registered ?{" "}
+            <a href="/" className="font-semibold">
+              Login
+            </a>
           </div>
         </Paper>
       </div>

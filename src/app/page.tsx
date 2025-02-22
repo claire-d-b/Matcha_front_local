@@ -57,14 +57,17 @@ const _ = () => {
             <Button
               variant="contained"
               type="submit"
-              className="rounded-lg"
+              className="rounded-lg font-semibold"
               size="small"
             >
               Login
             </Button>
           </form>
           <div className="text-sm font-thin pt-6">
-            Not registered yet ? <a href="#">Create an account</a>
+            Not registered yet ?{" "}
+            <a href="/signup/" className="font-semibold">
+              Create an account
+            </a>
           </div>
         </Paper>
       </div>

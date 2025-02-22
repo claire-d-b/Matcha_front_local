@@ -1,8 +1,8 @@
 API = http://localhost:3000
 
+/login
 /chat/ - list of conversations
 /chat/id - a specific conversation messages
-/login
 /password/ - page showing email adress and sending an reset password email on button click
 /password/confirm - confirmation page : "an email has been sent to your email adress"-like
 /password/reset - page to change the password : 2 password fields must match

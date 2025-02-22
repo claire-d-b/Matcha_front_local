@@ -56,7 +56,7 @@ const _: React.FC<ComponentProps> = ({ className }) => {
           open={open}
           onClose={handleClose}
         />
-        <Link href="/login/">
+        <Link href="/">
           <IconButton
             className="font-thin border bg-gray-800"
             onClick={handleSignOut}
