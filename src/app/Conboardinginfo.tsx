@@ -31,6 +31,8 @@ interface ComponentProps {
   setHobbies: any;
   age: any;
   setAge: any;
+  gender: any;
+  setGender: any;
   preference: any;
   setPreference: any;
   handleCityChange: any;
@@ -53,6 +55,8 @@ const _: React.FC<ComponentProps> = ({
   setHobbies,
   age,
   setAge,
+  gender,
+  setGender,
   preference,
   setPreference,
   handleCityChange,
@@ -145,7 +149,6 @@ const _: React.FC<ComponentProps> = ({
                 Preferences
                 <div className="w-full">
                   <Cselect
-                    className=""
                     name="Preferences"
                     list={lst}
                     value={preference}

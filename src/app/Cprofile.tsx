@@ -126,7 +126,7 @@ const _: React.FC<ComponentProps> = ({
           )}
           <CardContent className="w-full flex flex-col gap-4">
             <div className="flex w-full gap-2">
-              <div className="w-full">
+              <div className="w-full flex flex-col justify-center">
                 <Cselect
                   name="Gender"
                   list={lst}

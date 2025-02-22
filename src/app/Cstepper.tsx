@@ -125,6 +125,8 @@ const StepContent = ({
           setHobbies={setHobbies}
           age={age}
           setAge={setAge}
+          gender={gender}
+          setGender={setGender}
           preference={preference}
           setPreference={setPreference}
           handleCityChange={handleCityChange}
@@ -252,7 +254,7 @@ const _: React.FC<ComponentProps> = ({ user_uuid, className }) => {
     // router.push(`/profile/search/${user_uuid}`);
   };
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full h-full flex flex-col text-white">
       <Stepper className={className} activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label}>

@@ -197,7 +197,6 @@ const _: React.FC<ComponentProps> = ({
                 </div>
                 <div className="w-full">
                   <Cselect
-                    className=""
                     name="Preference"
                     list={lst}
                     value={preference}

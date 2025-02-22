@@ -34,12 +34,16 @@ const _: React.FC<ComponentProps> = ({
 
   return (
     <div>
-      <FormControl fullWidth className={className} required={required}>
+      <FormControl
+        fullWidth
+        className={className}
+        required={required}
+        size="small"
+      >
         <div>
           <InputLabel>{name}</InputLabel>
         </div>
         <Select
-          size="small"
           value={selectValue}
           label={name}
           variant={variant}
@@ -48,7 +52,7 @@ const _: React.FC<ComponentProps> = ({
         >
           {list.length &&
             list.map((l, i) => (
-              <MenuItem key={`list${i}`} value={l}>
+              <MenuItem key={`list${i}`} value={l} disableRipple>
                 {l}
               </MenuItem>
             ))}

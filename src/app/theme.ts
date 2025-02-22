@@ -138,12 +138,12 @@ const theme = createTheme({
     MuiStepIcon: {
       styleOverrides: {
         root: {
-          color: "#4b5563", // Default color
+          color: "white", // Default color
           "&.Mui-active": {
-            color: "#1f2937", // Color of active step
+            color: "white", // Color of active step
           },
           "&.Mui-completed": {
-            color: "#1f2937", // Color of completed step
+            color: "#4b5563", // Color of completed step
           },
         },
       },
