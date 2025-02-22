@@ -91,7 +91,7 @@ const _: React.FC<ComponentProps> = ({ className, upload }) => {
                             handleClick(index);
                           }}
                         >
-                          <div className="w-full text-right mb-2 mt-4">
+                          <div className="w-full text-right mb-2">
                             <IconButton
                               className="bg-transparent"
                               size="small"
