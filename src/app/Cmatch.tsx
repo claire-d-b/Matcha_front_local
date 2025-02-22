@@ -34,6 +34,10 @@ const _: React.FC<ComponentProps> = ({ className, upload }) => {
   const handleTitle = (event: React.ChangeEvent<unknown>, value: string) => {
     setTitle(value);
   };
+  const handleClick = (i: number) => {
+    console.log(i);
+    setIndex(i);
+  };
   const handleDelete = (_: React.ChangeEvent<unknown>, i: number) => {
     const npicture = [...picture];
     npicture.splice(i, 1);
@@ -59,7 +63,12 @@ const _: React.FC<ComponentProps> = ({ className, upload }) => {
                   <Grid xs={2} className="md:w-1/4 hidden md:flex">
                     {index - 1 > 0 && index - 1 < picture.length && (
                       <>
-                        <CardActionArea className="m-0 p-4 border rounded-lg shadow-lg">
+                        <CardActionArea
+                          className="m-0 p-4 border rounded-lg shadow-lg"
+                          onClick={(_: React.MouseEvent<HTMLButtonElement>) => {
+                            handleClick(index - 1);
+                          }}
+                        >
                           <CardMedia
                             component="img"
                             image={picture[index - 1][0]}
@@ -76,7 +85,12 @@ const _: React.FC<ComponentProps> = ({ className, upload }) => {
                   <Grid xs={8} className="w-full md:w-1/2">
                     {index > 0 && index < picture.length && (
                       <>
-                        <CardActionArea className="m-0 p-4 border rounded-lg shadow-lg">
+                        <CardActionArea
+                          className="m-0 p-4 border rounded-lg shadow-lg"
+                          onClick={(_: React.MouseEvent<HTMLButtonElement>) => {
+                            handleClick(index);
+                          }}
+                        >
                           <div className="w-full text-right mb-2 mt-4">
                             <IconButton
                               className="bg-transparent"
@@ -99,7 +113,7 @@ const _: React.FC<ComponentProps> = ({ className, upload }) => {
                                   {picture[index][1]}
                                 </div>
                                 <Cswitch
-                                  className="flex w-full text-sm justify-end items-center"
+                                  className="flex w-full text-sm justify-end items-center text-gray-800 font-semibold"
                                   name="Set as profile picture"
                                 />
                               </CardContent>
@@ -112,7 +126,12 @@ const _: React.FC<ComponentProps> = ({ className, upload }) => {
                   <Grid xs={2} className="md:w-1/4 hidden md:flex">
                     {index + 1 > 0 && index + 1 < picture.length && (
                       <>
-                        <CardActionArea className="m-0 p-4 border rounded-lg shadow-lg">
+                        <CardActionArea
+                          className="m-0 p-4 border rounded-lg shadow-lg"
+                          onClick={(_: React.MouseEvent<HTMLButtonElement>) => {
+                            handleClick(index + 1);
+                          }}
+                        >
                           <CardMedia
                             component="img"
                             image={picture[index + 1][0]}

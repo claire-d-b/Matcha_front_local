@@ -161,8 +161,25 @@ const theme = createTheme({
         },
       },
     },
-    // Optional: customize other theme properties here
+    MuiSwitch: {
+      styleOverrides: {
+        switchBase: {
+          "&.Mui-checked": {
+            // Color when checked
+            color: "#1f2937",
+            "& + .MuiSwitch-track": {
+              backgroundColor: "#1f2937",
+            },
+          },
+        },
+        track: {
+          // Color when unchecked
+          backgroundColor: "#1f2937",
+        },
+      },
+    },
   },
+  // Optional: customize other theme properties here
 });
 
 export default theme;
