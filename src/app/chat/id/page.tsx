@@ -72,7 +72,7 @@ const _ = () => {
                     Sent on {m.date} at {m.time}
                   </div>
                   <Paper
-                    sx={{ backgroundColor: m.mine ? "#7fd5a6" : "#1f2937" }}
+                    sx={{ backgroundColor: m.mine ? "#35bd63" : "#1f2937" }}
                     className={
                       m.mine
                         ? "py-1 px-2 md:px-4 md:py-2 self-end rounded-lg font-semibold text-white"

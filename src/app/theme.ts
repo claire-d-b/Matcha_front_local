@@ -6,14 +6,14 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#7fd5a6", // Replace with your custom blue color
+      main: "#35bd63", // Replace with your custom blue color
     },
     secondary: {
-      main: "#7fd5a6", // Optional: define a custom secondary color
+      main: "#35bd63", // Optional: define a custom secondary color
     },
     text: {
-      primary: "#7fd5a6", // Customize the text color
-      secondary: "#7fd5a6", // Customize the secondary text color
+      primary: "#35bd63", // Customize the text color
+      secondary: "#35bd63", // Customize the secondary text color
     },
     background: {
       default: "#1f2937", // Customize the default background color
@@ -35,7 +35,7 @@ const theme = createTheme({
         root: {
           borderRadius: "12px",
           "& fieldset": {
-            borderColor: "#7fd5a6", // Default border color
+            borderColor: "#35bd63", // Default border color
           },
           "&:hover fieldset": {
             borderColor: "#ffffff", // Border color on hover
@@ -58,7 +58,7 @@ const theme = createTheme({
         label: {
           fontSize: "0.80rem", // Change this to your desired font size
           "&.Mui-disabled": {
-            color: "#7fd5a6", // Change this to your desired disabled color
+            color: "#35bd63", // Change this to your desired disabled color
           },
         },
       },
@@ -68,7 +68,7 @@ const theme = createTheme({
         root: {
           "&.Mui-checked": {
             "&.Mui-disabled": {
-              color: "#7fd5a6",
+              color: "#35bd63",
             },
           },
         },
@@ -78,7 +78,7 @@ const theme = createTheme({
       styleOverrides: {
         label: {
           fontSize: "0.80rem", // Change this to your desired font size
-          color: "#7fd5a6", // Change this to your desired text color
+          color: "#35bd63", // Change this to your desired text color
         },
       },
     },
@@ -86,9 +86,9 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: "#d1d5db",
-          color: "#7fd5a6",
+          color: "#35bd63",
           "&.Mui-disabled": {
-            color: "#7fd5a6", // Change this to your desired disabled text color
+            color: "#35bd63", // Change this to your desired disabled text color
           },
           "&:hover": {
             backgroundColor: "#4b5563", // Change this to your desired hover background color
@@ -110,7 +110,7 @@ const theme = createTheme({
     MuiBadge: {
       styleOverrides: {
         badge: {
-          backgroundColor: "#7fd5a6", // Change this to your desired background color
+          backgroundColor: "#35bd63", // Change this to your desired background color
           color: "white", // Text color
         },
       },
@@ -125,10 +125,10 @@ const theme = createTheme({
     MuiRating: {
       styleOverrides: {
         iconEmpty: {
-          color: "#7fd5a6", // Color for empty icons
+          color: "#35bd63", // Color for empty icons
         },
         iconFilled: {
-          color: "#7fd5a6", // Color for filled icons
+          color: "#35bd63", // Color for filled icons
         },
         iconHover: {
           color: "#d1d5db", // Color for icons on hover
