@@ -27,6 +27,7 @@ interface ComponentProps {
   setProfileBio?: any;
   gender?: any;
   setGender?: any;
+  truncate?: any;
 }
 
 const _: React.FC<ComponentProps> = ({
@@ -43,6 +44,7 @@ const _: React.FC<ComponentProps> = ({
   setProfileBio,
   gender,
   setGender,
+  truncate = false,
 }) => {
   //   const [profileFirstName, setProfileFirstName] = useState("");
   //   const [profileLastName, setProfileLastName] = useState("");
@@ -81,6 +83,13 @@ const _: React.FC<ComponentProps> = ({
     }
   }, [profileFirstName, profileLastName, profileBio]);
 
+  const truncateText = (text: string, maxLength: number): string => {
+    if (text.length > maxLength) {
+      return text.substring(0, maxLength) + "...";
+    }
+    return text;
+  };
+
   return (
     (!edit && (
       <Card className={className}>
@@ -108,7 +117,11 @@ const _: React.FC<ComponentProps> = ({
                 </IconButton>
               </div>
             </div>
-            <div className="p-1 w-full">{str.slice(0, 600) + "..."}</div>
+            <div className="p-1 w-full">
+              {truncate === true
+                ? truncateText(str, 50)
+                : str.slice(0, 600) + "..."}
+            </div>
           </CardContent>
         </div>
       </Card>

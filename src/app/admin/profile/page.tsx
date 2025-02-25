@@ -3,12 +3,13 @@
 import React from "react";
 import { ThemeProvider, Paper, Button } from "@mui/material";
 import Alert from "@mui/material/Alert";
-import Ctitle from "../Ctitle";
-import Cnav from "../Cnav";
+import Cprofile from "../../Cprofile";
+import Ctitle from "../../Ctitle";
+import Cnav from "../../Cnav";
 import Link from "next/link";
 import Image from "next/image";
-import LeafImage from "../../../public/images/leaf.png";
-import theme from "../theme";
+import LeafImage from "../../../../public/images/leaf.png";
+import theme from "../../theme";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -37,6 +38,19 @@ ChartJS.register(
   Tooltip, // Pour les infobulles
   Legend, // Pour les légendes
 );
+
+const profiles = [
+  ["Seb A.", "m"],
+  ["Marine O.", "f"],
+  ["Sylvie Y.", "f"],
+  ["Antoine N.", "m"],
+  ["Eugénie A.", "f"],
+  ["Seb A.", "m"],
+  ["Marine O.", "f"],
+  ["Sylvie Y.", "f"],
+  ["Antoine N.", "m"],
+  ["Eugénie A.", "f"],
+];
 
 const userData = [
   { date: new Date("2024-01-01"), users: 1200 },
@@ -112,50 +126,24 @@ const donnees: ChartData<"line"> = {
 const _ = () => {
   return (
     <ThemeProvider theme={theme}>
-      <div className="flex flex-col h-full w-full bg-gray-300">
-        <Paper className="p-4 border border-white flex w-full justify-center items-center">
-          <Ctitle opts="text-lg font-light" title="Matcha" />
-          <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
-          <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-4 text-xs md:text-base" />
-        </Paper>
-        <div className="w-full h-full rounded-lg p-12 flex flex-col justify-center items-center text-lg font-thin bg-gray-400">
-          <div className="h-full w-full self-center bg-white rounded-lg shadow-lg">
-            <div className="container mx-auto p-12">
-              <div className="flex w-full items-start justify-center gap-12">
-                <div className="w-full flex flex-col justify-center items-end gap-2">
-                  <Link href="/admin/profile">
-                    <Button
-                      className="self-end text-white mb-4"
-                      variant="contained"
-                    >
-                      Pending profiles
-                    </Button>
-                  </Link>
-                  <Alert
-                    className="rounded-lg text-gray-800 w-full"
-                    severity="success"
-                  >
-                    A new user has created a profile !
-                  </Alert>
-                  <Alert
-                    className="rounded-lg text-gray-800 w-full"
-                    severity="info"
-                  >
-                    There are 12 active people in the app
-                  </Alert>
-                  <Alert
-                    className="rounded-lg text-gray-800 w-full"
-                    severity="error"
-                  >
-                    A user has left the app
-                  </Alert>
-                </div>
-                <div className="h-full w-full">
-                  <Line data={donnees} options={options} />
-                </div>
-              </div>
-            </div>
-          </div>
+      <Paper className="p-4 border border-white flex w-full justify-center items-center">
+        <Ctitle opts="text-lg font-light" title="Matcha" />
+        <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
+        <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-4 text-xs md:text-base" />
+      </Paper>
+      <div className="p-8 flex flex-col justify-center items-center text-sm font-thin bg-gray-400">
+        <div className="flex flex-col gap-6 md:w-1/2 self-center bg-transparent rounded-lg p-8 overflow-scroll">
+          {profiles.map((p, i) => (
+            <>
+              <Cprofile
+                key={`profile_${i}`}
+                imagePath="../../../images/people_f.png"
+                name={p[0]}
+                className="p-1 p-8 bg-white text-gray-800 rounded-lg shadow-lg"
+                truncate={true}
+              />
+            </>
+          ))}
         </div>
         <Paper className="w-full p-4 border border-white flex flex-col justify-center items-center bg-gray-800">
           Copyright
