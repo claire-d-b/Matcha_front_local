@@ -58,7 +58,7 @@ const dateOptions: Intl.DateTimeFormatOptions = {
 
 // Formater les dates pour les labels
 const formattedDates = userData.map((item) =>
-  item.date.toLocaleDateString("fr-FR", dateOptions),
+  item.date.toLocaleDateString("en-GB", dateOptions),
 );
 
 // Extraire le nombre d'utilisateurs pour les données
@@ -99,7 +99,7 @@ const donnees: ChartData<"line"> = {
   labels: formattedDates,
   datasets: [
     {
-      label: "Nombre d'utilisateurs",
+      label: "Total users",
       data: userCounts,
       backgroundColor: "#35bd63",
       tension: 0.3,
