@@ -131,7 +131,7 @@ const _ = () => {
         <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
         <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-4 text-xs md:text-base" />
       </Paper>
-      <div className="p-8 flex flex-col justify-center items-center text-sm font-thin bg-gray-400">
+      <div className="w-full flex flex-col justify-center items-center text-sm font-thin bg-gray-400">
         <div className="flex flex-col gap-6 md:w-1/2 self-center bg-transparent rounded-lg p-8 overflow-scroll">
           {profiles.map((p, i) => (
             <>
@@ -139,7 +139,7 @@ const _ = () => {
                 key={`profile_${i}`}
                 imagePath="../../../images/people_f.png"
                 name={p[0]}
-                className="p-1 p-8 bg-white text-gray-800 rounded-lg shadow-lg"
+                className="bg-white text-gray-800 rounded-lg shadow-lg"
                 truncate={true}
               />
             </>

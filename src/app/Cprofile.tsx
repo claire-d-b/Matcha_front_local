@@ -93,7 +93,7 @@ const _: React.FC<ComponentProps> = ({
   return (
     (!edit && (
       <Card className={className}>
-        <div className="w-full p-8 gap-4 flex flex-col justify-center items-center">
+        <div className="bg-gray-200 w-full p-8 gap-4 flex flex-col justify-center items-center">
           <CardMedia
             component="img"
             height="140"
