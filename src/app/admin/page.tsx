@@ -81,7 +81,7 @@ const options: ChartOptions<"line"> = {
         color: "#1f2937", // Couleur des labels de l'axe des X (abscisses)
       },
       grid: {
-        color: "#1f2937", // Couleur de la grille de l'axe des X
+        color: "transparent", // Couleur de la grille de l'axe des X
       },
     },
     y: {
@@ -89,7 +89,7 @@ const options: ChartOptions<"line"> = {
         color: "#1f2937", // Couleur des labels de l'axe des Y (ordonnées)
       },
       grid: {
-        color: "#1f2937", // Couleur de la grille de l'axe des Y
+        color: "transparent", // Couleur de la grille de l'axe des Y
       },
     },
   },
