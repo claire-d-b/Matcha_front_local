@@ -203,14 +203,14 @@ const _ = () => {
         <Cheader />
         <div className="flex h-full w-full self-center bg-white">
           <div className="flex h-full w-full items-start justify-center gap-12 p-12">
-            <div className="w-full h-full flex flex-col justify-center items-end gap-2 shadow-lg rounded-lg bg-gray-200">
+            <div className="w-full h-full flex flex-col justify-center items-end gap-2">
               <Link className="mb-6" href="/admin/profile">
                 <Button className="self-end text-white" variant="contained">
                   Pending profiles
                 </Button>
               </Link>
-              <div className="h-full w-full overflow-scroll">
-                <div className="w-full h-full flex flex-col overflow-y-scroll">
+              <div className="h-full w-full overflow-y-scroll">
+                <div className="w-full h-full flex flex-col gap-2">
                   <Alert
                     className="rounded-lg text-gray-800 w-full"
                     severity="success"
