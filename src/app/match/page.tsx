@@ -11,6 +11,8 @@ import { ThemeProvider, Paper, Stack } from "@mui/material";
 import theme from "../theme";
 import Ctitle from "../Ctitle";
 import Cnav from "../Cnav";
+import Cheader from "../Cheader";
+import Cfooter from "../Cfooter";
 import LeafImage from "../../../public/images/leaf.png";
 import { Card, CardContent, CardActionArea, CardMedia } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
@@ -45,17 +47,13 @@ const _ = () => {
   return (
     <ThemeProvider theme={theme}>
       <div className="flex flex-col h-full w-full bg-gray-300">
-        <Paper className="p-4 border border-white flex w-full justify-center items-center">
-          <Ctitle opts="text-lg font-light" title="Matcha" />
-          <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
-          <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-12 text-xs md:text-base" />
-        </Paper>
+        <Cheader />
         <div className="w-full h-full flex flex-col justify-center items-center">
           <>
             <Grid
               container
               spacing={4}
-              className="h-full w-full justify-center items-center p-8"
+              className="h-full w-full justify-center items-center"
             >
               <div key={`persona_${index}`} className="flex flex-col">
                 <div className="flex justify-center items-center">
@@ -148,9 +146,7 @@ const _ = () => {
             className="p-6 md:p-12 self-center"
           />
         </div>
-        <Paper className="w-full p-4 border border-white flex flex-col justify-center items-center bg-gray-800">
-          Copyright
-        </Paper>
+        <Cfooter />
       </div>
     </ThemeProvider>
   );

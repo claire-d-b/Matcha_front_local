@@ -4,6 +4,8 @@ import React from "react";
 import { ThemeProvider, Paper, Button } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import Ctitle from "../Ctitle";
+import Cheader from "../Cheader";
+import Cfooter from "../Cfooter";
 import Cnav from "../Cnav";
 import Link from "next/link";
 import Image from "next/image";
@@ -197,25 +199,18 @@ const donnees: ChartData<"line"> = {
 const _ = () => {
   return (
     <ThemeProvider theme={theme}>
-      <div className="flex flex-col h-full w-full bg-gray-300">
-        <Paper className="p-4 border border-white flex w-full justify-center items-center">
-          <Ctitle opts="text-lg font-light" title="Matcha" />
-          <Image className="w-6 md:w-10 h-auto" src={LeafImage} alt="leaf" />
-          <Cnav className="self-end flex w-full justify-end items-center gap-2 md:gap-4 text-xs md:text-base" />
-        </Paper>
-        <div className="w-full rounded-lg p-12 flex flex-col justify-center items-center text-lg font-thin bg-gray-400">
-          <div className="w-full self-center bg-white rounded-lg shadow-lg">
-            <div className="container mx-auto p-0 md:p-12">
-              <div className="flex flex-col md:flex-row w-full items-start justify-center gap-12">
-                <div className="flex md:h-full w-full overflow-scroll flex flex-col justify-start items-end gap-2 shadow-lg rounded-lg bg-gray-200 p-4">
-                  <Link href="/admin/profile">
-                    <Button
-                      className="self-end text-white mb-4"
-                      variant="contained"
-                    >
-                      Pending profiles
-                    </Button>
-                  </Link>
+      <div className="flex flex-col w-full h-full bg-gray-400">
+        <Cheader />
+        <div className="flex h-full w-full self-center bg-white">
+          <div className="flex h-full w-full items-start justify-center gap-12 p-12">
+            <div className="w-full h-full flex flex-col justify-center items-end gap-2 shadow-lg rounded-lg bg-gray-200">
+              <Link className="mb-6" href="/admin/profile">
+                <Button className="self-end text-white" variant="contained">
+                  Pending profiles
+                </Button>
+              </Link>
+              <div className="h-full w-full overflow-scroll">
+                <div className="w-full h-full flex flex-col overflow-y-scroll">
                   <Alert
                     className="rounded-lg text-gray-800 w-full"
                     severity="success"
@@ -277,38 +272,32 @@ const _ = () => {
                     There are 6 active people in the app
                   </Alert>
                 </div>
-                <div className="w-full h-full flex flex-col text-center gap-6">
-                  <div className="h-full w-full w-1/2 p-4">
-                    <div className="flex md:hidden text-gray-800 flex justify-center items-center">
-                      <GroupIcon />
-                      <div>
-                        <b>37</b> users
-                      </div>
-                    </div>
-                    <div className="hidden md:flex">
-                      <Line data={donnees} options={options} />
-                    </div>
+              </div>
+            </div>
+            <div className="h-full w-full flex flex-col text-center">
+              <div className="w-full w-1/2">
+                <div className="flex md:hidden text-gray-800 flex justify-center items-center">
+                  <GroupIcon />
+                  <div>
+                    <b>37</b> users
                   </div>
-                  <div className="flex flex-col w-full h-full md:flex-row justify-around items-center p-4">
-                    <div className="flex w-full md:w-2/4">
-                      <Bar
-                        className="h-full"
-                        data={barChartData}
-                        options={barChartOptions}
-                      />
-                    </div>
-                    <div className="flex w-full md:w-1/3">
-                      <Pie data={pieChartData} options={pieChartOptions} />
-                    </div>
-                  </div>
+                </div>
+                <div className="hidden md:flex">
+                  <Line data={donnees} options={options} />
+                </div>
+              </div>
+              <div className="flex flex-col w-full md:flex-row justify-around items-center">
+                <div className="flex md:w-2/4">
+                  <Bar data={barChartData} options={barChartOptions} />
+                </div>
+                <div className="flex md:w-1/3">
+                  <Pie data={pieChartData} options={pieChartOptions} />
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <Paper className="w-full p-4 border border-white flex flex-col justify-center items-center bg-gray-800">
-          Copyright
-        </Paper>
+        <Cfooter />
       </div>
     </ThemeProvider>
   );
