@@ -80,7 +80,7 @@ const _ = () => {
               </div>
             </>
           )) || (
-            <div className="p-4 flex w-full justify-start items-center bg-gray-700 gap-4">
+            <div className="p-4 flex w-full justify-start items-center bg-gray-700 gap-4 text-white">
               <div>Sort & Filter</div>
               <IconButton
                 className="self-end text-white bg-gray-800"
