@@ -6,17 +6,34 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import LeafImage from "../.././public/images/leaf.png";
 import Ctextfield from "./Ctextfield";
 import theme from "./theme";
+import { login } from "@/queries/user";
+import { useParams } from "next/navigation";
+import { useRouter } from "next/navigation"; // for app directory
 
 const _ = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [id, setId] = useState("");
+  const router = useRouter();
   // const { login } = useAuth();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     // login(username, password);
-    console.log("username:", username);
-    console.log("password:", password);
+    // Perform your action here
+    login({ username, password })
+      .then(function (response) {
+        console.log("RESP", response);
+        // Perform any action you need here
+        console.log("Button clicked!");
+
+        // Navigate to the profile page
+        router.push(`/onboarding/${response.data.user_uuid}`);
+        setId(response.data.user_uuid);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const handleUsernameChange = (e: ChangeEvent<HTMLInputElement>) => {
