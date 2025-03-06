@@ -38,10 +38,10 @@ const _ = () => {
             <Image className="w-24 h-auto" src={LeafImage} alt="matcha" />
             <Ctextfield
               opts="w-5/6 md:w-1/4"
-              type="email"
+              type="text"
               size="small"
               variant="outlined"
-              label="email"
+              label="username"
               multiline={false}
               onChange={handleUsernameChange}
             />
